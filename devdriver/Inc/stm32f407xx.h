@@ -23,7 +23,11 @@
  *
  */
 
-#define PERIP_BASE_ADDR (0x40000000UL) /* Defined peripheral base address for all peripheral */
+#define PERIP_BASE_ADDR (0x40000000UL)                 /* Defined peripheral base address for all peripheral */
 
+#define APB1_BASE_ADDR  PERIP_BASE_ADDR                /*APB1 bus domain base address*/
+#define APB2_BASE_ADDR (PERIP_BASE_ADDR + 0x10000UL)   /*APB2 bus domain base address*/
+#define AHB1_BASE_ADDR (PERIP_BASE_ADDR + 0x20000UL)   /*AHB1 bus domain base address*/
+#define AHB2_BASE_ADDR (PERIP_BASE_ADDR + 0x10000000UL)/*AHB2 bus domain base address*/
 
 #endif /* INC_STM32F407XX_H_ */
