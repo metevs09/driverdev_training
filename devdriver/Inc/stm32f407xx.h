@@ -79,7 +79,6 @@
 #define UART7_BASE_ADDR			(APB1_BASE_ADDR + 0x00007800UL)         /* Defined UART7 base address */
 #define UART8_BASE_ADDR			(APB1_BASE_ADDR + 0x00007C00UL)         /* Defined UART8 base address */
 
-
 /*
  * APB2 Peripheral Base Addresses (Address starting hex number on reference manual)
  *
