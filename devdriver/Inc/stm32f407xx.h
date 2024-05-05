@@ -84,8 +84,34 @@
  *
  */
 
+#define  TIM1_BASE_ADDR			(APB2_BASE_ADDR + 0x00000000UL)			/* Defined TIMER1 base address */
+#define  TIM8_BASE_ADDR			(APB2_BASE_ADDR + 0x00000400UL)			/* Defined TIMER8 base address */
 
+#define	 USART1_BASE_ADDR		(APB2_BASE_ADDR + 0x00001000UL)			/* Defined USART1 base address */
+#define	 USART6_BASE_ADDR		(APB2_BASE_ADDR + 0x00001400UL)			/* Defined USART6 base address */
 
+#define	 ADC1_2_3_BASE_ADDR		(APB2_BASE_ADDR + 0x00002000UL)			/* Defined ADC1 - ADC2 - ADC3 base address */
+
+#define	 SDIO_BASE_ADDR			(APB2_BASE_ADDR + 0x00002C00UL)			/* Defined SDIO base address */
+
+#define	 SPI1_BASE_ADDR			(APB2_BASE_ADDR + 0x00003000UL)			/* Defined SPI1 base address */
+
+#define  SPI4_BASE_ADDR			(APB2_BASE_ADDR + 0x00003400UL)			/* Defined SPI4 base address */
+
+#define  SYSCFG_BASE_ADDR		(APB2_BASE_ADDR + 0x00003800UL)			/* Defined SYSCFG base address */
+
+#define  EXTI_BASE_ADDR			(APB2_BASE_ADDR + 0x00003C00UL)			/* Defined EXTI base address */
+
+#define  TIM9_BASE_ADDR			(APB2_BASE_ADDR + 0x00004000UL)			/* Defined TIMER9 base address */
+
+#define  TIM10_BASE_ADDR		(APB2_BASE_ADDR + 0x00004400UL)			/* Defined TIMER10 base address */
+#define  TIM11_BASE_ADDR		(APB2_BASE_ADDR + 0x00004800UL)			/* Defined TIMER11 base address */
+
+#define  SPI5_BASE_ADDR			(APB2_BASE_ADDR + 0x00005000UL)			/* Defined SPI5 base address */
+#define  SPI6_BASE_ADDR			(APB2_BASE_ADDR + 0x00005400UL)			/* Defined SPI6 base address */
+
+#define  SAI1_BASE_ADDR			(APB2_BASE_ADDR + 0x00005800UL)			/* Defined SAI1 base address */
+#define  LCD_TFT_BASE_ADDR		(APB2_BASE_ADDR + 0x00006800UL)			/* Defined LCD-TFT base address */
 
 
 #endif /* INC_STM32F407XX_H_ */
