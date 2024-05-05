@@ -8,6 +8,10 @@
 #ifndef INC_STM32F407XX_H_
 #define INC_STM32F407XX_H_
 
+#include <stdint.h>
+
+#define __IO volatile
+
 /*
  * Memory Base Address (Address starting hex number on reference manual)
  *
@@ -170,5 +174,39 @@
  */
 
 #define FSMC_CONT_REG_BASE_ADDR	(AHB3_BASE_ADDR + 0x00000000UL)			/* Defined FSMC control register base address */
+
+
+/*
+ * Peripheral Structure Definitions (For more information check reference manual GPIO register map)
+ *
+ */
+
+typedef struct {
+
+	__IO uint32_t MODER;		/*!< GPIO port mode register 				Address offset = 0x0000 */
+	__IO uint32_t OTYPER;		/*!< GPIO port output type register 		Address offset = 0x0004 */
+	__IO uint32_t OSPEEDR;		/*!< GPIO port output speed register 		Address offset = 0x0008 */
+	__IO uint32_t PUPDR;		/*!< GPIO port pull-up/pull-down register 	Address offset = 0x000C */
+	__IO uint32_t IDR;			/*!< GPIO port input data register 			Address offset = 0x0010 */
+	__IO uint32_t ODR;			/*!< GPIO port output data register 		Address offset = 0x0014 */
+	__IO uint32_t BSRR;			/*!< GPIO port bit set/reset register 		Address offset = 0x0018 */
+	__IO uint32_t LCKR;			/*!< GPIO port configuration lock register 	Address offset = 0x001C */
+	__IO uint32_t AFR[2];		/*!< GPIO alternate function low register 	Address offset for AFRL = 0x0020, AFRH = 0x0024 */
+
+}GPIO_TypeDef_t;
+
+#define GPIOA			((GPIO_TypeDef_t *)(GPIOA_BASE_ADDR))
+#define GPIOB			((GPIO_TypeDef_t *)(GPIOB_BASE_ADDR))
+#define GPIOC			((GPIO_TypeDef_t *)(GPIOC_BASE_ADDR))
+#define GPIOD			((GPIO_TypeDef_t *)(GPIOD_BASE_ADDR))
+#define GPIOE			((GPIO_TypeDef_t *)(GPIOE_BASE_ADDR))
+#define GPIOF			((GPIO_TypeDef_t *)(GPIOF_BASE_ADDR))
+#define GPIOG			((GPIO_TypeDef_t *)(GPIOG_BASE_ADDR))
+#define GPIOH			((GPIO_TypeDef_t *)(GPIOH_BASE_ADDR))
+#define GPIOI			((GPIO_TypeDef_t *)(GPIOI_BASE_ADDR))
+
+#define GPIOJ			((GPIO_TypeDef_t *)(GPIOJ_BASE_ADDR))
+#define GPIOK			((GPIO_TypeDef_t *)(GPIOK_BASE_ADDR))
+
 
 #endif /* INC_STM32F407XX_H_ */
