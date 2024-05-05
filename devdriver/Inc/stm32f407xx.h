@@ -113,5 +113,54 @@
 #define  SAI1_BASE_ADDR			(APB2_BASE_ADDR + 0x00005800UL)			/* Defined SAI1 base address */
 #define  LCD_TFT_BASE_ADDR		(APB2_BASE_ADDR + 0x00006800UL)			/* Defined LCD-TFT base address */
 
+/*
+ * AHB1 Peripheral Base Addresses (Address starting hex number on reference manual)
+ *
+ */
+
+#define GPIOA_BASE_ADDR			(AHB1_BASE_ADDR + 0x00000000UL)			/* Defined GPIOA base address */
+#define GPIOB_BASE_ADDR			(AHB1_BASE_ADDR + 0x00000400UL)			/* Defined GPIOB base address */
+#define GPIOC_BASE_ADDR			(AHB1_BASE_ADDR + 0x00000800UL)			/* Defined GPIOC base address */
+#define GPIOD_BASE_ADDR			(AHB1_BASE_ADDR + 0x00000C00UL)			/* Defined GPIOD base address */
+#define GPIOE_BASE_ADDR			(AHB1_BASE_ADDR + 0x00001000UL)			/* Defined GPIOE base address */
+#define GPIOF_BASE_ADDR			(AHB1_BASE_ADDR + 0x00001400UL)			/* Defined GPIOF base address */
+#define GPIOG_BASE_ADDR			(AHB1_BASE_ADDR + 0x00001800UL)			/* Defined GPIOG base address */
+#define GPIOH_BASE_ADDR			(AHB1_BASE_ADDR + 0x00001C00UL)			/* Defined GPIOH base address */
+#define GPIOI_BASE_ADDR			(AHB1_BASE_ADDR + 0x00002000UL)			/* Defined GPIOI base address */
+
+#define GPIOJ_BASE_ADDR			(AHB1_BASE_ADDR + 0x00002400UL)			/* Defined GPIOJ base address */
+#define GPIOK_BASE_ADDR			(AHB1_BASE_ADDR + 0x00002800UL)			/* Defined GPIOK base address */
+
+#define CRC_BASE_ADDR			(AHB1_BASE_ADDR + 0x00003000UL)			/* Defined CRC base address */
+
+#define RCC_BASE_ADDR			(AHB1_BASE_ADDR + 0x00003800UL)			/* Defined RCC base address */
+
+#define FIR_BASE_ADDR			(AHB1_BASE_ADDR + 0x00003C00UL)			/* Defined FIR (Flash interface register) base address */
+
+#define BKPSRAM_BASE_ADDR		(AHB1_BASE_ADDR + 0x00004000UL)			/* Defined BKPSRAM base address */
+
+#define DMA1_BASE_ADDR			(AHB1_BASE_ADDR + 0x00006000UL)			/* Defined DMA1 base address */
+#define DMA2_BASE_ADDR			(AHB1_BASE_ADDR + 0x00006400UL)			/* Defined DMA2 base address */
+
+#define ETH_MAC_BASE_ADDR		(AHB1_BASE_ADDR + 0x00008000UL)			/* Defined ETHERNET MAC base address */
+
+#define DMA2D_BASE_ADDR			(AHB1_BASE_ADDR + 0x0000B000UL)			/* Defined DMA2D base address */
+
+#define USB_OTG_HS_BASE_ADDR	(AHB1_BASE_ADDR + 0x00020000UL)			/* Defined USB OTG HS base address */
+
+/*
+ * AHB2 Peripheral Base Addresses (Address starting hex number on reference manual)
+ *
+ */
+
+#define USB_OTG_FS_BASE_ADDR	(AHB2_BASE_ADDR + 0x00000000UL)			/* Defined USB OTG FS base address */
+
+#define DCMI_BASE_ADDR			(AHB2_BASE_ADDR + 0x00050000UL)			/* Defined DCMI base address */
+
+#define CRYP_BASE_ADDR			(AHB2_BASE_ADDR + 0x00060000UL)			/* Defined CRYP base address */
+
+#define HASH_BASE_ADDR			(AHB2_BASE_ADDR + 0x00060400UL)			/* Defined HASH base address */
+
+#define RNG_BASE_ADDR			(AHB2_BASE_ADDR + 0x00060800UL)			/* Defined RNG base address */
 
 #endif /* INC_STM32F407XX_H_ */
