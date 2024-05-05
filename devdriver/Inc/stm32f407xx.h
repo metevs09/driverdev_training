@@ -29,6 +29,7 @@
 #define APB2_BASE_ADDR			(PERIP_BASE_ADDR + 0x00010000UL)        /* APB2 bus domain base address */
 #define AHB1_BASE_ADDR			(PERIP_BASE_ADDR + 0x00020000UL)        /* AHB1 bus domain base address */
 #define AHB2_BASE_ADDR			(PERIP_BASE_ADDR + 0x10000000UL)        /* AHB2 bus domain base address */
+#define AHB3_BASE_ADDR			(PERIP_BASE_ADDR + 0x60000000UL)        /* AHB3 bus domain base address */
 
 
 /*
@@ -162,5 +163,12 @@
 #define HASH_BASE_ADDR			(AHB2_BASE_ADDR + 0x00060400UL)			/* Defined HASH base address */
 
 #define RNG_BASE_ADDR			(AHB2_BASE_ADDR + 0x00060800UL)			/* Defined RNG base address */
+
+/*
+ * AHB3 Peripheral Base Addresses (Address starting hex number on reference manual)
+ *
+ */
+
+#define FSMC_CONT_REG_BASE_ADDR	(AHB3_BASE_ADDR + 0x00000000UL)			/* Defined FSMC control register base address */
 
 #endif /* INC_STM32F407XX_H_ */
