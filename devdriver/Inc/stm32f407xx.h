@@ -195,6 +195,44 @@ typedef struct {
 
 }GPIO_TypeDef_t;
 
+
+typedef struct {
+
+	__IO uint32_t CR;
+	__IO uint32_t PLLCFGR;
+	__IO uint32_t CFGR;
+	__IO uint32_t CIR;
+	__IO uint32_t AHB1RSTR;
+	__IO uint32_t AHB2RSTR;
+	__IO uint32_t AHB3RSTR;
+	__IO uint32_t RESERVED0;
+	__IO uint32_t APB1RSTR;
+	__IO uint32_t APB2RSTR;
+	__IO uint32_t RESERVED1[2];
+	__IO uint32_t AHB1ENR;
+	__IO uint32_t AHB2ENR;
+	__IO uint32_t AHB3ENR;
+	__IO uint32_t RESERVED2;
+	__IO uint32_t APB1ENR;
+	__IO uint32_t APB2ENR;
+	__IO uint32_t RESERVED3[2];
+	__IO uint32_t AHB1LPENR;
+	__IO uint32_t AHB2LPENR;
+	__IO uint32_t AHB3LPENR;
+	__IO uint32_t RESERVED4;
+	__IO uint32_t APB1LPENR;
+	__IO uint32_t APB2LPENR;
+	__IO uint32_t RESERVED5[2];
+	__IO uint32_t BDCR;
+	__IO uint32_t CSR;
+	__IO uint32_t RESERVED6[2];
+	__IO uint32_t SSCGR;
+	__IO uint32_t PLLI2SCFGR;
+
+
+}RCC_TypeDef_t;
+
+
 #define GPIOA			((GPIO_TypeDef_t *)(GPIOA_BASE_ADDR))
 #define GPIOB			((GPIO_TypeDef_t *)(GPIOB_BASE_ADDR))
 #define GPIOC			((GPIO_TypeDef_t *)(GPIOC_BASE_ADDR))
@@ -207,6 +245,8 @@ typedef struct {
 
 #define GPIOJ			((GPIO_TypeDef_t *)(GPIOJ_BASE_ADDR))
 #define GPIOK			((GPIO_TypeDef_t *)(GPIOK_BASE_ADDR))
+
+#define RCC				((RCC_TypeDef_t*)(RCC_BASE_ADDR)	)
 
 
 #endif /* INC_STM32F407XX_H_ */
