@@ -183,51 +183,51 @@
 
 typedef struct {
 
-	__IO uint32_t MODER;		/*!< GPIO port mode register 				Address offset = 0x0000 */
-	__IO uint32_t OTYPER;		/*!< GPIO port output type register 		Address offset = 0x0004 */
-	__IO uint32_t OSPEEDR;		/*!< GPIO port output speed register 		Address offset = 0x0008 */
-	__IO uint32_t PUPDR;		/*!< GPIO port pull-up/pull-down register 	Address offset = 0x000C */
-	__IO uint32_t IDR;			/*!< GPIO port input data register 			Address offset = 0x0010 */
-	__IO uint32_t ODR;			/*!< GPIO port output data register 		Address offset = 0x0014 */
-	__IO uint32_t BSRR;			/*!< GPIO port bit set/reset register 		Address offset = 0x0018 */
-	__IO uint32_t LCKR;			/*!< GPIO port configuration lock register 	Address offset = 0x001C */
-	__IO uint32_t AFR[2];		/*!< GPIO alternate function low register 	Address offset for AFRL = 0x0020, AFRH = 0x0024 */
+	__IO uint32_t MODER;		/*!< GPIO port mode register 					Address offset = 0x0000 */
+	__IO uint32_t OTYPER;		/*!< GPIO port output type register 			Address offset = 0x0004 */
+	__IO uint32_t OSPEEDR;		/*!< GPIO port output speed register 			Address offset = 0x0008 */
+	__IO uint32_t PUPDR;		/*!< GPIO port pull-up/pull-down register 		Address offset = 0x000C */
+	__IO uint32_t IDR;			/*!< GPIO port input data register 				Address offset = 0x0010 */
+	__IO uint32_t ODR;			/*!< GPIO port output data register 			Address offset = 0x0014 */
+	__IO uint32_t BSRR;			/*!< GPIO port bit set/reset register 			Address offset = 0x0018 */
+	__IO uint32_t LCKR;			/*!< GPIO port configuration lock register 		Address offset = 0x001C */
+	__IO uint32_t AFR[2];		/*!< GPIO alternate function low register 		Address offset for AFRL = 0x0020, AFRH = 0x0024 */
 
 }GPIO_TypeDef_t;
 
 
 typedef struct {
 
-	__IO uint32_t CR;
-	__IO uint32_t PLLCFGR;
-	__IO uint32_t CFGR;
-	__IO uint32_t CIR;
-	__IO uint32_t AHB1RSTR;
-	__IO uint32_t AHB2RSTR;
-	__IO uint32_t AHB3RSTR;
+	__IO uint32_t CR;			/*!< RCC clock control register  				Address offset = 0x0000 */
+	__IO uint32_t PLLCFGR;		/*!< RCC PLL configuration register  			Address offset = 0x0004 */
+	__IO uint32_t CFGR;			/*!< RCC clock configuration register  			Address offset = 0x0008 */
+	__IO uint32_t CIR;			/*!< RCC clock interrupt register  				Address offset = 0x000C */
+	__IO uint32_t AHB1RSTR;		/*!< RCC AHB1 peripheral reset register  		Address offset = 0x0010 */
+	__IO uint32_t AHB2RSTR;		/*!< RCC AHB2 peripheral reset register  		Address offset = 0x0014 */
+	__IO uint32_t AHB3RSTR;		/*!< RCC AHB3 peripheral reset register  		Address offset = 0x0018 */
 	__IO uint32_t RESERVED0;
-	__IO uint32_t APB1RSTR;
-	__IO uint32_t APB2RSTR;
+	__IO uint32_t APB1RSTR;		/*!< RCC APB1 peripheral reset register 		Address offset = 0x0020 */
+	__IO uint32_t APB2RSTR;		/*!< RCC APB2 peripheral reset register  		Address offset = 0x0024 */
 	__IO uint32_t RESERVED1[2];
-	__IO uint32_t AHB1ENR;
-	__IO uint32_t AHB2ENR;
-	__IO uint32_t AHB3ENR;
+	__IO uint32_t AHB1ENR;		/*!< RCC AHB1 per.clock enable register			Address offset = 0x0030 */
+	__IO uint32_t AHB2ENR;		/*!< RCC AHB2 per.clock enable register   		Address offset = 0x0034 */
+	__IO uint32_t AHB3ENR;		/*!< RCC AHB3 per.clock enable register  		Address offset = 0x0038 */
 	__IO uint32_t RESERVED2;
-	__IO uint32_t APB1ENR;
-	__IO uint32_t APB2ENR;
+	__IO uint32_t APB1ENR;		/*!< RCC APB1 per.clock enable register  		Address offset = 0x0040 */
+	__IO uint32_t APB2ENR;		/*!< RCC APB2 per.clock enable register  		Address offset = 0x0044 */
 	__IO uint32_t RESERVED3[2];
-	__IO uint32_t AHB1LPENR;
-	__IO uint32_t AHB2LPENR;
-	__IO uint32_t AHB3LPENR;
+	__IO uint32_t AHB1LPENR;	/*!< RCC AHB1 per.clock enable in lpm register  Address offset = 0x0050 */
+	__IO uint32_t AHB2LPENR;	/*!< RCC AHB2 per.clock enable in lpm register  Address offset = 0x0054 */
+	__IO uint32_t AHB3LPENR;	/*!< RCC AHB3 per.clock enable in lpm register  Address offset = 0x0058 */
 	__IO uint32_t RESERVED4;
-	__IO uint32_t APB1LPENR;
-	__IO uint32_t APB2LPENR;
+	__IO uint32_t APB1LPENR;	/*!< RCC APB1 per.clock enable in lpm register  Address offset = 0x0060 */
+	__IO uint32_t APB2LPENR;	/*!< RCC APB2 per.clock enabled in lpm  		Address offset = 0x0064 */
 	__IO uint32_t RESERVED5[2];
-	__IO uint32_t BDCR;
-	__IO uint32_t CSR;
+	__IO uint32_t BDCR;			/*!< RCC Backup domain control register  		Address offset = 0x0070 */
+	__IO uint32_t CSR;			/*!< RCC clock control & status register  		Address offset = 0x0074 */
 	__IO uint32_t RESERVED6[2];
-	__IO uint32_t SSCGR;
-	__IO uint32_t PLLI2SCFGR;
+	__IO uint32_t SSCGR;		/*!< RCC spread spec.clock generation register	Address offset = 0x0080 */
+	__IO uint32_t PLLI2SCFGR;	/*!< RCC PLLI2S configuration register 			Address offset = 0x0084 */
 
 
 }RCC_TypeDef_t;
