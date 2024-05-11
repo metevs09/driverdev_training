@@ -198,6 +198,8 @@ typedef struct {
 
 typedef struct {
 
+	// per.=peripheral, lpm= low power mode, spec.= spectrum
+
 	__IO uint32_t CR;			/*!< RCC clock control register  				Address offset = 0x0000 */
 	__IO uint32_t PLLCFGR;		/*!< RCC PLL configuration register  			Address offset = 0x0004 */
 	__IO uint32_t CFGR;			/*!< RCC clock configuration register  			Address offset = 0x0008 */
@@ -205,27 +207,27 @@ typedef struct {
 	__IO uint32_t AHB1RSTR;		/*!< RCC AHB1 peripheral reset register  		Address offset = 0x0010 */
 	__IO uint32_t AHB2RSTR;		/*!< RCC AHB2 peripheral reset register  		Address offset = 0x0014 */
 	__IO uint32_t AHB3RSTR;		/*!< RCC AHB3 peripheral reset register  		Address offset = 0x0018 */
-	__IO uint32_t RESERVED0;
+	__IO uint32_t RESERVED0;	/*!< RESERVED AREA do not any manipulation!!!	Address offset = 0x001C	*/
 	__IO uint32_t APB1RSTR;		/*!< RCC APB1 peripheral reset register 		Address offset = 0x0020 */
 	__IO uint32_t APB2RSTR;		/*!< RCC APB2 peripheral reset register  		Address offset = 0x0024 */
-	__IO uint32_t RESERVED1[2];
+	__IO uint32_t RESERVED1[2];	/*!< RESERVED AREA do not any manipulation!!!	Address offset = 0x0028	*/
 	__IO uint32_t AHB1ENR;		/*!< RCC AHB1 per.clock enable register			Address offset = 0x0030 */
 	__IO uint32_t AHB2ENR;		/*!< RCC AHB2 per.clock enable register   		Address offset = 0x0034 */
 	__IO uint32_t AHB3ENR;		/*!< RCC AHB3 per.clock enable register  		Address offset = 0x0038 */
-	__IO uint32_t RESERVED2;
+	__IO uint32_t RESERVED2;	/*!< RESERVED AREA do not any manipulation!!!	Address offset = 0x003C	*/
 	__IO uint32_t APB1ENR;		/*!< RCC APB1 per.clock enable register  		Address offset = 0x0040 */
 	__IO uint32_t APB2ENR;		/*!< RCC APB2 per.clock enable register  		Address offset = 0x0044 */
-	__IO uint32_t RESERVED3[2];
+	__IO uint32_t RESERVED3[2];	/*!< RESERVED AREA do not any manipulation!!!	Address offset = 0x0048	*/
 	__IO uint32_t AHB1LPENR;	/*!< RCC AHB1 per.clock enable in lpm register  Address offset = 0x0050 */
 	__IO uint32_t AHB2LPENR;	/*!< RCC AHB2 per.clock enable in lpm register  Address offset = 0x0054 */
 	__IO uint32_t AHB3LPENR;	/*!< RCC AHB3 per.clock enable in lpm register  Address offset = 0x0058 */
-	__IO uint32_t RESERVED4;
+	__IO uint32_t RESERVED4;	/*!< RESERVED AREA do not any manipulation!!!	Address offset = 0x005C	*/
 	__IO uint32_t APB1LPENR;	/*!< RCC APB1 per.clock enable in lpm register  Address offset = 0x0060 */
 	__IO uint32_t APB2LPENR;	/*!< RCC APB2 per.clock enabled in lpm  		Address offset = 0x0064 */
-	__IO uint32_t RESERVED5[2];
+	__IO uint32_t RESERVED5[2];	/*!< RESERVED AREA do not any manipulation!!!	Address offset = 0x0068	*/
 	__IO uint32_t BDCR;			/*!< RCC Backup domain control register  		Address offset = 0x0070 */
 	__IO uint32_t CSR;			/*!< RCC clock control & status register  		Address offset = 0x0074 */
-	__IO uint32_t RESERVED6[2];
+	__IO uint32_t RESERVED6[2];	/*!< RESERVED AREA do not any manipulation!!!	Address offset = 0x0078	*/
 	__IO uint32_t SSCGR;		/*!< RCC spread spec.clock generation register	Address offset = 0x0080 */
 	__IO uint32_t PLLI2SCFGR;	/*!< RCC PLLI2S configuration register 			Address offset = 0x0084 */
 
