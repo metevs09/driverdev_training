@@ -9,6 +9,7 @@
 #define INC_STM32F407XX_H_
 
 #include <stdint.h>
+#include "RCC.h"
 
 #define __IO volatile
 
@@ -138,9 +139,9 @@
 #define GPIOG_BASE_ADDR			(AHB1_BASE_ADDR + 0x00001800UL)			/* Defined GPIOG base address */
 #define GPIOH_BASE_ADDR			(AHB1_BASE_ADDR + 0x00001C00UL)			/* Defined GPIOH base address */
 #define GPIOI_BASE_ADDR			(AHB1_BASE_ADDR + 0x00002000UL)			/* Defined GPIOI base address */
-
-#define GPIOJ_BASE_ADDR			(AHB1_BASE_ADDR + 0x00002400UL)			/* Defined GPIOJ base address */
-#define GPIOK_BASE_ADDR			(AHB1_BASE_ADDR + 0x00002800UL)			/* Defined GPIOK base address */
+/*
+#define GPIOJ_BASE_ADDR			(AHB1_BASE_ADDR + 0x00002400UL)			 Not available for stm32f407xx series but added memory map
+#define GPIOK_BASE_ADDR			(AHB1_BASE_ADDR + 0x00002800UL)			 Not available for stm32f407xx series but added memory map */
 
 #define CRC_BASE_ADDR			(AHB1_BASE_ADDR + 0x00003000UL)			/* Defined CRC base address */
 
@@ -251,16 +252,49 @@ typedef struct {
 #define GPIOH			((GPIO_TypeDef_t *)(GPIOH_BASE_ADDR))
 #define GPIOI			((GPIO_TypeDef_t *)(GPIOI_BASE_ADDR))
 
-#define GPIOJ			((GPIO_TypeDef_t *)(GPIOJ_BASE_ADDR))
-#define GPIOK			((GPIO_TypeDef_t *)(GPIOK_BASE_ADDR))
-
 #define RCC				((RCC_TypeDef_t*)(RCC_BASE_ADDR)	)
 
-#define RCC_AHB1ENR_GPIOAEN_Pos		(0U)
-#define RCC_AHB1ENR_GPIOAEN_Msk		(0x1 << RCC_AHB1ENR_GPIOAEN_Pos)
-#define RCC_AHB1ENR_GPIOAEN			RCC_AHB1ENR_GPIOAEN_Msk
+/*
+ *
+ * Bit Definition's for GPIO ports
+ *
+ */
 
-#include "RCC.h"
+#define RCC_AHB1ENR_GPIOAEN_Pos		(0U) // GPIO's bit position(address on RCC_AHB1ENR)
+#define RCC_AHB1ENR_GPIOAEN_Msk		(0x1 << RCC_AHB1ENR_GPIOAEN_Pos) // Bit manipulation masking for related position
+#define RCC_AHB1ENR_GPIOAEN			RCC_AHB1ENR_GPIOAEN_Msk // defined macros for masking
+
+#define RCC_AHB1ENR_GPIOBEN_Pos		(1U) // GPIO's bit position(address on RCC_AHB1ENR)
+#define RCC_AHB1ENR_GPIOBEN_Msk		(0x1 << RCC_AHB1ENR_GPIOBEN_Pos) // Bit manipulation masking for related position
+#define RCC_AHB1ENR_GPIOBEN			RCC_AHB1ENR_GPIOBEN_Msk // defined macros for masking
+
+#define RCC_AHB1ENR_GPIOCEN_Pos		(2U) // GPIO's bit position(address on RCC_AHB1ENR)
+#define RCC_AHB1ENR_GPIOCEN_Msk		(0x1 << RCC_AHB1ENR_GPIOCEN_Pos) // Bit manipulation masking for related position
+#define RCC_AHB1ENR_GPIOCEN			RCC_AHB1ENR_GPIOCEN_Msk // defined macros for masking
+
+#define RCC_AHB1ENR_GPIODEN_Pos		(3U) // GPIO's bit position(address on RCC_AHB1ENR)
+#define RCC_AHB1ENR_GPIODEN_Msk		(0x1 << RCC_AHB1ENR_GPIODEN_Pos) // Bit manipulation masking for related position
+#define RCC_AHB1ENR_GPIODEN			RCC_AHB1ENR_GPIODEN_Msk // defined macros for masking
+
+#define RCC_AHB1ENR_GPIOEEN_Pos		(4U) // GPIO's bit position(address on RCC_AHB1ENR)
+#define RCC_AHB1ENR_GPIOEEN_Msk		(0x1 << RCC_AHB1ENR_GPIOEEN_Pos) // Bit manipulation masking for related position
+#define RCC_AHB1ENR_GPIOEEN			RCC_AHB1ENR_GPIOEEN_Msk // defined macros for masking
+
+#define RCC_AHB1ENR_GPIOFEN_Pos		(5U) // GPIO's bit position(address on RCC_AHB1ENR)
+#define RCC_AHB1ENR_GPIOFEN_Msk		(0x1 << RCC_AHB1ENR_GPIOFEN_Pos) // Bit manipulation masking for related position
+#define RCC_AHB1ENR_GPIOFEN			RCC_AHB1ENR_GPIOFEN_Msk // defined macros for masking
+
+#define RCC_AHB1ENR_GPIOGEN_Pos		(6U) // GPIO's bit position(address on RCC_AHB1ENR)
+#define RCC_AHB1ENR_GPIOGEN_Msk		(0x1 << RCC_AHB1ENR_GPIOGEN_Pos) // Bit manipulation masking for related position
+#define RCC_AHB1ENR_GPIOGEN			RCC_AHB1ENR_GPIOGEN_Msk // defined macros for masking
+
+#define RCC_AHB1ENR_GPIOHEN_Pos		(7U) // GPIO's bit position(address on RCC_AHB1ENR)
+#define RCC_AHB1ENR_GPIOHEN_Msk		(0x1 << RCC_AHB1ENR_GPIOHEN_Pos) // Bit manipulation masking for related position
+#define RCC_AHB1ENR_GPIOHEN			RCC_AHB1ENR_GPIOHEN_Msk // defined macros for masking
+
+#define RCC_AHB1ENR_GPIOIEN_Pos		(8U) // GPIO's bit position(address on RCC_AHB1ENR)
+#define RCC_AHB1ENR_GPIOIEN_Msk		(0x1 << RCC_AHB1ENR_GPIOIEN_Pos) // Bit manipulation masking for related position
+#define RCC_AHB1ENR_GPIOIEN			RCC_AHB1ENR_GPIOIEN_Msk // defined macros for masking
 
 
 #endif /* INC_STM32F407XX_H_ */
