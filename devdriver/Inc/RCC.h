@@ -28,11 +28,7 @@
 									}while(0)
 
 // GPIOA's clear macros
-#define RCC_GPIOA_CLK_DISABLE()	do{ uint32_t tempValue = 0;\
-									CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOAEN);\
-									tempValue = READ_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOAEN);\
-									UNUSED(tempValue);\
-									}while(0)
+#define RCC_GPIOA_CLK_DISABLE()		CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOAEN)
 
 
 /*
@@ -47,11 +43,7 @@
 									}while(0)
 
 // GPIOB's clear macros
-#define RCC_GPIOB_CLK_DISABLE()	do{ uint32_t tempValue = 0;\
-									CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOBEN);\
-									tempValue = READ_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOBEN);\
-									UNUSED(tempValue);\
-									}while(0)
+#define RCC_GPIOB_CLK_DISABLE()		CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOBEN)
 
 
 /*
@@ -66,11 +58,8 @@
 									}while(0)
 
 // GPIOC's clear macros
-#define RCC_GPIOC_CLK_DISABLE()	do{ uint32_t tempValue = 0;\
-									CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOCEN);\
-									tempValue = READ_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOCEN);\
-									UNUSED(tempValue);\
-									}while(0)
+#define RCC_GPIOC_CLK_DISABLE()		CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOCEN)
+
 
 
 /*
@@ -85,11 +74,8 @@
 									}while(0)
 
 // GPIOD's clear macros
-#define RCC_GPIOD_CLK_DISABLE()	do{ uint32_t tempValue = 0;\
-									CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIODEN);\
-									tempValue = READ_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIODEN);\
-									UNUSED(tempValue);\
-									}while(0)
+#define RCC_GPIOD_CLK_DISABLE()		CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIODEN)
+
 
 
 /*
@@ -104,11 +90,8 @@
 									}while(0)
 
 // GPIOE's clear macros
-#define RCC_GPIOE_CLK_DISABLE()	do{ uint32_t tempValue = 0;\
-									CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOEEN);\
-									tempValue = READ_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOEEN);\
-									UNUSED(tempValue);\
-									}while(0)
+#define RCC_GPIOE_CLK_DISABLE()		CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOEEN)
+
 
 
 /*
@@ -123,11 +106,7 @@
 									}while(0)
 
 // GPIOF's clear macros
-#define RCC_GPIOF_CLK_DISABLE()	do{ uint32_t tempValue = 0;\
-									CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOFEN);\
-									tempValue = READ_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOFEN);\
-									UNUSED(tempValue);\
-									}while(0)
+#define RCC_GPIOF_CLK_DISABLE()		CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOFEN)
 
 
 /*
@@ -142,11 +121,8 @@
 									}while(0)
 
 // GPIOG's clear macros
-#define RCC_GPIOG_CLK_DISABLE()	do{ uint32_t tempValue = 0;\
-									CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOGEN);\
-									tempValue = READ_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOGEN);\
-									UNUSED(tempValue);\
-									}while(0)
+#define RCC_GPIOG_CLK_DISABLE()		CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOGEN)
+
 
 
 /*
@@ -161,11 +137,8 @@
 									}while(0)
 
 // GPIOH's clear macros
-#define RCC_GPIOH_CLK_DISABLE()	do{ uint32_t tempValue = 0;\
-									CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOHEN);\
-									tempValue = READ_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOHEN);\
-									UNUSED(tempValue);\
-									}while(0)
+#define RCC_GPIOH_CLK_DISABLE()		CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOHEN)
+
 
 
 /*
@@ -180,11 +153,9 @@
 									}while(0)
 
 // GPIOI's clear macros
-#define RCC_GPIOI_CLK_DISABLE()	do{ uint32_t tempValue = 0;\
-									CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOIEN);\
-									tempValue = READ_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOIEN);\
-									UNUSED(tempValue);\
-									}while(0)
+#define RCC_GPIOI_CLK_DISABLE()		CLEAR_BIT(RCC->AHB1ENR,RCC_AHB1ENR_GPIOIEN)
+
+
 
 
 
