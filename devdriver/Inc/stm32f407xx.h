@@ -12,6 +12,12 @@
 
 #define __IO volatile
 
+#define SET_BIT(REG,BIT)		((REG) |=  (BIT))
+#define CLEAR_BIT(REG,BIT)		((REG) &= ~(BIT))
+#define READ_BIT(REG,BIT)		((REG)  &  (BIT))
+
+#define UNUSED(x)				(void)x
+
 /*
  * Memory Base Address (Address starting hex number on reference manual)
  *
@@ -249,6 +255,12 @@ typedef struct {
 #define GPIOK			((GPIO_TypeDef_t *)(GPIOK_BASE_ADDR))
 
 #define RCC				((RCC_TypeDef_t*)(RCC_BASE_ADDR)	)
+
+#define RCC_AHB1ENR_GPIOAEN_Pos		(0U)
+#define RCC_AHB1ENR_GPIOAEN_Msk		(0x1 << RCC_AHB1ENR_GPIOAEN_Pos)
+#define RCC_AHB1ENR_GPIOAEN			RCC_AHB1ENR_GPIOAEN_Msk
+
+#include "RCC.h"
 
 
 #endif /* INC_STM32F407XX_H_ */
