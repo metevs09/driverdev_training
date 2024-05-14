@@ -13,12 +13,12 @@
 
 typedef struct{
 
-    uint32_t pinNumber;
-    uint32_t MODE;
-    uint32_t OTYPE;
-    uint32_t Speed;
-    uint32_t PUPD;
-    uint32_t AF;
+    uint32_t pinNumber; // Related pin to configuration
+    uint32_t MODE;		// Pin Mode Select
+    uint32_t OTYPE;		// Output Type configuration (push-pull or  open-drain)
+    uint32_t Speed;		// Speed configuration ( Low, Medium,  High, Very high)
+    uint32_t PUPD;		// Pull-up or Pull-down configuration
+    uint32_t AF;		// Alternate function configuration
 
 
 
