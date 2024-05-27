@@ -5,12 +5,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../devdriver/Src/GPIO.c \
 ../devdriver/Src/RCC.c 
 
 OBJS += \
+./devdriver/Src/GPIO.o \
 ./devdriver/Src/RCC.o 
 
 C_DEPS += \
+./devdriver/Src/GPIO.d \
 ./devdriver/Src/RCC.d 
 
 
@@ -21,7 +24,7 @@ devdriver/Src/%.o devdriver/Src/%.su devdriver/Src/%.cyclo: ../devdriver/Src/%.c
 clean: clean-devdriver-2f-Src
 
 clean-devdriver-2f-Src:
-	-$(RM) ./devdriver/Src/RCC.cyclo ./devdriver/Src/RCC.d ./devdriver/Src/RCC.o ./devdriver/Src/RCC.su
+	-$(RM) ./devdriver/Src/GPIO.cyclo ./devdriver/Src/GPIO.d ./devdriver/Src/GPIO.o ./devdriver/Src/GPIO.su ./devdriver/Src/RCC.cyclo ./devdriver/Src/RCC.d ./devdriver/Src/RCC.o ./devdriver/Src/RCC.su
 
 .PHONY: clean-devdriver-2f-Src
 
