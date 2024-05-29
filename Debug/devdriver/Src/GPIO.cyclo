@@ -1,1 +1,2 @@
-../devdriver/Src/GPIO.c:11:6:GPIO_WritePin	2
+../devdriver/Src/GPIO.c:24:6:GPIO_WritePin	2
+../devdriver/Src/GPIO.c:50:17:GPIO_ReadPin	2

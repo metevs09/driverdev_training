@@ -35,3 +35,27 @@ void GPIO_WritePin(GPIO_TypeDef_t *GPIOx, uint16_t pinNumber, GPIO_PinState_t pi
 	}
 
 }
+
+/*
+ *
+ * @brief GPIO_Read_Pin, read pin value
+ * @param GPIOx = GPIO Port Base Address
+ *
+ * @param pinNumber = GPIO Pin Numbers 0 - 15
+ *
+ * @retval GPIO_PinState_t
+ *
+ */
+
+GPIO_PinState_t GPIO_ReadPin(GPIO_TypeDef_t *GPIOx, uint16_t pinNumber){
+
+	GPIO_PinState_t bitStatus = GPIO_Pin_Reset;
+
+	if((GPIOx->IDR & pinNumber) != GPIO_Pin_Reset){
+
+		bitStatus = GPIO_Pin_Set;
+	}
+
+	return bitStatus;
+
+}
