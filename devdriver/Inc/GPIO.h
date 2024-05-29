@@ -10,6 +10,12 @@
 
 #include "stm32f407xx.h"
 
+/*
+ *
+ * @def_group GPIO_Pins
+ *
+ */
+
 #define GPIO_PIN_0		(uint16_t)(0x0001)	/*!< GPIO Pin 0   Selected */
 #define GPIO_PIN_1		(uint16_t)(0x0002)  /*!< GPIO Pin 1   Selected */
 #define GPIO_PIN_2		(uint16_t)(0x0004)  /*!< GPIO Pin 2   Selected */
@@ -39,12 +45,12 @@ typedef enum{
 
 typedef struct{
 
-    uint32_t pinNumber; // Related pin to configuration
-    uint32_t MODE;		// Pin Mode Select
-    uint32_t OTYPE;		// Output Type configuration (push-pull or  open-drain)
-    uint32_t Speed;		// Speed configuration ( Low, Medium,  High, Very high)
-    uint32_t PUPD;		// Pull-up or Pull-down configuration
-    uint32_t AF;		// Alternate function configuration
+    uint32_t pinNumber; // Related pin to configuration @def_group
+    uint32_t MODE;		// Pin Mode Select @def_group
+    uint32_t OTYPE;		// Output Type configuration (push-pull or  open-drain) @def_group
+    uint32_t Speed;		// Speed configuration ( Low, Medium,  High, Very high) @def_group
+    uint32_t PUPD;		// Pull-up or Pull-down configuration @def_group
+    uint32_t AF;		// Alternate function configuration @def_group
 
 
 

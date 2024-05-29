@@ -92,7 +92,6 @@ int main(void)
 
 
 
-
 	for(;;);
  80001cc:	bf00      	nop
  80001ce:	e7fd      	b.n	80001cc <main+0x4>
