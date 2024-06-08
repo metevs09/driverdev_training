@@ -7,6 +7,66 @@
 
 #include "GPIO.h"
 
+/*
+ *
+ * @brief GPIO_Init,Configures the port and pin
+ * @param GPIOx = GPIO Port Base Address
+ *
+ *
+ * @param GPIO_InitTypeDef_t = User Config Structures
+ *
+ * @retval Void
+ *
+ */
+
+void GPIO_Init(GPIO_TypeDef_t *GPIOx,GPIO_InitTypeDef_t *GPIO_ConfigStruct){
+
+	uint32_t pos;
+	uint32_t fakepos;
+	uint32_t lastpos;
+
+	for(pos =0; pos< 16; pos++){
+
+		fakepos = (0x1 << pos);
+		lastpos = (GPIO_ConfigStruct->pinNumber)& fakepos;
+
+		if(fakepos = lastpos){
+
+			/* Mode Config  */
+
+			uint32_t tempValue = GPIOx->MODER;
+
+			tempValue &= ~(0x3U <<(pos*2));
+			tempValue |= (GPIO_ConfigStruct->MODE <<(pos*2));
+
+			GPIOx->MODER = tempValue;
+		}
+
+		if(GPIO_ConfigStruct->MODE == GPIO_MODE_INPUT || GPIO_ConfigStruct->MODE == GPIO_MODE_ANALOG){
+
+			/* Output Type Config */
+			tempValue = GPIOx->OTYPER;
+			tempValue &= ~(0x1U <<pos);
+			tempValue |= (GPIO_ConfigStruct->OTYPE << pos);
+			GPIOx->OTYPER = tempValue;
+
+			/* Output Speed Config */
+			tempValue = GPIOx->OSPEEDR;
+			tempValue &= ~(0x3U <<(pos*2));
+			tempValue |= (GPIO_ConfigStruct->Speed << (pos*2));
+			GPIOx->OSPEEDR = tempValue;
+		}
+
+		/* Output Push-Pull Config */
+		tempValue = GPIOx->PUPDR;
+		tempValue &= ~(0x3U << (pos*2));
+		tempValue |= (GPIO_ConfigStruct->PUPD <<(pos*2));
+		GPIOx->PUPDR = tempValue;
+
+	}
+
+}
+
 
 /*
  *
