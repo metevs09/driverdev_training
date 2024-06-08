@@ -59,3 +59,26 @@ GPIO_PinState_t GPIO_ReadPin(GPIO_TypeDef_t *GPIOx, uint16_t pinNumber){
 	return bitStatus;
 
 }
+
+
+/*
+ *
+ * @brief GPIO_Lock_Pin, lock the  pin of GPIOx Port
+ * @param GPIOx = GPIO Port Base Address
+ *
+ * @param pinNumber = GPIO Pin Numbers 0 - 15
+ *
+ * @retval Void
+ *
+ */
+
+void GPIO_LockPin(GPIO_TypeDef_t *GPIOx, uint16_t pinNumber){
+
+	uint32_t tempValue = (0x1U << 16U) | pinNumber;
+
+	GPIOx->LCKR = tempValue;
+	GPIOx->LCKR = pinNumber;
+	GPIOx->LCKR = tempValue;
+	tempValue = GPIOx->LCKR;
+
+}
