@@ -9,7 +9,6 @@
 #define INC_STM32F407XX_H_
 
 #include <stdint.h>
-#include "RCC.h"
 
 #define __IO volatile
 
@@ -295,6 +294,12 @@ typedef struct {
 #define RCC_AHB1ENR_GPIOIEN_Pos		(8U) // GPIO's bit position(address on RCC_AHB1ENR)
 #define RCC_AHB1ENR_GPIOIEN_Msk		(0x1 << RCC_AHB1ENR_GPIOIEN_Pos) // Bit manipulation masking for related position
 #define RCC_AHB1ENR_GPIOIEN			RCC_AHB1ENR_GPIOIEN_Msk // defined macros for masking
+
+
+
+
+#include "RCC.h"
+#include "GPIO.h"
 
 
 #endif /* INC_STM32F407XX_H_ */

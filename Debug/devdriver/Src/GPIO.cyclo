@@ -1,2 +1,4 @@
-../devdriver/Src/GPIO.c:24:6:GPIO_WritePin	2
-../devdriver/Src/GPIO.c:50:17:GPIO_ReadPin	2
+../devdriver/Src/GPIO.c:22:6:GPIO_Init	5
+../devdriver/Src/GPIO.c:84:6:GPIO_WritePin	2
+../devdriver/Src/GPIO.c:110:17:GPIO_ReadPin	2
+../devdriver/Src/GPIO.c:135:6:GPIO_LockPin	1

@@ -40,10 +40,10 @@
  *
  */
 
-#define GPIOMODE_INPUT		(0x0U)
-#define GPIOMODE_OUTPUT		(0x01U)
-#define GPIOMODE_AF			(0x02U)
-#define GPIOMODE_ANALOG		(0x03U)
+#define GPIO_MODE_INPUT		(0x0U)
+#define GPIO_MODE_OUTPUT		(0x01U)
+#define GPIO_MODE_AF			(0x02U)
+#define GPIO_MODE_ANALOG		(0x03U)
 
 /*
  *
@@ -88,10 +88,10 @@ typedef enum{
 typedef struct{
 
     uint32_t pinNumber; // Related pin to configuration @def_group
-    uint32_t MODE;		// Pin Mode Select @def_group
-    uint32_t OTYPE;		// Output Type configuration (push-pull or  open-drain) @def_group
+    uint32_t Mode;		// Pin Mode Select @def_group
+    uint32_t Otype;		// Output Type configuration (push-pull or  open-drain) @def_group
     uint32_t Speed;		// Speed configuration ( Low, Medium,  High, Very high) @def_group
-    uint32_t PUPD;		// Pull-up or Pull-down configuration @def_group
+    uint32_t PuPd;		// Pull-up or Pull-down configuration @def_group
     uint32_t AF;		// Alternate function configuration @def_group
 
 

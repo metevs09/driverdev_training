@@ -37,17 +37,17 @@ void GPIO_Init(GPIO_TypeDef_t *GPIOx,GPIO_InitTypeDef_t *GPIO_ConfigStruct){
 			uint32_t tempValue = GPIOx->MODER;
 
 			tempValue &= ~(0x3U <<(pos*2));
-			tempValue |= (GPIO_ConfigStruct->MODE <<(pos*2));
+			tempValue |= (GPIO_ConfigStruct->Mode <<(pos*2));
 
 			GPIOx->MODER = tempValue;
 		}
 
-		if(GPIO_ConfigStruct->MODE == GPIO_MODE_INPUT || GPIO_ConfigStruct->MODE == GPIO_MODE_ANALOG){
+		if(GPIO_ConfigStruct->Mode == GPIO_MODE_OUTPUT || GPIO_ConfigStruct->Mode == GPIO_MODE_AF){
 
 			/* Output Type Config */
-			tempValue = GPIOx->OTYPER;
+			uint32_t tempValue = GPIOx->OTYPER;
 			tempValue &= ~(0x1U <<pos);
-			tempValue |= (GPIO_ConfigStruct->OTYPE << pos);
+			tempValue |= (GPIO_ConfigStruct->Otype << pos);
 			GPIOx->OTYPER = tempValue;
 
 			/* Output Speed Config */
@@ -58,9 +58,9 @@ void GPIO_Init(GPIO_TypeDef_t *GPIOx,GPIO_InitTypeDef_t *GPIO_ConfigStruct){
 		}
 
 		/* Output Push-Pull Config */
-		tempValue = GPIOx->PUPDR;
+		uint32_t tempValue = GPIOx->PUPDR;
 		tempValue &= ~(0x3U << (pos*2));
-		tempValue |= (GPIO_ConfigStruct->PUPD <<(pos*2));
+		tempValue |= (GPIO_ConfigStruct->PuPd <<(pos*2));
 		GPIOx->PUPDR = tempValue;
 
 	}
