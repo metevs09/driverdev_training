@@ -142,3 +142,23 @@ void GPIO_LockPin(GPIO_TypeDef_t *GPIOx, uint16_t pinNumber){
 	tempValue = GPIOx->LCKR;
 
 }
+
+
+/*
+ *
+ * @brief GPIO_TogglePin, toggles the  pin of GPIOx Port
+ * @param GPIOx = GPIO Port Base Address
+ *
+ * @param pinNumber = GPIO Pin Numbers 0 - 15
+ *
+ * @retval Void
+ *
+ */
+
+void GPIO_TogglePin(GPIO_TypeDef_t *GPIOx, uint16_t pinNumber){
+
+	uint32_t tempODRRegister = GPIOx->ODR;
+
+	GPIOx->BSRR = ((tempODRRegister & pinNumber) <<16)| (~tempODRRegister & pinNumber);
+
+}
