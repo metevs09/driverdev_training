@@ -29,25 +29,25 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  12 .ARM.attributes 0000002a  00000000  00000000  00001440  2**0
                   CONTENTS, READONLY
- 13 .debug_info   00000767  00000000  00000000  0000146a  2**0
+ 13 .debug_info   000007a6  00000000  00000000  0000146a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 0000026a  00000000  00000000  00001bd1  2**0
+ 14 .debug_abbrev 0000026a  00000000  00000000  00001c10  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_aranges 00000088  00000000  00000000  00001e40  2**3
+ 15 .debug_aranges 00000090  00000000  00000000  00001e80  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_rnglists 00000058  00000000  00000000  00001ec8  2**0
+ 16 .debug_rnglists 0000005e  00000000  00000000  00001f10  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  0000152c  00000000  00000000  00001f20  2**0
+ 17 .debug_macro  0000152c  00000000  00000000  00001f6e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00000af3  00000000  00000000  0000344c  2**0
+ 18 .debug_line   00000b1d  00000000  00000000  0000349a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    00005f90  00000000  00000000  00003f3f  2**0
+ 19 .debug_str    00005faf  00000000  00000000  00003fb7  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  00009ecf  2**0
+ 20 .comment      00000086  00000000  00000000  00009f66  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  0000012c  00000000  00000000  00009f14  2**2
+ 21 .debug_frame  00000154  00000000  00000000  00009fec  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 00000069  00000000  00000000  0000a040  2**0
+ 22 .debug_line_str 00000069  00000000  00000000  0000a140  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -306,7 +306,7 @@ void GPIO_Init(GPIO_TypeDef_t *GPIOx,GPIO_InitTypeDef_t *GPIO_ConfigStruct){
  80002b6:	4013      	ands	r3, r2
  80002b8:	617b      	str	r3, [r7, #20]
 
-		if(fakepos = lastpos){
+		if (fakepos = lastpos){
  80002ba:	697b      	ldr	r3, [r7, #20]
  80002bc:	61bb      	str	r3, [r7, #24]
  80002be:	69bb      	ldr	r3, [r7, #24]

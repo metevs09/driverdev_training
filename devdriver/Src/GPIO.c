@@ -30,7 +30,7 @@ void GPIO_Init(GPIO_TypeDef_t *GPIOx,GPIO_InitTypeDef_t *GPIO_ConfigStruct){
 		fakepos = (0x1 << pos);
 		lastpos = (GPIO_ConfigStruct->pinNumber)& fakepos;
 
-		if(fakepos = lastpos){
+		if (fakepos = lastpos){
 
 			/* Mode Config  */
 
