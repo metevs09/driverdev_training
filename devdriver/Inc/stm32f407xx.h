@@ -9,6 +9,7 @@
 #define INC_STM32F407XX_H_
 
 #include <stdint.h>
+#include <string.h>
 
 #define __IO volatile
 
@@ -240,18 +241,35 @@ typedef struct {
 
 }RCC_TypeDef_t;
 
+/*
+ * System configuration Structure Definitions (For more information check reference manual SYSCFG register map)
+ *
+ */
 
-#define GPIOA			((GPIO_TypeDef_t *)(GPIOA_BASE_ADDR))
-#define GPIOB			((GPIO_TypeDef_t *)(GPIOB_BASE_ADDR))
-#define GPIOC			((GPIO_TypeDef_t *)(GPIOC_BASE_ADDR))
-#define GPIOD			((GPIO_TypeDef_t *)(GPIOD_BASE_ADDR))
-#define GPIOE			((GPIO_TypeDef_t *)(GPIOE_BASE_ADDR))
-#define GPIOF			((GPIO_TypeDef_t *)(GPIOF_BASE_ADDR))
-#define GPIOG			((GPIO_TypeDef_t *)(GPIOG_BASE_ADDR))
-#define GPIOH			((GPIO_TypeDef_t *)(GPIOH_BASE_ADDR))
-#define GPIOI			((GPIO_TypeDef_t *)(GPIOI_BASE_ADDR))
+typedef struct{
 
-#define RCC				((RCC_TypeDef_t*)(RCC_BASE_ADDR)	)
+	__IO uint32_t MEMRMP;		/*!< SYSCFG memory remap register 				Address offset = 0x0000 */
+	__IO uint32_t PMC;			/*!< SYSCFG perip. mode config. register  		Address offset = 0x0004 */
+	__IO uint32_t EXTI_CR[4];	/*!< SYSCFG ext. interrupt config. reg.[4:1] 	Address offset for EXTI_CR1 = 0x0008, EXTI_CR2 = 0x000C, EXTI_CR3 = 0x0010C, EXTI_CR4 = 0x0014C */
+	__IO uint32_t CMPCR;		/*!< Compensation cell control register 		Address offset = 0x0020 */
+
+}SYSCFG_TypeDef_t;
+
+
+
+#define GPIOA			((GPIO_TypeDef_t *)(GPIOA_BASE_ADDR)  )
+#define GPIOB			((GPIO_TypeDef_t *)(GPIOB_BASE_ADDR)  )
+#define GPIOC			((GPIO_TypeDef_t *)(GPIOC_BASE_ADDR)  )
+#define GPIOD			((GPIO_TypeDef_t *)(GPIOD_BASE_ADDR)  )
+#define GPIOE			((GPIO_TypeDef_t *)(GPIOE_BASE_ADDR)  )
+#define GPIOF			((GPIO_TypeDef_t *)(GPIOF_BASE_ADDR)  )
+#define GPIOG			((GPIO_TypeDef_t *)(GPIOG_BASE_ADDR)  )
+#define GPIOH			((GPIO_TypeDef_t *)(GPIOH_BASE_ADDR)  )
+#define GPIOI			((GPIO_TypeDef_t *)(GPIOI_BASE_ADDR)  )
+
+#define RCC				((RCC_TypeDef_t*)(RCC_BASE_ADDR)	  )
+
+#define SYSCFG			((SYSCFG_TypeDef_t*)(SYSCFG_BASE_ADDR))
 
 /*
  *
