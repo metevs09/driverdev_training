@@ -255,7 +255,24 @@ typedef struct{
 
 }SYSCFG_TypeDef_t;
 
+/*
+ *   External interrupt/event controller Structure Definitions (For more information check reference manual SYSCFG register map)
+ *
+ */
 
+typedef struct{
+
+	__IO uint32_t IMR;			/*!< Interrupt mask register  				Address offset = 0x0000 */
+	__IO uint32_t EMR;			/*!< Event mask register  					Address offset = 0x0004 */
+	__IO uint32_t RTSR;			/*!< Rising trigger selection register 		Address offset = 0x0008 */
+	__IO uint32_t FTSR;			/*!< Falling trigger selection register		Address offset = 0x000C */
+	__IO uint32_t SWIER;		/*!< Software interrupt event register  	Address offset = 0x0010 */
+	__IO uint32_t PR;			/*!< Pending register						Address offset = 0x0014 */
+
+}EXTI_TypeDef_t;
+
+
+/*   Base address definitions for port */
 
 #define GPIOA			((GPIO_TypeDef_t *)(GPIOA_BASE_ADDR)  )
 #define GPIOB			((GPIO_TypeDef_t *)(GPIOB_BASE_ADDR)  )
@@ -270,6 +287,8 @@ typedef struct{
 #define RCC				((RCC_TypeDef_t*)(RCC_BASE_ADDR)	  )
 
 #define SYSCFG			((SYSCFG_TypeDef_t*)(SYSCFG_BASE_ADDR))
+
+#define EXTI			((EXTI_TypeDef_t*)(EXTI_BASE_ADDR)	  )
 
 /*
  *
@@ -318,6 +337,7 @@ typedef struct{
 
 #include "RCC.h"
 #include "GPIO.h"
+#include "EXTI.h"
 
 
 #endif /* INC_STM32F407XX_H_ */
