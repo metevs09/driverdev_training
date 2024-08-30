@@ -157,6 +157,20 @@
 
 
 
+/*
+ * SYSCFG SET AND CLEAR MACROS
+ */
+
+// SYSCFG's set macro
+#define RCC_SYSCFG_CLK_ENABLE()	do{ uint32_t tempValue = 0;\
+									SET_BIT(RCC->APB2ENR,RCC_APB2ENR_SYSCFGEN);\
+									tempValue = READ_BIT(RCC->APB2ENR,RCC_APB2ENR_SYSCFGEN);\
+									UNUSED(tempValue);\
+									}while(0)
+
+// SYSCFG's clear macros
+#define RCC_SYSCFG_CLK_DISABLE()	CLEAR_BIT(RCC->APB2ENR,RCC_APB2ENR_SYSCFGEN)
+
 
 
 

@@ -332,8 +332,9 @@ typedef struct{
 #define RCC_AHB1ENR_GPIOIEN_Msk		(0x1 << RCC_AHB1ENR_GPIOIEN_Pos) // Bit manipulation masking for related position
 #define RCC_AHB1ENR_GPIOIEN			RCC_AHB1ENR_GPIOIEN_Msk // defined macros for masking
 
-
-
+#define RCC_APB2ENR_SYSCFGEN_Pos	(14U)// SYSCFG's bit position(address on RCC_APB2ENR)
+#define RCC_APB2ENR_SYSCFGEN_Msk	(0x1 << RCC_APB2ENR_SYSCFGEN_Pos)// Bit manipulation masking for related position
+#define RCC_APB2ENR_SYSCFGEN		RCC_APB2ENR_SYSCFGEN_Msk //defined macros for masking
 
 #include "RCC.h"
 #include "GPIO.h"

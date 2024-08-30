@@ -13,9 +13,11 @@
 
 int main(void)
 {
+	RCC_GPIOC_CLK_ENABLE();
+	RCC_SYSCFG_CLK_ENABLE();
 
 
-
+	EXTI_LineConfig(EXTI_PortSource_GPIOC,EXTI_LineSource_7);
 
 	for(;;);
 

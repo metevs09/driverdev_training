@@ -21,9 +21,11 @@
 
 void EXTI_LineConfig(uint8_t PortSource, uint8_t EXTI_LineSource){
 
+	uint32_t tempValue;
 
-
-
-
+	tempValue = SYSCFG->EXTI_CR[EXTI_LineSource >> 2U];
+	tempValue &= ~(0xFU << (EXTI_LineSource & 0x3U) * 4);
+	tempValue = (PortSource << (EXTI_LineSource & 0x3U) * 4);
+	SYSCFG->EXTI_CR[EXTI_LineSource >> 2U] = tempValue;
 }
 
