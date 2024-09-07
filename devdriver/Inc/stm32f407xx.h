@@ -19,6 +19,12 @@
 
 #define UNUSED(x)				(void)x
 
+typedef enum{
+	DISABLE = 0x0U,
+	ENABLE = !DISABLE
+
+}Functional_State_t;
+
 /*
  * Memory Base Address (Address starting hex number on reference manual)
  *

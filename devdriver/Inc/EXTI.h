@@ -45,6 +45,36 @@
 #define EXTI_LineSource_14					((uint8_t)(0xE))
 #define EXTI_LineSource_15					((uint8_t)(0xF))
 
+
+/*
+ *
+ * @def_group EXTI_Modes
+ *
+ */
+
+#define EXTI_MODE_Interrupt	(0x00U)
+#define EXTI_MODE_Event		(0x04U)
+
+/*
+ *
+ * @def_group EXTI_Trigger_Modes
+ *
+ */
+
+#define EXTI_RTSR	(0x08U)
+#define EXTI_FTSR	(0x0CU)
+#define EXTI_RFTSR	(0x10U)
+
+typedef struct {
+	uint8_t EXTI_LineNumber;
+	uint8_t TriggerSelection;	/*  EXTI Trigger selection values @def_group EXTI_Trigger_Modes*/
+	uint8_t EXTI_Mode;			/*  EXTI_Mode values @def_group EXTI_Modes*/
+	Functional_State_t EXTI_LineCmd;
+
+}EXTI_InitTypeDef_t;
+
+void EXTI_Init(EXTI_InitTypeDef_t*EXTI_InitStruct);
+
 void EXTI_LineConfig(uint8_t PortSource, uint8_t EXTI_LineSource);
 
 #endif /* INC_EXTI_H_ */
