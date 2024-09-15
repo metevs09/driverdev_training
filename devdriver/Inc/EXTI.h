@@ -77,4 +77,6 @@ void EXTI_Init(EXTI_InitTypeDef_t*EXTI_InitStruct);
 
 void EXTI_LineConfig(uint8_t PortSource, uint8_t EXTI_LineSource);
 
+void NVIC_EnableInterrupt(IRQNumber_TypeDef_t IRQnumber);
+
 #endif /* INC_EXTI_H_ */

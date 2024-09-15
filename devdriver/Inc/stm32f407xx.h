@@ -11,6 +11,14 @@
 #include <stdint.h>
 #include <string.h>
 
+/*
+ *
+ * Microprocessor Defines
+ *
+ */
+
+#define NVIC_ISER0 				((uint32_t *)(0xE000E100))
+
 #define __IO volatile
 
 #define SET_BIT(REG,BIT)		((REG) |=  (BIT))
@@ -24,6 +32,103 @@ typedef enum{
 	ENABLE = !DISABLE
 
 }Functional_State_t;
+
+
+/*
+ * IRQ Numbers of MCU == Vector Table
+ *
+ */
+
+
+typedef enum{
+
+	WWDG_IRQNumber =0,
+	PVD_IRQNumber =1,
+	TAMP_STAMP_IRQNumber =2,
+	RTC_WKUP_IRQNumber =3,
+	FLASH_IRQNumber = 4,
+	RCC_IRQNumber = 5,
+	EXTI0_IRQNumber = 6,
+	EXTI1_IRQNumber = 7,
+	EXTI2_IRQNumber = 8,
+	EXTI3_IRQNumber = 9,
+	EXTI4_IRQNumber = 10,
+	DMA1_Stream0_IRQNumber = 11,
+	DMA1_Stream1_IRQNumber = 12,
+	DMA1_Stream2_IRQNumber = 13,
+	DMA1_Stream3_IRQNumber = 14,
+	DMA1_Stream4_IRQNumber = 15,
+	DMA1_Stream5_IRQNumber = 16,
+	DMA1_Stream6_IRQNumber = 17,
+	ADC_IRQNumber = 18,
+	CAN1_TX_IRQNumber = 19,
+	CAN1_RX0_IRQNumber = 20,
+	CAN1_RX1_IRQNumber = 21,
+	CAN1_SCE_IRQNumber = 22,
+	EXTI9_5_IRQNumber = 23,
+	TIM1_BRK_TIM9_IRQNumber = 24,
+	TIM1_UP_TIM10_IRQNumber = 25,
+	TIM1_TRG_COM_TIM11_IRQNumber = 26,
+	TIM1_CC_IRQNumber = 27,
+	TIM2_IRQNumber = 28,
+	TIM3_IRQNumber = 29,
+	TIM4_IRQNumber = 30,
+	I2C1_EV_IRQNumber = 31,
+	I2C1_ER_IRQNumber = 32,
+	I2C2_EV_IRQNumber = 33,
+	I2C2_ER_IRQNumber = 34,
+	SPI1_IRQNumber = 35,
+	SPI2_IRQNumber = 36,
+	USART1_IRQNumber = 37,
+	USART2_IRQNumber = 38,
+	USART3_IRQNumber = 39,
+	EXTI15_10_IRQNumber = 40,
+	RTC_Alarm_IRQNumber = 41,
+	OTG_FS_WKUP_IRQNumber = 42,
+	TIM8_BRK_TIM12_IRQNumber = 43,
+	TIM8_UP_TIM13_IRQNumber = 44,
+	TIM8_TRG_COM_TIM14_IRQNumber = 45,
+	TIM8_CC_IRQNumber = 46,
+	DMA1_Stream7_IRQNumber = 47,
+	FSMC_IRQNumber = 48,
+	SDIO_IRQNumber = 49,
+	TIM5_IRQNumber = 50,
+	SPI3_IRQNumber = 51,
+	UART4_IRQNumber = 52,
+	UART5_IRQNumber = 53,
+	TIM6_DAC_IRQNumber = 54,
+	TIM7_IRQNumber = 55,
+	DMA2_Stream0_IRQNumber = 56,
+	DMA2_Stream1_IRQNumber = 57,
+	DMA2_Stream2_IRQNumber = 58,
+	DMA2_Stream3_IRQNumber = 59,
+	DMA2_Stream4_IRQNumber = 60,
+	ETH_IRQNumber = 61,
+	ETH_WKUP_IRQNumber = 62,
+	CAN2_TX_IRQNumber = 63,
+	CAN2_RX0_IRQNumber = 64,
+	CAN2_RX1_IRQNumber = 65,
+	CAN2_SCE_IRQNumber = 66,
+	OTG_FS_IRQNumber = 67,
+	DMA2_Stream5_IRQNumber = 68,
+	DMA2_Stream6_IRQNumber = 69,
+	DMA2_Stream7_IRQNumber = 70,
+	USART6_IRQNumber = 71,
+	I2C3_EV_IRQNumber = 72,
+	I2C3_ER_IRQNumber = 73,
+	OTG_HS_EP1_OUT_IRQNumber = 74,
+	OTG_HS_EP1_IN_IRQNumber = 75,
+	OTG_HS_WKUP_IRQNumber = 76,
+	OTG_HS_IRQNumber = 77,
+	DCMI_IRQNumber = 78,
+	CRYP_IRQNumber = 79,
+	HASH_RNG_IRQNumber = 80,
+	FPU_IRQNumber =81
+
+}IRQNumber_TypeDef_t;
+
+
+
 
 /*
  * Memory Base Address (Address starting hex number on reference manual)

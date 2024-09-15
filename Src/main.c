@@ -11,6 +11,20 @@
 
 static void GPIO_ButtonInterruptConfig();
 
+
+void EXTI0_IRQHandler(){
+
+	if(EXTI->PR & 0x1){
+
+		EXTI->PR |= (0x1U <<0U);
+
+		GPIO_WritePin(GPIOD, GPIO_PIN_ALL,GPIO_Pin_Set );
+
+	}
+
+
+}
+
 int main(void)
 {
 	RCC_GPIOC_CLK_ENABLE();
@@ -38,6 +52,8 @@ static void GPIO_ButtonInterruptConfig(){
 		EXTI_InitStruct.TriggerSelection =EXTI_RTSR;
 
 		EXTI_Init(&EXTI_InitStruct);
+
+		NVIC_EnableInterrupt(EXTI0_IRQNumber);
 
 	}
 

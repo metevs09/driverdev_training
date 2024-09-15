@@ -77,11 +77,35 @@ void EXTI_Init(EXTI_InitTypeDef_t*EXTI_InitStruct){
 
 void EXTI_LineConfig(uint8_t PortSource, uint8_t EXTI_LineSource){
 
-	uint32_t tempValue;
+	uint32_t tempValue = 0;
 
 	tempValue = SYSCFG->EXTI_CR[EXTI_LineSource >> 2U];
 	tempValue &= ~(0xFU << (EXTI_LineSource & 0x3U) * 4);
 	tempValue = (PortSource << (EXTI_LineSource & 0x3U) * 4);
 	SYSCFG->EXTI_CR[EXTI_LineSource >> 2U] = tempValue;
+}
+
+
+/*
+ *
+ * @brief NVIC_EnableInterrupt
+ * @param IRQnumber = IRQnumber of Line
+ *
+ *
+ * @retval Void
+ *
+ */
+
+
+
+void NVIC_EnableInterrupt(IRQNumber_TypeDef_t IRQnumber){
+
+	uint32_t tempValue = 0;
+
+	tempValue = *((IRQnumber >> 5U) + NVIC_ISER0);
+	tempValue &= ~(0x1U<< (IRQnumber & 0x1FU));
+	tempValue |= (0x1U<< (IRQnumber & 0x1FU));
+	*((IRQnumber >> 5U) + NVIC_ISER0) = tempValue;
+
 }
 
