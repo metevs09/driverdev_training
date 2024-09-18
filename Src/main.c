@@ -40,7 +40,6 @@ static void GPIO_LedConfig(){
 
 	GPIO_InitTypeDef_t GPIO_InitStruct = {0};
 
-	    RCC_GPIOC_CLK_ENABLE();
 		RCC_GPIOD_CLK_ENABLE();
 		RCC_GPIOA_CLK_ENABLE();
 
