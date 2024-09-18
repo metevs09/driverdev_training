@@ -10,7 +10,8 @@
 
 
 static void GPIO_ButtonInterruptConfig();
-
+static void GPIO_LedConfig();
+void EXTI0_IRQHandler();
 
 void EXTI0_IRQHandler(){
 
@@ -27,13 +28,38 @@ void EXTI0_IRQHandler(){
 
 int main(void)
 {
-	RCC_GPIOC_CLK_ENABLE();
-
+	GPIO_LedConfig();
 	GPIO_ButtonInterruptConfig();
 
 
 	for(;;);
 
+}
+
+static void GPIO_LedConfig(){
+
+	GPIO_InitTypeDef_t GPIO_InitStruct = {0};
+
+	    RCC_GPIOC_CLK_ENABLE();
+		RCC_GPIOD_CLK_ENABLE();
+		RCC_GPIOA_CLK_ENABLE();
+
+
+		GPIO_InitStruct.pinNumber = GPIO_PIN_12 | GPIO_PIN_13 | GPIO_PIN_14 | GPIO_PIN_15;
+		GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT;
+		GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
+		GPIO_InitStruct.Otype = GPIO_OTYPE_PP;
+		GPIO_InitStruct.PuPd = GPIO_PUPD_NOPULL;
+
+		GPIO_Init(GPIOD, &GPIO_InitStruct);
+
+		memset(&GPIO_InitStruct,0, sizeof(GPIO_InitStruct));
+
+		GPIO_InitStruct.pinNumber = GPIO_PIN_0;
+		GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+		GPIO_InitStruct.PuPd = GPIO_PUPD_PULLDOWN;
+
+		GPIO_Init(GPIOA, &GPIO_InitStruct);
 }
 
 
@@ -44,10 +70,10 @@ static void GPIO_ButtonInterruptConfig(){
 
 		EXTI_InitTypeDef_t EXTI_InitStruct= {0};
 
-		EXTI_LineConfig(EXTI_PortSource_GPIOC, EXTI_LineSource_10);
+		EXTI_LineConfig(EXTI_PortSource_GPIOA, EXTI_LineSource_0);
 
 		EXTI_InitStruct.EXTI_LineCmd = ENABLE;
-		EXTI_InitStruct.EXTI_LineNumber = EXTI_LineSource_10;
+		EXTI_InitStruct.EXTI_LineNumber = EXTI_LineSource_0;
 		EXTI_InitStruct.EXTI_Mode = EXTI_MODE_Interrupt;
 		EXTI_InitStruct.TriggerSelection =EXTI_RTSR;
 

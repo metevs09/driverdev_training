@@ -123,7 +123,7 @@ typedef enum{
 	DCMI_IRQNumber = 78,
 	CRYP_IRQNumber = 79,
 	HASH_RNG_IRQNumber = 80,
-	FPU_IRQNumber =81
+	FPU_IRQNumber = 81
 
 }IRQNumber_TypeDef_t;
 

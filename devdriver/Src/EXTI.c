@@ -103,8 +103,8 @@ void NVIC_EnableInterrupt(IRQNumber_TypeDef_t IRQnumber){
 	uint32_t tempValue = 0;
 
 	tempValue = *((IRQnumber >> 5U) + NVIC_ISER0);
-	tempValue &= ~(0x1U<< (IRQnumber & 0x1FU));
-	tempValue |= (0x1U<< (IRQnumber & 0x1FU));
+	tempValue &= ~(0x1U << (IRQnumber & 0x1FU));
+	tempValue |= (0x1U << (IRQnumber & 0x1FU));
 	*((IRQnumber >> 5U) + NVIC_ISER0) = tempValue;
 
 }
