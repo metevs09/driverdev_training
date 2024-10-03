@@ -173,5 +173,101 @@
 
 
 
+/*
+ * SPI1 SET AND CLEAR MACROS
+ */
+
+// SPI1's set macro
+#define RCC_SPI1_CLK_ENABLE()	do{ uint32_t tempValue = 0;\
+									SET_BIT(RCC->APB2ENR,RCC_APB2ENR_SPI1EN);\
+									tempValue = READ_BIT(RCC->APB2ENR,RCC_APB2ENR_SPI1EN);\
+									UNUSED(tempValue);\
+									}while(0)
+
+// SPI1's clear macros
+#define RCC_SPI1_CLK_DISABLE()		CLEAR_BIT(RCC->APB2ENR,RCC_APB2ENR_SPI1EN)
+
+
+
+/*
+ * SPI2 SET AND CLEAR MACROS
+ */
+
+
+// SPI2's set macro
+#define RCC_SPI2_CLK_ENABLE()	do{ uint32_t tempValue = 0;\
+									SET_BIT(RCC->APB1ENR,RCC_APB1ENR_SPI2EN);\
+									tempValue = READ_BIT(RCC->APB1ENR,RCC_APB1ENR_SPI2EN);\
+									UNUSED(tempValue);\
+									}while(0)
+
+// SPI2's clear macros
+#define RCC_SPI2_CLK_DISABLE()		CLEAR_BIT(RCC->APB1ENR,RCC_APB1ENR_SPI2EN)
+
+
+
+/*
+ * SPI3 SET AND CLEAR MACROS
+ */
+
+
+// SPI3's set macro
+#define RCC_SPI3_CLK_ENABLE()	do{ uint32_t tempValue = 0;\
+									SET_BIT(RCC->APB1ENR,RCC_APB1ENR_SPI3EN);\
+									tempValue = READ_BIT(RCC->APB1ENR,RCC_APB1ENR_SPI3EN);\
+									UNUSED(tempValue);\
+									}while(0)
+
+// SPI3's clear macros
+#define RCC_SPI3_CLK_DISABLE()		CLEAR_BIT(RCC->APB1ENR,RCC_APB1ENR_SPI3EN)
+
+
+
+/*
+ * SPI4 SET AND CLEAR MACROS
+ */
+
+
+// SPI4's set macro
+#define RCC_SPI4_CLK_ENABLE()	do{ uint32_t tempValue = 0;\
+									SET_BIT(RCC->APB2ENR,RCC_APB2ENR_SPI4EN);\
+									tempValue = READ_BIT(RCC->APB2ENR,RCC_APB2ENR_SPI4EN);\
+									UNUSED(tempValue);\
+									}while(0)
+
+// SPI4's clear macros
+#define RCC_SPI4_CLK_DISABLE()		CLEAR_BIT(RCC->APB2ENR,RCC_APB2ENR_SPI4EN)
+
+
+/*
+ * SPI5 SET AND CLEAR MACROS
+ */
+
+
+// SPI5's set macro
+#define RCC_SPI5_CLK_ENABLE()	do{ uint32_t tempValue = 0;\
+									SET_BIT(RCC->APB2ENR,RCC_APB2ENR_SPI5EN);\
+									tempValue = READ_BIT(RCC->APB2ENR,RCC_APB2ENR_SPI5EN);\
+									UNUSED(tempValue);\
+									}while(0)
+
+// SPI5's clear macros
+#define RCC_SPI5_CLK_DISABLE()		CLEAR_BIT(RCC->APB2ENR,RCC_APB2ENR_SPI5EN)
+
+/*
+ * SPI6 SET AND CLEAR MACROS
+ */
+
+
+// SPI5's set macro
+#define RCC_SPI6_CLK_ENABLE()	do{ uint32_t tempValue = 0;\
+									SET_BIT(RCC->APB2ENR,RCC_APB2ENR_SPI6EN);\
+									tempValue = READ_BIT(RCC->APB2ENR,RCC_APB2ENR_SPI6EN);\
+									UNUSED(tempValue);\
+									}while(0)
+
+// SPI5's clear macros
+#define RCC_SPI6_CLK_DISABLE()		CLEAR_BIT(RCC->APB2ENR,RCC_APB2ENR_SPI6EN)
+
 
 #endif /* INC_RCC_H_ */

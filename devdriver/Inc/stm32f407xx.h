@@ -383,6 +383,21 @@ typedef struct{
 }EXTI_TypeDef_t;
 
 
+typedef struct{
+
+	__IO uint32_t CR1;			/*!< SPI control register 1 				Address offset = 0x0000 */
+	__IO uint32_t CR2;			/*!< SPI control register 2  				Address offset = 0x0004 */
+	__IO uint32_t SR;			/*!< SPI status register   					Address offset = 0x0008 */
+	__IO uint32_t DR;			/*!< SPI data register  					Address offset = 0x000C */
+	__IO uint32_t CRCPR;		/*!< SPI CRC polynomial register  			Address offset = 0x0010 */
+	__IO uint32_t RXCRCR;		/*!< SPI RX CRC register 					Address offset = 0x0014 */
+	__IO uint32_t TXCRCR;		/*!< SPI TX CRC register  					Address offset = 0x0018 */
+	__IO uint32_t I2SCFGR;		/*!< SPI_I2S configuration register 		Address offset = 0x001C */
+	__IO uint32_t I2SPR;		/*!< SPI_I2S prescaler register				Address offset = 0x0020 */
+
+
+}SPI_TypeDef_t;
+
 /*   Base address definitions for port */
 
 #define GPIOA			((GPIO_TypeDef_t *)(GPIOA_BASE_ADDR)  )
@@ -400,6 +415,16 @@ typedef struct{
 #define SYSCFG			((SYSCFG_TypeDef_t*)(SYSCFG_BASE_ADDR))
 
 #define EXTI			((EXTI_TypeDef_t*)(EXTI_BASE_ADDR)	  )
+
+
+#define SPI1			((SPI_TypeDef_t*)(SPI1_BASE_ADDR)	  )
+#define SPI2			((SPI_TypeDef_t*)(SPI2_BASE_ADDR)	  )
+#define SPI3			((SPI_TypeDef_t*)(SPI3_BASE_ADDR)	  )
+#define SPI4			((SPI_TypeDef_t*)(SPI4_BASE_ADDR)	  )
+#define SPI5			((SPI_TypeDef_t*)(SPI5_BASE_ADDR)	  )
+#define SPI6			((SPI_TypeDef_t*)(SPI6_BASE_ADDR)	  )
+
+
 
 /*
  *
@@ -446,6 +471,30 @@ typedef struct{
 #define RCC_APB2ENR_SYSCFGEN_Pos	(14U)// SYSCFG's bit position(address on RCC_APB2ENR)
 #define RCC_APB2ENR_SYSCFGEN_Msk	(0x1 << RCC_APB2ENR_SYSCFGEN_Pos)// Bit manipulation masking for related position
 #define RCC_APB2ENR_SYSCFGEN		RCC_APB2ENR_SYSCFGEN_Msk //defined macros for masking
+
+#define RCC_APB2ENR_SPI2EN_Pos		(12U)// SPI1's bit position(address on RCC_APB2ENR)
+#define RCC_APB2ENR_SPI1EN_Msk		(0x1 << RCC_APB2ENR_SPI1EN_Pos)// Bit manipulation masking for related position
+#define RCC_APB2ENR_SPI1EN			RCC_APB2ENR_SPI1EN_Msk //defined macros for masking
+
+#define RCC_APB1ENR_SPI2EN_Pos		(14U)// SPI2's bit position(address on RCC_APB1ENR)
+#define RCC_APB1ENR_SPI2EN_Msk		(0x1 << RCC_APB1ENR_SPI2EN_Pos)// Bit manipulation masking for related position
+#define RCC_APB1ENR_SPI2EN			RCC_APB1ENR_SPI2EN_Msk //defined macros for masking
+
+#define RCC_APB1ENR_SPI3EN_Pos		(15U)// SPI3's bit position(address on RCC_APB1ENR)
+#define RCC_APB1ENR_SPI3EN_Msk		(0x1 << RCC_APB1ENR_SPI3EN_Pos)// Bit manipulation masking for related position
+#define RCC_APB1ENR_SPI3EN			RCC_APB1ENR_SPI3EN_Msk //defined macros for masking
+
+#define RCC_APB2ENR_SPI4EN_Pos		(13U)// SPI4's bit position(address on RCC_APB1ENR)
+#define RCC_APB2ENR_SPI4EN_Msk		(0x1 << RCC_APB2ENR_SPI4EN_Pos)// Bit manipulation masking for related position
+#define RCC_APB2ENR_SPI4EN			RCC_APB2ENR_SPI4EN_Msk //defined macros for masking
+
+#define RCC_APB2ENR_SPI5EN_Pos		(20U)// SPI5's bit position(address on RCC_APB1ENR)
+#define RCC_APB2ENR_SPI5EN_Msk		(0x1 << RCC_APB2ENR_SPI5EN_Pos)// Bit manipulation masking for related position
+#define RCC_APB2ENR_SPI5EN			RCC_APB2ENR_SPI5EN_Msk //defined macros for masking
+
+#define RCC_APB2ENR_SPI6EN_Pos		(21U)// SPI6's bit position(address on RCC_APB1ENR)
+#define RCC_APB2ENR_SPI6EN_Msk		(0x1 << RCC_APB2ENR_SPI6EN_Pos)// Bit manipulation masking for related position
+#define RCC_APB2ENR_SPI6EN			RCC_APB2ENR_SPI6EN_Msk //defined macros for masking
 
 #include "RCC.h"
 #include "GPIO.h"
