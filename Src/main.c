@@ -12,6 +12,7 @@
 static void GPIO_ButtonInterruptConfig();
 static void GPIO_LedConfig();
 void EXTI0_IRQHandler();
+void SPI_config();
 
 void EXTI0_IRQHandler(){
 
@@ -30,6 +31,8 @@ int main(void)
 {
 	GPIO_LedConfig();
 	GPIO_ButtonInterruptConfig();
+
+
 
 
 	for(;;);
@@ -81,4 +84,15 @@ static void GPIO_ButtonInterruptConfig(){
 		NVIC_EnableInterrupt(EXTI0_IRQNumber);
 
 	}
+
+
+void SPI_config(){
+
+	SPI_HandleTypeDef_t SPI_Handle ={0};
+
+	SPI_Handle.Instance = SPI1;
+	SPI_Handle.Init.
+
+
+}
 
