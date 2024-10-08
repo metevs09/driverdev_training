@@ -28,12 +28,31 @@
 #define SPI_BAUDRATE_DIV256	((uint32_t)(0x00000038))
 
 
+/*
+ *
+ * @def_group SPI_CPHA
+ *
+ */
+
+#define SPI_CPHA_FIRST		((uint32_t)(0x00000000))
+#define SPI_CPHA_SECOND		((uint32_t)(0x00000001))
+
+
+/*
+ *
+ * @def_group SPI_CPOL
+ *
+ */
+
+#define SPI_CPOL_LOW		((uint32_t)(0x00000000))
+#define SPI_CPOL_HIGH		((uint32_t)(0x00000002))
+
 
 
 typedef struct {
 
-	uint32_t CPHA;
-	uint32_t CPOL;
+	uint32_t CPHA;		// *!> Clock Phase value for SPI @def_group SPI_CPHA
+	uint32_t CPOL;		// *!> Clock Polarity value for SPI @def_group SPI_CPOL
 	uint32_t MSTR;
 	uint32_t BR;		// *!> BaudRate value for SPI @def_group SPI_BaudRates
 	uint32_t SPE;
