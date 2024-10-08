@@ -88,10 +88,8 @@ static void GPIO_ButtonInterruptConfig(){
 
 void SPI_config(){
 
-	SPI_HandleTypeDef_t SPI_Handle ={0};
 
-	SPI_Handle.Instance = SPI1;
-	SPI_Handle.Init.
+
 
 
 }

@@ -81,10 +81,10 @@ Disassembly of section .text:
  80001c4:	080006bc 	.word	0x080006bc
 
 080001c8 <EXTI0_IRQHandler>:
-
 static void GPIO_ButtonInterruptConfig();
 static void GPIO_LedConfig();
 void EXTI0_IRQHandler();
+void SPI_config();
 
 void EXTI0_IRQHandler(){
  80001c8:	b580      	push	{r7, lr}

@@ -10,12 +10,32 @@
 
 #include"stm32f407xx.h"
 
+/*
+ *
+ * @def_group SPI_BaudRates
+ *
+ *
+ */
+
+
+#define SPI_BAUDRATE_DIV2	((uint32_t)(0x00000000))
+#define SPI_BAUDRATE_DIV4	((uint32_t)(0x00000008))
+#define SPI_BAUDRATE_DIV8	((uint32_t)(0x00000010))
+#define SPI_BAUDRATE_DIV16	((uint32_t)(0x00000018))
+#define SPI_BAUDRATE_DIV32	((uint32_t)(0x00000020))
+#define SPI_BAUDRATE_DIV64	((uint32_t)(0x00000028))
+#define SPI_BAUDRATE_DIV128	((uint32_t)(0x00000030))
+#define SPI_BAUDRATE_DIV256	((uint32_t)(0x00000038))
+
+
+
+
 typedef struct {
 
 	uint32_t CPHA;
 	uint32_t CPOL;
 	uint32_t MSTR;
-	uint32_t BR;
+	uint32_t BR;		// *!> BaudRate value for SPI @def_group SPI_BaudRates
 	uint32_t SPE;
 	uint32_t LSB_First;
 	uint32_t SSI;
@@ -36,5 +56,8 @@ typedef struct {
 	SPI_InitTypeDef_t Init;
 
 }SPI_HandleTypeDef_t;
+
+void SPI_Init(SPI_HandleTypeDef_t *SPI_Handle);
+
 
 #endif /* SPI_H_ */
