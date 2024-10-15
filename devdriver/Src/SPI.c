@@ -5,6 +5,17 @@
  *      Author: Metehan
  */
 
+
+/*
+ *
+ * @brief SPI_Init,Configures the SPI peripheral
+ * @param SPI_Handle = User configuration structure
+ *
+ *
+ * @retval Void
+ *
+ */
+
 #include "SPI.h"
 
 void SPI_Init(SPI_HandleTypeDef_t *SPI_Handle){
@@ -15,8 +26,8 @@ void SPI_Init(SPI_HandleTypeDef_t *SPI_Handle){
 	tempValue = SPI_Handle->Instance->CR1;
 
 	tempValue |= (SPI_Handle->Init.CPHA)|(SPI_Handle->Init.CPOL)|(SPI_Handle->Init.MSTR)|(SPI_Handle->Init.BR)|(SPI_Handle->Init.SPE)|\
-			(SPI_Handle->Init.LSB_First)|(SPI_Handle->Init.SSI)|(SPI_Handle->Init.SSM)|(SPI_Handle->Init.DFF)|\
-			(SPI_Handle->Init.CRCNEXT)|(SPI_Handle->Init.CRCEN)|(SPI_Handle->Init.BUS_CONFIG);
+				 (SPI_Handle->Init.LSB_First)|(SPI_Handle->Init.SSM)|(SPI_Handle->Init.DFF)|\
+				 (SPI_Handle->Init.CRCNEXT)|(SPI_Handle->Init.CRCEN)|(SPI_Handle->Init.BUS_CONFIG);
 
 
 }

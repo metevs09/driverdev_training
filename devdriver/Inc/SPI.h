@@ -91,6 +91,15 @@
 #define SPI_HALF_DUPLEX_R	((uint32_t)(0x00008000))
 
 
+/*
+ *
+ * @def_group SPI_SSM
+ *
+ */
+
+#define SPI_SSM_DISABLE		((uint32_t)(0x00000000))
+#define SPI_SSM_ENABLE		((uint32_t)(0x00000300))
+
 
 typedef struct {
 
@@ -100,8 +109,7 @@ typedef struct {
 	uint32_t BR;		// *!> BaudRate value for SPI @def_group SPI_BaudRates
 	uint32_t SPE;
 	uint32_t LSB_First;	// *!>  Frame format value for SPI @def_group SPI_LSB_First
-	uint32_t SSI;
-	uint32_t SSM;
+	uint32_t SSM;		// *!> Software slave management value for SPI @def_group SPI_SSM
 	uint32_t BUS_CONFIG;// *!> RX_Only value for SPI @def_group SPI_BUS_CONFIG
 	uint32_t DFF;		// *!> Data Frame Format value for SPI @def_group SPI_DFF
 	uint32_t CRCNEXT;
