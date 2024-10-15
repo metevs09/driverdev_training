@@ -48,23 +48,65 @@
 #define SPI_CPOL_HIGH		((uint32_t)(0x00000002))
 
 
+/*
+ *
+ * @def_group SPI_DFF
+ *
+ */
+
+#define SPI_DFF_8BITS		((uint32_t)(0x00000000))
+#define SPI_DFF_16BITS		((uint32_t)(0x00000800))
+
+
+/*
+ *
+ * @def_group SPI_MSTR
+ *
+ */
+
+#define SPI_MSTR_MASTER		((uint32_t)(0x00000004))
+#define SPI_MSTR_SLAVE		((uint32_t)(0x00000000))
+
+
+/*
+ *
+ * @def_group SPI_LSB_First
+ *
+ */
+
+#define SPI_FRAMEFORMAT_MSB		((uint32_t)(0x00000000))
+#define SPI_FRAMEFORMAT_LSB		((uint32_t)(0x00000080))
+
+
+/*
+ *
+ * @def_group SPI_BUS_CONFIG
+ *
+ */
+
+#define SPI_FULL_DUPLEX		((uint32_t)(0x00000000))
+#define SPI_RECEIVE_ONLY	((uint32_t)(0x00000400))
+
+#define SPI_HALF_DUPLEX_T	((uint32_t)(0x0000C000))
+#define SPI_HALF_DUPLEX_R	((uint32_t)(0x00008000))
+
+
 
 typedef struct {
 
 	uint32_t CPHA;		// *!> Clock Phase value for SPI @def_group SPI_CPHA
 	uint32_t CPOL;		// *!> Clock Polarity value for SPI @def_group SPI_CPOL
-	uint32_t MSTR;
+	uint32_t MSTR;		// *!> Master Mode value for SPI @def_group SPI_MSTR
 	uint32_t BR;		// *!> BaudRate value for SPI @def_group SPI_BaudRates
 	uint32_t SPE;
-	uint32_t LSB_First;
+	uint32_t LSB_First;	// *!>  Frame format value for SPI @def_group SPI_LSB_First
 	uint32_t SSI;
 	uint32_t SSM;
-	uint32_t RX_Only;
-	uint32_t DFF;
+	uint32_t BUS_CONFIG;// *!> RX_Only value for SPI @def_group SPI_BUS_CONFIG
+	uint32_t DFF;		// *!> Data Frame Format value for SPI @def_group SPI_DFF
 	uint32_t CRCNEXT;
 	uint32_t CRCEN;
-	uint32_t BIDIOE;
-	uint32_t BIDIMODE;
+
 
 
 }SPI_InitTypeDef_t;
