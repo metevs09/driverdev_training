@@ -10,23 +10,6 @@
 
 #include"stm32f407xx.h"
 
-/*
- *
- * @def_group SPI_BaudRates
- *
- *
- */
-
-
-#define SPI_BAUDRATE_DIV2	((uint32_t)(0x00000000))
-#define SPI_BAUDRATE_DIV4	((uint32_t)(0x00000008))
-#define SPI_BAUDRATE_DIV8	((uint32_t)(0x00000010))
-#define SPI_BAUDRATE_DIV16	((uint32_t)(0x00000018))
-#define SPI_BAUDRATE_DIV32	((uint32_t)(0x00000020))
-#define SPI_BAUDRATE_DIV64	((uint32_t)(0x00000028))
-#define SPI_BAUDRATE_DIV128	((uint32_t)(0x00000030))
-#define SPI_BAUDRATE_DIV256	((uint32_t)(0x00000038))
-
 
 /*
  *
@@ -50,22 +33,40 @@
 
 /*
  *
- * @def_group SPI_DFF
- *
- */
-
-#define SPI_DFF_8BITS		((uint32_t)(0x00000000))
-#define SPI_DFF_16BITS		((uint32_t)(0x00000800))
-
-
-/*
- *
  * @def_group SPI_MSTR
  *
  */
 
 #define SPI_MSTR_MASTER		((uint32_t)(0x00000004))
 #define SPI_MSTR_SLAVE		((uint32_t)(0x00000000))
+
+
+/*
+ *
+ * @def_group SPI_BaudRates
+ *
+ *
+ */
+
+
+#define SPI_BAUDRATE_DIV2	((uint32_t)(0x00000000))
+#define SPI_BAUDRATE_DIV4	((uint32_t)(0x00000008))
+#define SPI_BAUDRATE_DIV8	((uint32_t)(0x00000010))
+#define SPI_BAUDRATE_DIV16	((uint32_t)(0x00000018))
+#define SPI_BAUDRATE_DIV32	((uint32_t)(0x00000020))
+#define SPI_BAUDRATE_DIV64	((uint32_t)(0x00000028))
+#define SPI_BAUDRATE_DIV128	((uint32_t)(0x00000030))
+#define SPI_BAUDRATE_DIV256	((uint32_t)(0x00000038))
+
+
+/*
+ *
+ * @def_group SPI_SPE
+ *
+ */
+
+#define SPI_DISABLE		((uint32_t)(0x00000000))
+#define SPI_ENABLE		((uint32_t)(0x00000040))
 
 
 /*
@@ -77,6 +78,15 @@
 #define SPI_FRAMEFORMAT_MSB		((uint32_t)(0x00000000))
 #define SPI_FRAMEFORMAT_LSB		((uint32_t)(0x00000080))
 
+
+/*
+ *
+ * @def_group SPI_SSM
+ *
+ */
+
+#define SPI_SSM_DISABLE		((uint32_t)(0x00000000))
+#define SPI_SSM_ENABLE		((uint32_t)(0x00000300))
 
 /*
  *
@@ -93,12 +103,19 @@
 
 /*
  *
- * @def_group SPI_SSM
+ * @def_group SPI_DFF
  *
  */
 
-#define SPI_SSM_DISABLE		((uint32_t)(0x00000000))
-#define SPI_SSM_ENABLE		((uint32_t)(0x00000300))
+#define SPI_DFF_8BITS		((uint32_t)(0x00000000))
+#define SPI_DFF_16BITS		((uint32_t)(0x00000800))
+
+
+
+
+
+
+
 
 
 typedef struct {
@@ -107,12 +124,12 @@ typedef struct {
 	uint32_t CPOL;		// *!> Clock Polarity value for SPI @def_group SPI_CPOL
 	uint32_t MSTR;		// *!> Master Mode value for SPI @def_group SPI_MSTR
 	uint32_t BR;		// *!> BaudRate value for SPI @def_group SPI_BaudRates
-	uint32_t SPE;
+	uint32_t SPE;		// *!> SPI enable value for SPI @def_group SPI_SPE
 	uint32_t LSB_First;	// *!>  Frame format value for SPI @def_group SPI_LSB_First
 	uint32_t SSM;		// *!> Software slave management value for SPI @def_group SPI_SSM
-	uint32_t BUS_CONFIG;// *!> RX_Only value for SPI @def_group SPI_BUS_CONFIG
+	uint32_t BUS_CONFIG;// *!> Bus Configuration value for SPI @def_group SPI_BUS_CONFIG
 	uint32_t DFF;		// *!> Data Frame Format value for SPI @def_group SPI_DFF
-	uint32_t CRCNEXT;
+	uint32_t CRCNEXT;	// *!> Data Frame Format value for SPI @def_group SPI_CRCNEXT
 	uint32_t CRCEN;
 
 
