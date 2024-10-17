@@ -61,16 +61,6 @@
 
 /*
  *
- * @def_group SPI_SPE
- *
- */
-
-#define SPI_DISABLE		((uint32_t)(0x00000000))
-#define SPI_ENABLE		((uint32_t)(0x00000040))
-
-
-/*
- *
  * @def_group SPI_LSB_First
  *
  */
@@ -141,7 +131,6 @@ typedef struct {
 	uint32_t CPOL;		// *!> Clock Polarity value for SPI @def_group SPI_CPOL
 	uint32_t MSTR;		// *!> Master Mode value for SPI @def_group SPI_MSTR
 	uint32_t BR;		// *!> BaudRate value for SPI @def_group SPI_BaudRates
-	uint32_t SPE;		// *!> SPI enable value for SPI @def_group SPI_SPE
 	uint32_t LSB_First;	// *!>  Frame format value for SPI @def_group SPI_LSB_First
 	uint32_t SSM;		// *!> Software slave management value for SPI @def_group SPI_SSM
 	uint32_t BUS_CONFIG;// *!> Bus Configuration value for SPI @def_group SPI_BUS_CONFIG

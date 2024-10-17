@@ -500,6 +500,7 @@ typedef struct{
 #include "GPIO.h"
 #include "EXTI.h"
 #include "EXTI.h"
+#include "SPI.h"
 
 
 #endif /* INC_STM32F407XX_H_ */
