@@ -150,6 +150,7 @@ typedef struct {
 }SPI_HandleTypeDef_t;
 
 void SPI_Init(SPI_HandleTypeDef_t *SPI_Handle);
+void SPI_Perip_Cmd (SPI_HandleTypeDef_t *SPI_Handle, Functional_State_t stateOfSPI);
 
 
 #endif /* SPI_H_ */

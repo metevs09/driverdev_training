@@ -496,6 +496,9 @@ typedef struct{
 #define RCC_APB2ENR_SPI6EN_Msk		(0x1 << RCC_APB2ENR_SPI6EN_Pos)// Bit manipulation masking for related position
 #define RCC_APB2ENR_SPI6EN			RCC_APB2ENR_SPI6EN_Msk //defined macros for masking
 
+#define SPI_CR1_SPE					(6U)// SPI_CR1_SPE bit
+
+
 #include "RCC.h"
 #include "GPIO.h"
 #include "EXTI.h"

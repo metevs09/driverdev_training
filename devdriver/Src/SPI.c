@@ -30,9 +30,32 @@ void SPI_Init(SPI_HandleTypeDef_t *SPI_Handle){
 				 (SPI_Handle->Init.LSB_First)|(SPI_Handle->Init.SSM)|(SPI_Handle->Init.DFF)|\
 				 (SPI_Handle->Init.CRCNEXT)|(SPI_Handle->Init.CRCEN)|(SPI_Handle->Init.BUS_CONFIG);
 
+}
+
+/*
+ *
+ * @brief SPI_Perip_Cmd, Configures the SPI enable or disable
+ * @param SPI_Handle = User configuration structure
+ *
+   @param stateOfSPI = Functional State (ENABLE or DISABLE)values
+ *
+ *
+ * @retval Void
+ *
+ */
 
 
+void SPI_Perip_Cmd (SPI_HandleTypeDef_t *SPI_Handle, Functional_State_t stateOfSPI){
 
+	if (stateOfSPI == ENABLE){
 
+		SPI_Handle->Instance->CR1 |= (0x1 << SPI_CR1_SPE);
+
+	}
+	else{
+
+		SPI_Handle->Instance->CR1 &= ~(0x1 << SPI_CR1_SPE);
+
+	}
 
 }
