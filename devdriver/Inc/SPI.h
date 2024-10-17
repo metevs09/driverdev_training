@@ -111,7 +111,24 @@
 #define SPI_DFF_16BITS		((uint32_t)(0x00000800))
 
 
+/*
+ *
+ * @def_group SPI_CRCNEXT
+ *
+ */
 
+#define SPI_CRCNEXT_DISABLE	((uint32_t)(0x00000000))
+#define SPI_CRCNEXT_ENABLE	((uint32_t)(0x00001000))
+
+
+/*
+ *
+ * @def_group SPI_CRCEN
+ *
+ */
+
+#define SPI_CRCEN_DISABLE	((uint32_t)(0x00000000))
+#define SPI_CRCEN_ENABLE	((uint32_t)(0x00002000))
 
 
 
@@ -129,8 +146,8 @@ typedef struct {
 	uint32_t SSM;		// *!> Software slave management value for SPI @def_group SPI_SSM
 	uint32_t BUS_CONFIG;// *!> Bus Configuration value for SPI @def_group SPI_BUS_CONFIG
 	uint32_t DFF;		// *!> Data Frame Format value for SPI @def_group SPI_DFF
-	uint32_t CRCNEXT;	// *!> Data Frame Format value for SPI @def_group SPI_CRCNEXT
-	uint32_t CRCEN;
+	uint32_t CRCNEXT;	// *!> CRC transfer next value for SPI @def_group SPI_CRCNEXT
+	uint32_t CRCEN;		// *!> Hardware CRC calculation enable value for SPI @def_group SPI_CRCEN
 
 
 
