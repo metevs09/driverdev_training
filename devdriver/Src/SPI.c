@@ -59,3 +59,36 @@ void SPI_Perip_Cmd (SPI_HandleTypeDef_t *SPI_Handle, Functional_State_t stateOfS
 	}
 
 }
+
+void SPI_TransmitData(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pData, uint16_t sizeOfData ){
+
+	if(SPI_Handle->Init.DFF == SPI_DFF_16BITS){
+
+		while(sizeOfData >0){
+
+			if((SPI_Handle->Instance->SR >> 1U) & 0x1U){
+
+				SPI_Handle->Instance->DR = *((uint16_t*)pData);
+				pData += sizeof(uint16_t);
+				sizeOfData -= 2;
+
+			}
+		}
+
+	}
+	else{
+
+		while(sizeOfData >0){
+
+			if((SPI_Handle->Instance->SR >> 1U) & 0x1U){
+
+				SPI_Handle->Instance->DR = *pData;
+				pData++;
+				sizeOfData--;
+
+			}
+
+		 }
+
+	}
+}
