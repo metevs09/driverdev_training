@@ -67,7 +67,7 @@ void GPIO_Init(GPIO_TypeDef_t *GPIOx,GPIO_InitTypeDef_t *GPIO_ConfigStruct){
 
 			tempValue = GPIOx->AFR[pos >> 3U];
 			tempValue &= ~(0xFU << ((pos & 0x7U)*4));
-			tempValue |= (GPIO_ConfigStruct->Alternate <<((pos & 0x7U)*4));
+			tempValue |= (GPIO_ConfigStruct->AF <<((pos & 0x7U)*4));
 			GPIOx->AFR[pos >> 3U] = tempValue;
 		}
 
