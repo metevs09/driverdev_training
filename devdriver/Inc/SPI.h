@@ -78,6 +78,15 @@
 #define SPI_SSM_DISABLE		((uint32_t)(0x00000000))
 #define SPI_SSM_ENABLE		((uint32_t)(0x00000300))
 
+
+typedef enum {
+
+	SPI_FLAG_RESET = 0x0U,
+	SPI_FLAG_SET = !SPI_FLAG_RESET
+
+
+}SPI_FlagStatus_t;
+
 /*
  *
  * @def_group SPI_BUS_CONFIG
@@ -152,5 +161,6 @@ typedef struct {
 void SPI_Init(SPI_HandleTypeDef_t *SPI_Handle);
 void SPI_Perip_Cmd (SPI_HandleTypeDef_t *SPI_Handle, Functional_State_t stateOfSPI);
 void SPI_TransmitData(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pData, uint16_t sizeOfData);
+SPI_FlagStatus_t SPI_GetFlagStatus(SPI_HandleTypeDef_t *SPI_Handle,uint16_t SPI_Flag);
 
 #endif /* SPI_H_ */

@@ -60,13 +60,28 @@ void SPI_Perip_Cmd (SPI_HandleTypeDef_t *SPI_Handle, Functional_State_t stateOfS
 
 }
 
+
+/*
+ *
+ * @brief SPI_TransmitData, Transmit Data on the SPI
+ * @param SPI_Handle = User configuration structure
+ *
+ * @param pData = Address of data to sent
+ *
+ * @param sizeOfData = Length of your data in bytes
+ *
+ * @retval Void
+ *
+ */
+
+
 void SPI_TransmitData(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pData, uint16_t sizeOfData ){
 
 	if(SPI_Handle->Init.DFF == SPI_DFF_16BITS){
 
 		while(sizeOfData >0){
 
-			if((SPI_Handle->Instance->SR >> 1U) & 0x1U){
+			if(SPI_GetFlagStatus(SPI_Handle,SPI_TxE_FLAG )){
 
 				SPI_Handle->Instance->DR = *((uint16_t*)pData);
 				pData += sizeof(uint16_t);
@@ -83,7 +98,7 @@ void SPI_TransmitData(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pData, uint16_t s
 			if((SPI_Handle->Instance->SR >> 1U) & 0x1U){
 
 				SPI_Handle->Instance->DR = *pData;
-				pData++;
+				pData +=sizeof(uint8_t);
 				sizeOfData--;
 
 			}
@@ -91,4 +106,25 @@ void SPI_TransmitData(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pData, uint16_t s
 		 }
 
 	}
+
+	while(SPI_GetFlagStatus(SPI_Handle,SPI_TxE_FLAG )); // Wait for Busy Flag
+
+}
+
+/*
+ *
+ * @brief SPI_GetFlagStatus, Return the flag of SR register
+ * @param SPI_Handle = User configuration structure
+ *
+ * @param SPI_Flag = Flag name of SR register
+ *
+ * @retval SPI_FlagStatus_t
+ *
+ */
+
+
+SPI_FlagStatus_t SPI_GetFlagStatus(SPI_HandleTypeDef_t *SPI_Handle,uint16_t SPI_Flag){
+
+	return(SPI_Handle->Instance->SR & SPI_Flag) ? SPI_FLAG_SET : SPI_FLAG_RESET ;
+
 }

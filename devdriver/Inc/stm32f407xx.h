@@ -497,6 +497,17 @@ typedef struct{
 #define RCC_APB2ENR_SPI6EN			RCC_APB2ENR_SPI6EN_Msk //defined macros for masking
 
 #define SPI_CR1_SPE					(6U)// SPI_CR1_SPE bit
+#define SPI_TxE						(1U)// SPI_TxE bit
+#define SPI_Busy					(7U)// SPI_Busy bit
+
+/*
+ * Flag Definitions
+ *
+ *
+ */
+
+#define SPI_TxE_FLAG 				(0x1U << SPI_TxE)
+#define SPI_Busy_FLAG 				(0x1U << SPI_Busy)
 
 
 #include "RCC.h"
