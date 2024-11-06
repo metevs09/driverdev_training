@@ -93,6 +93,7 @@ typedef struct{
     uint32_t Speed;		// Speed configuration ( Low, Medium,  High, Very high) @def_group
     uint32_t PuPd;		// Pull-up or Pull-down configuration @def_group
     uint32_t AF;		// Alternate function configuration @def_group
+    uint32_t Alternate;
 
 
 

@@ -30,7 +30,7 @@ void GPIO_Init(GPIO_TypeDef_t *GPIOx,GPIO_InitTypeDef_t *GPIO_ConfigStruct){
 		fakepos = (0x1 << pos);
 		lastpos = (GPIO_ConfigStruct->pinNumber)& fakepos;
 
-		if (fakepos = lastpos){
+		if (fakepos == lastpos){
 
 			/* Mode Config  */
 
@@ -62,6 +62,14 @@ void GPIO_Init(GPIO_TypeDef_t *GPIOx,GPIO_InitTypeDef_t *GPIO_ConfigStruct){
 		tempValue &= ~(0x3U << (pos*2));
 		tempValue |= (GPIO_ConfigStruct->PuPd <<(pos*2));
 		GPIOx->PUPDR = tempValue;
+
+		if(GPIO_ConfigStruct->Mode == GPIO_MODE_AF){
+
+			tempValue = GPIOx->AFR[pos >> 3U];
+			tempValue &= ~(0xFU << ((pos & 0x7U)*4));
+			tempValue |= (GPIO_ConfigStruct->Alternate <<((pos & 0x7U)*4));
+			GPIOx->AFR[pos >> 3U] = tempValue;
+		}
 
 	}
 
