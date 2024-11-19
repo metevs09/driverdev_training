@@ -66,7 +66,7 @@
 
 /*
  *
- * @def_group GPIO_PuPd_Modes
+ * @def_group GPIO_PuPd_Speed
  *
  */
 
@@ -75,6 +75,28 @@
 #define GPIO_SPEED_HIGH		(0x2U)
 #define	GPIO_SPEED_VERY		(0x3U)
 
+/*
+ *
+ * @def_group GPIO_AF_Modes
+ *
+ */
+
+#define GPIO_AF0		(0x0U)
+#define GPIO_AF1		(0x1U)
+#define GPIO_AF2		(0x2U)
+#define GPIO_AF3		(0x3U)
+#define GPIO_AF4		(0x4U)
+#define GPIO_AF5		(0x5U)
+#define GPIO_AF6		(0x6U)
+#define GPIO_AF7		(0x7U)
+#define GPIO_AF8		(0x8U)
+#define GPIO_AF9		(0x9U)
+#define GPIO_AF10		(0xAU)
+#define GPIO_AF11		(0xBU)
+#define GPIO_AF12		(0xCU)
+#define GPIO_AF13		(0xDU)
+#define GPIO_AF14		(0xEU)
+#define GPIO_AF15		(0xFU)
 
 
 typedef enum{
@@ -87,12 +109,12 @@ typedef enum{
 
 typedef struct{
 
-    uint32_t pinNumber; // Related pin to configuration @def_group
-    uint32_t Mode;		// Pin Mode Select @def_group
-    uint32_t Otype;		// Output Type configuration (push-pull or  open-drain) @def_group
-    uint32_t Speed;		// Speed configuration ( Low, Medium,  High, Very high) @def_group
-    uint32_t PuPd;		// Pull-up or Pull-down configuration @def_group
-    uint32_t AF;		// Alternate function configuration @def_group
+    uint32_t pinNumber; // Related pin to configuration @def_group GPIO_Pins
+    uint32_t Mode;		// Pin Mode Select @def_group GPIO_Pin_Modes
+    uint32_t Otype;		// Output Type configuration (push-pull or  open-drain) @def_group GPIO_PuPd_Modes
+    uint32_t Speed;		// Speed configuration ( Low, Medium,  High, Very high) @def_group GPIO_PuPd_Speed
+    uint32_t PuPd;		// Pull-up or Pull-down configuration @def_group GPIO_PuPd_Modes
+    uint32_t AF;		// Alternate function configuration @def_group GPIO_AF_Modes
 
 
 

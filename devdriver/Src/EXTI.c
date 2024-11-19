@@ -38,7 +38,7 @@ void EXTI_Init(EXTI_InitTypeDef_t*EXTI_InitStruct){
 		EXTI->RTSR &= ~(0x1U << EXTI_InitStruct->EXTI_LineNumber);
 		EXTI->FTSR &= ~(0x1U << EXTI_InitStruct->EXTI_LineNumber);
 
-		if(EXTI_InitStruct->TriggerSelection = EXTI_RFTSR){
+		if((EXTI_InitStruct->TriggerSelection = EXTI_RFTSR)){
 
 			EXTI->RTSR |= (0x1U << EXTI_InitStruct->EXTI_LineNumber);
 			EXTI->FTSR |= (0x1U << EXTI_InitStruct->EXTI_LineNumber);
