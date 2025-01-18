@@ -12,14 +12,20 @@
 static void GPIO_ButtonInterruptConfig();
 static void GPIO_LedConfig();
 void EXTI0_IRQHandler();
+void SPI_GPIO_Config();
 void SPI_config();
 
+SPI_HandleTypeDef_t SPI_Handle;
+
 void EXTI0_IRQHandler(){
+
+	char msgToSent[] = "Subhane men tahayyera fi sun'uh'il-ukul\n";
 
 	if(EXTI->PR & 0x1){
 
 		EXTI->PR |= (0x1U <<0U);
 
+		SPI_TransmitData(&SPI_Handle, (uint8_t*)msgToSent, strlen(msgToSent));
 
 	}
 
@@ -31,6 +37,8 @@ int main(void)
 	GPIO_LedConfig();
 	GPIO_ButtonInterruptConfig();
 
+	SPI_GPIO_Config();
+	SPI_config();
 
 
 
@@ -89,8 +97,6 @@ void SPI_config(){
 
 		RCC_SPI1_CLK_ENABLE();
 
-		SPI_HandleTypeDef_t SPI_Handle = { 0 };
-
 		SPI_Handle.Instance = SPI1;
 
 		SPI_Handle.Init.BR = SPI_BAUDRATE_DIV8; // 2 MHz
@@ -104,6 +110,22 @@ void SPI_config(){
 
 		SPI_Init(&SPI_Handle);
 
+		SPI_Perip_Cmd(&SPI_Handle, ENABLE);
 
 }
 
+
+void SPI_GPIO_Config(){
+
+		GPIO_InitTypeDef_t GPIO_InitStruct = { 0 };
+
+		GPIO_InitStruct.pinNumber = GPIO_PIN_5 | GPIO_PIN_7 ; // PA5 = SCK, PA7 = MOSI
+		GPIO_InitStruct.Mode = GPIO_MODE_AF;
+		GPIO_InitStruct.Otype = GPIO_OTYPE_PP;
+		GPIO_InitStruct.PuPd = GPIO_PUPD_NOPULL;
+		GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+		GPIO_InitStruct.AF = GPIO_AF5;
+
+		GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+}

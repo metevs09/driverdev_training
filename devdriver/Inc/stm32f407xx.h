@@ -472,7 +472,7 @@ typedef struct{
 #define RCC_APB2ENR_SYSCFGEN_Msk	(0x1 << RCC_APB2ENR_SYSCFGEN_Pos)// Bit manipulation masking for related position
 #define RCC_APB2ENR_SYSCFGEN		RCC_APB2ENR_SYSCFGEN_Msk //defined macros for masking
 
-#define RCC_APB2ENR_SPI2EN_Pos		(12U)// SPI1's bit position(address on RCC_APB2ENR)
+#define RCC_APB2ENR_SPI1EN_Pos		(12U)// SPI1's bit position(address on RCC_APB2ENR)
 #define RCC_APB2ENR_SPI1EN_Msk		(0x1 << RCC_APB2ENR_SPI1EN_Pos)// Bit manipulation masking for related position
 #define RCC_APB2ENR_SPI1EN			RCC_APB2ENR_SPI1EN_Msk //defined macros for masking
 
