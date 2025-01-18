@@ -20,7 +20,6 @@ void EXTI0_IRQHandler(){
 
 		EXTI->PR |= (0x1U <<0U);
 
-		GPIO_WritePin(GPIOD, GPIO_PIN_ALL,GPIO_Pin_Set );
 
 	}
 
@@ -43,8 +42,7 @@ static void GPIO_LedConfig(){
 
 	GPIO_InitTypeDef_t GPIO_InitStruct = {0};
 
-		RCC_GPIOD_CLK_ENABLE();
-		RCC_GPIOA_CLK_ENABLE();
+		RCC_GPIOD_CLK_ENABLE(); // Clock is Active
 
 
 		GPIO_InitStruct.pinNumber = GPIO_PIN_12 | GPIO_PIN_13 | GPIO_PIN_14 | GPIO_PIN_15;
@@ -68,6 +66,7 @@ static void GPIO_LedConfig(){
 
 static void GPIO_ButtonInterruptConfig(){
 
+		RCC_GPIOA_CLK_ENABLE(); // Clock is Active
 		RCC_SYSCFG_CLK_ENABLE();
 
 		EXTI_InitTypeDef_t EXTI_InitStruct= {0};
@@ -88,8 +87,22 @@ static void GPIO_ButtonInterruptConfig(){
 
 void SPI_config(){
 
+		RCC_SPI1_CLK_ENABLE();
 
+		SPI_HandleTypeDef_t SPI_Handle = { 0 };
 
+		SPI_Handle.Instance = SPI1;
+
+		SPI_Handle.Init.BR = SPI_BAUDRATE_DIV8; // 2 MHz
+		SPI_Handle.Init.BUS_CONFIG = SPI_FULL_DUPLEX;
+		SPI_Handle.Init.CPHA = SPI_CPHA_FIRST;
+		SPI_Handle.Init.CPOL = SPI_CPOL_LOW;
+		SPI_Handle.Init.DFF = SPI_DFF_8BITS;
+		SPI_Handle.Init.LSB_First = SPI_FRAMEFORMAT_MSB;
+		SPI_Handle.Init.MSTR = SPI_MSTR_MASTER;
+		SPI_Handle.Init.SSM = SPI_SSM_ENABLE;
+
+		SPI_Init(&SPI_Handle);
 
 
 }
