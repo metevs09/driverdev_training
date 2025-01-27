@@ -30,6 +30,7 @@ void SPI_Init(SPI_HandleTypeDef_t *SPI_Handle){
 				 (SPI_Handle->Init.LSB_First)|(SPI_Handle->Init.SSM)|(SPI_Handle->Init.DFF)|\
 				 (SPI_Handle->Init.CRCNEXT)|(SPI_Handle->Init.CRCEN)|(SPI_Handle->Init.BUS_CONFIG);
 
+	SPI_Handle->Instance->CR1 = tempValue;
 }
 
 /*
