@@ -51,6 +51,7 @@ static void GPIO_LedConfig(){
 	GPIO_InitTypeDef_t GPIO_InitStruct = {0};
 
 		RCC_GPIOD_CLK_ENABLE(); // Clock is Active
+		RCC_GPIOA_CLK_ENABLE(); // Clock is Active
 
 
 		GPIO_InitStruct.pinNumber = GPIO_PIN_12 | GPIO_PIN_13 | GPIO_PIN_14 | GPIO_PIN_15;
@@ -74,7 +75,6 @@ static void GPIO_LedConfig(){
 
 static void GPIO_ButtonInterruptConfig(){
 
-		RCC_GPIOA_CLK_ENABLE(); // Clock is Active
 		RCC_SYSCFG_CLK_ENABLE();
 
 		EXTI_InitTypeDef_t EXTI_InitStruct= {0};
