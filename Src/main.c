@@ -19,7 +19,7 @@ SPI_HandleTypeDef_t SPI_Handle;
 
 void EXTI0_IRQHandler(){
 
-	char msgToSent[] = "Subhane men tahayyera fi sun'uh'il-ukul\n";
+	char msgToSent[] = "Hello World\n";
 
 	if(EXTI->PR & 0x1){
 
@@ -32,8 +32,8 @@ void EXTI0_IRQHandler(){
 
 }
 
-int main(void)
-{
+int main(void){
+
 	GPIO_LedConfig();
 	GPIO_ButtonInterruptConfig();
 
@@ -42,7 +42,9 @@ int main(void)
 
 
 
-	for(;;);
+	for(;;){
+
+	}
 
 }
 
