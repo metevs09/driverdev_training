@@ -64,6 +64,54 @@ void SPI_Perip_Cmd (SPI_HandleTypeDef_t *SPI_Handle, Functional_State_t stateOfS
 
 /*
  *
+ * @brief SPI_ReceiveData, Receive Data on the SPI
+ * @param SPI_Handle = User configuration structure
+ *
+ * @param pBuffer = Buffer address of data to receive
+ *
+ * @param sizeOfData = Length of your data in bytes
+ *
+ * @retval Void
+ *
+ */
+
+void SPI_ReceiveData(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pBuffer, uint16_t sizeOfData){
+
+	if(SPI_Handle->Init.DFF == SPI_DFF_16BITS){
+
+		while(sizeOfData > 0){
+
+			if(SPI_GetFlagStatus(SPI_Handle, SPI_RxNE_Flag)){
+
+				*( (uint16_t*)pBuffer ) = (uint16_t)SPI_Handle->Instance->DR;
+				pBuffer += sizeof(uint16_t);
+				sizeOfData -= 2;
+			}
+
+		}
+
+
+	}
+	else{
+
+		while(sizeOfData > 0){
+
+			if(SPI_GetFlagStatus(SPI_Handle, SPI_RxNE_Flag)){
+
+				*(pBuffer) = *((__IO uint8_t*)&SPI_Handle->Instance->DR);
+					pBuffer += sizeof(uint8_t);
+					sizeOfData --;
+
+			}
+
+		}
+
+	}
+}
+
+
+/*
+ *
  * @brief SPI_TransmitData, Transmit Data on the SPI
  * @param SPI_Handle = User configuration structure
  *

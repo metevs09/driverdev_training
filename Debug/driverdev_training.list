@@ -7,47 +7,47 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   1 .text         000007c0  08000188  08000188  00001188  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       00000010  08000948  08000948  00001948  2**2
+  2 .rodata       0000000c  08000948  08000948  00001948  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  08000958  08000958  00001968  2**0
+  3 .ARM.extab    00000000  08000954  08000954  00001964  2**0
                   CONTENTS
-  4 .ARM          00000008  08000958  08000958  00001958  2**2
+  4 .ARM          00000008  08000954  08000954  00001954  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  5 .preinit_array 00000000  08000960  08000968  00001968  2**0
+  5 .preinit_array 00000000  0800095c  08000964  00001964  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  08000960  08000960  00001960  2**2
+  6 .init_array   00000004  0800095c  0800095c  0000195c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  7 .fini_array   00000004  08000964  08000964  00001964  2**2
+  7 .fini_array   00000004  08000960  08000960  00001960  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  8 .data         00000000  20000000  20000000  00001968  2**0
+  8 .data         00000000  20000000  20000000  00001964  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .ccmram       00000000  10000000  10000000  00001968  2**0
+  9 .ccmram       00000000  10000000  10000000  00001964  2**0
                   CONTENTS
  10 .bss          00000048  20000000  20000000  00002000  2**2
                   ALLOC
  11 ._user_heap_stack 00000600  20000048  20000048  00002000  2**0
                   ALLOC
- 12 .ARM.attributes 0000002a  00000000  00000000  00001968  2**0
+ 12 .ARM.attributes 0000002a  00000000  00000000  00001964  2**0
                   CONTENTS, READONLY
- 13 .debug_info   000014a7  00000000  00000000  00001992  2**0
+ 13 .debug_info   000014e4  00000000  00000000  0000198e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 000005f3  00000000  00000000  00002e39  2**0
+ 14 .debug_abbrev 000005f5  00000000  00000000  00002e72  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_aranges 00000118  00000000  00000000  00003430  2**3
+ 15 .debug_aranges 00000120  00000000  00000000  00003468  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_rnglists 000000bd  00000000  00000000  00003548  2**0
+ 16 .debug_rnglists 000000c3  00000000  00000000  00003588  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  0000288a  00000000  00000000  00003605  2**0
+ 17 .debug_macro  00002898  00000000  00000000  0000364b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00001d37  00000000  00000000  00005e8f  2**0
+ 18 .debug_line   00001d98  00000000  00000000  00005ee3  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    0000b29e  00000000  00000000  00007bc6  2**0
+ 19 .debug_str    0000b2e5  00000000  00000000  00007c7b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  00012e64  2**0
+ 20 .comment      00000043  00000000  00000000  00012f60  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  0000033c  00000000  00000000  00012ea8  2**2
+ 21 .debug_frame  0000035c  00000000  00000000  00012fa4  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 00000069  00000000  00000000  000131e4  2**0
+ 22 .debug_line_str 00000069  00000000  00000000  00013300  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -96,16 +96,16 @@ void SPI_config();
 SPI_HandleTypeDef_t SPI_Handle;
 
 void EXTI0_IRQHandler(){
- 80001d8:	b590      	push	{r4, r7, lr}
- 80001da:	b085      	sub	sp, #20
+ 80001d8:	b580      	push	{r7, lr}
+ 80001da:	b084      	sub	sp, #16
  80001dc:	af00      	add	r7, sp, #0
 
-	char msgToSent[] = "Hello World\n";
- 80001de:	4b10      	ldr	r3, [pc, #64]	@ (8000220 <EXTI0_IRQHandler+0x48>)
- 80001e0:	463c      	mov	r4, r7
- 80001e2:	cb0f      	ldmia	r3, {r0, r1, r2, r3}
- 80001e4:	c407      	stmia	r4!, {r0, r1, r2}
- 80001e6:	7023      	strb	r3, [r4, #0]
+	char msgToSent[] = "JANDARMA\n";
+ 80001de:	4a10      	ldr	r2, [pc, #64]	@ (8000220 <EXTI0_IRQHandler+0x48>)
+ 80001e0:	1d3b      	adds	r3, r7, #4
+ 80001e2:	ca07      	ldmia	r2, {r0, r1, r2}
+ 80001e4:	c303      	stmia	r3!, {r0, r1}
+ 80001e6:	801a      	strh	r2, [r3, #0]
 
 	if(EXTI->PR & 0x1){
  80001e8:	4b0e      	ldr	r3, [pc, #56]	@ (8000224 <EXTI0_IRQHandler+0x4c>)
@@ -122,12 +122,12 @@ void EXTI0_IRQHandler(){
  80001fe:	6153      	str	r3, [r2, #20]
 
 		SPI_TransmitData(&SPI_Handle, (uint8_t*)msgToSent, strlen(msgToSent));
- 8000200:	463b      	mov	r3, r7
+ 8000200:	1d3b      	adds	r3, r7, #4
  8000202:	4618      	mov	r0, r3
  8000204:	f7ff ffe0 	bl	80001c8 <strlen>
  8000208:	4603      	mov	r3, r0
  800020a:	b29a      	uxth	r2, r3
- 800020c:	463b      	mov	r3, r7
+ 800020c:	1d3b      	adds	r3, r7, #4
  800020e:	4619      	mov	r1, r3
  8000210:	4805      	ldr	r0, [pc, #20]	@ (8000228 <EXTI0_IRQHandler+0x50>)
  8000212:	f000 fb06 	bl	8000822 <SPI_TransmitData>
@@ -137,9 +137,9 @@ void EXTI0_IRQHandler(){
 
 }
  8000216:	bf00      	nop
- 8000218:	3714      	adds	r7, #20
+ 8000218:	3710      	adds	r7, #16
  800021a:	46bd      	mov	sp, r7
- 800021c:	bd90      	pop	{r4, r7, pc}
+ 800021c:	bd80      	pop	{r7, pc}
  800021e:	bf00      	nop
  8000220:	08000948 	.word	0x08000948
  8000224:	40013c00 	.word	0x40013c00
@@ -547,7 +547,7 @@ LoopForever:
   ldr r1, =_edata
  800043c:	20000000 	.word	0x20000000
   ldr r2, =_sidata
- 8000440:	08000968 	.word	0x08000968
+ 8000440:	08000964 	.word	0x08000964
   ldr r2, =_sbss
  8000444:	20000000 	.word	0x20000000
   ldr r4, =_ebss
@@ -1373,10 +1373,10 @@ SPI_FlagStatus_t SPI_GetFlagStatus(SPI_HandleTypeDef_t *SPI_Handle,uint16_t SPI_
  800091a:	4798      	blx	r3
  800091c:	3601      	adds	r6, #1
  800091e:	e7f2      	b.n	8000906 <__libc_init_array+0x1e>
- 8000920:	08000960 	.word	0x08000960
- 8000924:	08000960 	.word	0x08000960
- 8000928:	08000960 	.word	0x08000960
- 800092c:	08000964 	.word	0x08000964
+ 8000920:	0800095c 	.word	0x0800095c
+ 8000924:	0800095c 	.word	0x0800095c
+ 8000928:	0800095c 	.word	0x0800095c
+ 800092c:	08000960 	.word	0x08000960
 
 08000930 <_init>:
  8000930:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
