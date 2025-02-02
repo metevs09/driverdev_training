@@ -64,7 +64,7 @@ void SPI_Perip_Cmd (SPI_HandleTypeDef_t *SPI_Handle, Functional_State_t stateOfS
 
 /*
  *
- * @brief SPI_ReceiveData, Receive Data on the SPI
+ * @brief SPI_ReceiveData, Receive Data from the Slave
  * @param SPI_Handle = User configuration structure
  *
  * @param pBuffer = Buffer address of data to receive
@@ -86,12 +86,11 @@ void SPI_ReceiveData(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pBuffer, uint16_t 
 				*( (uint16_t*)pBuffer ) = (uint16_t)SPI_Handle->Instance->DR;
 				pBuffer += sizeof(uint16_t);
 				sizeOfData -= 2;
+
 			}
-
 		}
-
-
 	}
+
 	else{
 
 		while(sizeOfData > 0){
@@ -103,9 +102,7 @@ void SPI_ReceiveData(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pBuffer, uint16_t 
 					sizeOfData --;
 
 			}
-
 		}
-
 	}
 }
 
