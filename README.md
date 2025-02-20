@@ -17,8 +17,8 @@ This project is designed to help you learn the fundamental principles of driver 
 - Modular Code Structure: Organized code to enhance readability and maintainability.
 - Documentation: In-code comments and example usage scenarios for each module.
 ## Requirements
-1.Hardware: STM32F4 Discovery kit or a compatible STM32F4-based development board.
-2.Software:
+1. Hardware: STM32F4 Discovery kit or a compatible STM32F4-based development board.
+2. Software:
 - STM32CubeMX (for project configuration)
 - A suitable C compiler (Keil, IAR, or PlatformIO)
 - Git (for version control)
