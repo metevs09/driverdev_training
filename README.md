@@ -23,18 +23,18 @@ This project is designed to help you learn the fundamental principles of driver 
 - A suitable C compiler (Keil, IAR, or PlatformIO)
 - Git (for version control)
 ## Installation
-1.Clone this repository to your local machine:
+1. Clone this repository to your local machine:
 ''' git clone https://github.com/metevs09/driverdev_training.git
-2.Open the project files in STM32CubeMX and configure them for your specific development board.
-3.Build the project and flash it to your device.
+2. Open the project files in STM32CubeMX and configure them for your specific development board.
+3. Build the project and flash it to your device.
 ## Usage
 The modules in this project are designed to utilize various hardware features of the STM32F4 microcontroller. Detailed usage examples and test scenarios are provided within the code comments and additional documentation.
 
 For example, to test a specific driver module:
 
-1.Navigate to the relevant files in the src/ folder.
-2.Locate the usage example in main.c.
-3.Compile and load the project onto your device to observe the behavior.
+1. Navigate to the relevant files in the src/ folder.
+2. Locate the usage example in main.c.
+3. Compile and load the project onto your device to observe the behavior.
 
 ## File Structure
 
