@@ -61,11 +61,6 @@ driverdev_training/
 - STM32F407VGTX_FLASH.ld # Flash Linker file
 - STM32F407VGTX_RAM.ld   # Ram linker file 
 
-
-## Contributing
-Contributions are welcome!
-If you’d like to contribute, please open an issue first or submit a pull request. For more details, refer to our CONTRIBUTING.md file (if available).
-
 License
 This project is licensed under the MIT License.
 
