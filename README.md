@@ -24,7 +24,7 @@ This project is designed to help you learn the fundamental principles of driver 
 - Git (for version control)
 ## Installation
 1. Clone this repository to your local machine:
-''' git clone https://github.com/metevs09/driverdev_training.git '''
+``` git clone https://github.com/metevs09/driverdev_training.git ```
 2. Open the project files in STM32CubeMX and configure them for your specific development board.
 3. Build the project and flash it to your device.
 ## Usage
