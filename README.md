@@ -39,12 +39,13 @@ For example, to test a specific driver module:
 ## File Structure
 
 driverdev_training/
-├── src/           # Source code files
-├── include/       # Header files
-├── docs/          # Additional documentation and user guides
-├── examples/      # Usage examples and test scenarios
-├── LICENSE        # License file
-└── README.md      # This file
+
+- ├── src/           # Source code files
+- ├── include/       # Header files
+- ├── docs/          # Additional documentation and user guides
+- ├── examples/      # Usage examples and test scenarios
+- ├── LICENSE        # License file
+- └── README.md      # This file
 
 ## Contributing
 Contributions are welcome!
