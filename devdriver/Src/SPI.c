@@ -18,6 +18,16 @@
 
 #include "SPI.h"
 
+static void SPI_Transmit_16Bits(SPI_HandleTypeDef_t *SPI_Handle){
+
+
+}
+
+static void SPI_Transmit_8Bits(SPI_HandleTypeDef_t *SPI_Handle){
+
+
+}
+
 void SPI_Init(SPI_HandleTypeDef_t *SPI_Handle){
 
 	/*	SPI control register 1 (SPI_CR1)	*/
@@ -169,11 +179,12 @@ void SPI_TransmitData_Interrupt(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pData, 
 
 	if(SPI_Handle->Instance->CR1 & (0x1U << SPI_CR1_DFF)){
 
-		SPI_Handle->TxISR
+		SPI_Handle->TxISRFunction = SPI_Transmit_16Bits;
 
 	}
 	else {
 
+		SPI_Handle->TxISRFunction = SPI_Transmit_8Bits;
 
 	}
 
@@ -183,7 +194,20 @@ void SPI_TransmitData_Interrupt(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pData, 
 
 }
 
+void SPI_Interrupt_Handler(SPI_HandleTypeDef_t *SPI_Handle){
 
+	uint8_t interruptSource = 0;
+	uint8_t interruptFlag = 0;
+
+	interruptSource = SPI_Handle->Instance->CR2 & (0x1U << SPI_CR2_TXEIE);
+	interruptFlag   = SPI_Handle->Instance->SR  & (0x1U << SPI_TxE);
+
+	if((interruptSource != 0)&&(interruptFlag != 0)){
+
+		SPI_Handle->TxISRFunction(SPI_Handle);
+	}
+
+}
 
 /*
  *

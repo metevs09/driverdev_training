@@ -29,25 +29,25 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  12 .ARM.attributes 0000002a  00000000  00000000  0000195c  2**0
                   CONTENTS, READONLY
- 13 .debug_info   00001606  00000000  00000000  00001986  2**0
+ 13 .debug_info   0000168d  00000000  00000000  00001986  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 00000648  00000000  00000000  00002f8c  2**0
+ 14 .debug_abbrev 0000065f  00000000  00000000  00003013  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_aranges 00000130  00000000  00000000  000035d8  2**3
+ 15 .debug_aranges 00000148  00000000  00000000  00003678  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_rnglists 000000cf  00000000  00000000  00003708  2**0
+ 16 .debug_rnglists 000000e1  00000000  00000000  000037c0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  000028a6  00000000  00000000  000037d7  2**0
+ 17 .debug_macro  000028a6  00000000  00000000  000038a1  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00001de4  00000000  00000000  0000607d  2**0
+ 18 .debug_line   00001e55  00000000  00000000  00006147  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    0000b3a8  00000000  00000000  00007e61  2**0
+ 19 .debug_str    0000b40b  00000000  00000000  00007f9c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  00013209  2**0
+ 20 .comment      00000043  00000000  00000000  000133a7  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  000003a4  00000000  00000000  0001324c  2**2
+ 21 .debug_frame  00000418  00000000  00000000  000133ec  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 00000069  00000000  00000000  000135f0  2**0
+ 22 .debug_line_str 00000069  00000000  00000000  00013804  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1086,10 +1086,10 @@ void GPIO_Init(GPIO_TypeDef_t *GPIOx,GPIO_InitTypeDef_t *GPIO_ConfigStruct){
  8000780:	4770      	bx	lr
 
 08000782 <SPI_Init>:
- *
- */
+static void SPI_Transmit_8Bits(SPI_HandleTypeDef_t *SPI_Handle){
 
-#include "SPI.h"
+
+}
 
 void SPI_Init(SPI_HandleTypeDef_t *SPI_Handle){
  8000782:	b480      	push	{r7}
