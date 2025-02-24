@@ -501,6 +501,7 @@ typedef struct{
 #define SPI_RxNE					(0U)// SPI_RxNE bit
 
 #define SPI_CR1_SPE					(6U)// SPI_CR1_SPE bit
+#define SPI_CR1_DFF					(11U)// SPI_CR1_DFF bit
 
 #define SPI_CR2_TXEIE				(7U)// SPI_CR2_TXEIE bit
 

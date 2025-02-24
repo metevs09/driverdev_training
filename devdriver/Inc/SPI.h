@@ -158,13 +158,14 @@ typedef struct {
 
 }SPI_InitTypeDef_t;
 
-typedef struct {
+typedef struct __SPI_HandleTypeDef_t {
 
 	SPI_TypeDef_t* Instance;
 	SPI_InitTypeDef_t Init;
 	uint8_t *pTxBufferAddr;
 	uint16_t TxDataSize;
 	uint8_t Bus_StateTX;
+	void(*TxISRFunction)(struct __SPI_HandleTypeDef_t *SPI_Handle);
 
 }SPI_HandleTypeDef_t;
 
