@@ -515,7 +515,6 @@ typedef struct{
 #include "RCC.h"
 #include "GPIO.h"
 #include "EXTI.h"
-#include "EXTI.h"
 #include "SPI.h"
 
 

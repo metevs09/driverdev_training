@@ -19,7 +19,7 @@ SPI_HandleTypeDef_t SPI_Handle;
 
 void EXTI0_IRQHandler(){
 
-	char msgToSent[] = "JANDARMA\n";
+	char msgToSent[] = "EV\n";
 
 	if(EXTI->PR & 0x1){
 
