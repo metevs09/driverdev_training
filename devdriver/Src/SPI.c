@@ -6,17 +6,17 @@
  */
 
 
+#include "SPI.h"
+
 /*
  *
- * @brief SPI_Init,Configures the SPI peripheral
+ * @brief SPI_Close_ISR_TX, Close the SPI ISR Transmit service
  * @param SPI_Handle = User configuration structure
  *
  *
  * @retval Void
  *
  */
-
-#include "SPI.h"
 
 static void SPI_Close_ISR_TX(SPI_HandleTypeDef_t *SPI_Handle){
 
@@ -26,6 +26,16 @@ static void SPI_Close_ISR_TX(SPI_HandleTypeDef_t *SPI_Handle){
 	SPI_Handle->Bus_StateTX = SPI_BUS_FREE;
 }
 
+/*
+ *
+ * @brief SPI_Transmit_16Bits, Transmit the data 16 Bits frame format
+ * @param SPI_Handle = User configuration structure
+ *
+ *
+ * @retval Void
+ *
+ */
+
 static void SPI_Transmit_16Bits(SPI_HandleTypeDef_t *SPI_Handle){
 
 	SPI_Handle->Instance->DR = *((uint16_t*)(SPI_Handle->pTxBufferAddr));
@@ -33,6 +43,16 @@ static void SPI_Transmit_16Bits(SPI_HandleTypeDef_t *SPI_Handle){
 	SPI_Handle->TxDataSize -= 2;
 
 }
+
+/*
+ *
+ * @brief SPI_Transmit_8Bits, Transmit the data 8 Bits frame format
+ * @param SPI_Handle = User configuration structure
+ *
+ *
+ * @retval Void
+ *
+ */
 
 static void SPI_Transmit_8Bits(SPI_HandleTypeDef_t *SPI_Handle){
 
@@ -45,6 +65,16 @@ static void SPI_Transmit_8Bits(SPI_HandleTypeDef_t *SPI_Handle){
 			SPI_Close_ISR_TX(SPI_Handle);
 		}
 }
+
+/*
+ *
+ * @brief SPI_Init,Configures the SPI peripheral
+ * @param SPI_Handle = User configuration structure
+ *
+ *
+ * @retval Void
+ *
+ */
 
 void SPI_Init(SPI_HandleTypeDef_t *SPI_Handle){
 
@@ -185,6 +215,19 @@ void SPI_TransmitData(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pData, uint16_t s
 
 }
 
+/*
+ *
+ * @brief SPI_TransmitData_Interrupt, Transmit Data on the SPI with Interrupt
+ * @param SPI_Handle = User configuration structure
+ *
+ * @param pData = Address of data to sent
+ *
+ * @param sizeOfData = Length of your data in bytes
+ *
+ * @retval Void
+ *
+ */
+
 void SPI_TransmitData_Interrupt(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pData, uint16_t sizeOfData){
 
 	SPI_BusStatus_t busState = SPI_Handle->Bus_StateTX;
@@ -211,6 +254,17 @@ void SPI_TransmitData_Interrupt(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pData, 
 
 
 }
+
+/*
+ *
+ * @brief SPI_Interrupt_Handler, Handler service for SPI Interrupt
+ *
+ * @param SPI_Handle = User configuration structure
+ *
+
+ * @retval Void
+ *
+ */
 
 void SPI_Interrupt_Handler(SPI_HandleTypeDef_t *SPI_Handle){
 
