@@ -496,10 +496,13 @@ typedef struct{
 #define RCC_APB2ENR_SPI6EN_Msk		(0x1 << RCC_APB2ENR_SPI6EN_Pos)// Bit manipulation masking for related position
 #define RCC_APB2ENR_SPI6EN			RCC_APB2ENR_SPI6EN_Msk //defined macros for masking
 
-#define SPI_CR1_SPE					(6U)// SPI_CR1_SPE bit
 #define SPI_TxE						(1U)// SPI_TxE bit
 #define SPI_Busy					(7U)// SPI_Busy bit
 #define SPI_RxNE					(0U)// SPI_RxNE bit
+
+#define SPI_CR1_SPE					(6U)// SPI_CR1_SPE bit
+
+#define SPI_CR2_TXEIE				(7U)// SPI_CR2_TXEIE bit
 
 /*
  * Flag Definitions

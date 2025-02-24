@@ -157,6 +157,33 @@ void SPI_TransmitData(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pData, uint16_t s
 
 }
 
+void SPI_TransmitData_Interrupt(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pData, uint16_t sizeOfData){
+
+	SPI_BusStatus_t busState = SPI_Handle->Bus_StateTX;
+
+	if(busState != SPI_BUS_BUSY_TX){
+
+	SPI_Handle->pTxBufferAddr = (uint8_t*)pData;
+	SPI_Handle->TxDataSize = (uint16_t)sizeOfData;
+	SPI_Handle->Bus_StateTX = SPI_BUS_BUSY_TX;
+
+	if(SPI_Handle->Instance->CR1 & (0x1U << SPI_CR1_DFF)){
+
+
+	}
+	else {
+
+
+	}
+
+	SPI_Handle->Instance->CR2 |= (0x1 << SPI_CR2_TXEIE);
+	}
+
+
+}
+
+
+
 /*
  *
  * @brief SPI_GetFlagStatus, Return the flag of SR register

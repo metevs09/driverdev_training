@@ -32,6 +32,12 @@ void EXTI0_IRQHandler(){
 
 }
 
+void SPI1_IRQHandler(){
+
+
+
+}
+
 int main(void){
 
 	GPIO_LedConfig();
