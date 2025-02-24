@@ -20,11 +20,17 @@
 
 static void SPI_Transmit_16Bits(SPI_HandleTypeDef_t *SPI_Handle){
 
+	SPI_Handle->Instance->DR = *((uint16_t*)(SPI_Handle->pTxBufferAddr));
+	SPI_Handle->pTxBufferAddr += sizeof(uint16_t);
+	SPI_Handle->TxDataSize -= 2;
 
 }
 
 static void SPI_Transmit_8Bits(SPI_HandleTypeDef_t *SPI_Handle){
 
+	SPI_Handle->Instance->DR = *((uint8_t*)(SPI_Handle->pTxBufferAddr));
+		SPI_Handle->pTxBufferAddr += sizeof(uint8_t);
+		SPI_Handle->TxDataSize --;
 
 }
 
