@@ -25,7 +25,7 @@ void EXTI0_IRQHandler(){
 
 		EXTI->PR |= (0x1U <<0U);
 
-		SPI_TransmitData(&SPI_Handle, (uint8_t*)msgToSent, strlen(msgToSent));
+		SPI_TransmitData_Interrupt(&SPI_Handle, (uint8_t*)msgToSent, strlen(msgToSent));
 
 	}
 
@@ -34,7 +34,7 @@ void EXTI0_IRQHandler(){
 
 void SPI1_IRQHandler(){
 
-
+	SPI_Interrupt_Handler(&SPI_Handle);
 
 }
 
@@ -133,6 +133,8 @@ void SPI_GPIO_Config(){
 		GPIO_InitStruct.PuPd = GPIO_PUPD_NOPULL;
 		GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
 		GPIO_InitStruct.AF = GPIO_AF5;
+
+		NVIC_EnableInterrupt(SPI1_IRQNumber);
 
 		GPIO_Init(GPIOA, &GPIO_InitStruct);
 
