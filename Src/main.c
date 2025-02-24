@@ -19,7 +19,7 @@ SPI_HandleTypeDef_t SPI_Handle;
 
 void EXTI0_IRQHandler(){
 
-	char msgToSent[] = "EV\n";
+	char msgToSent[] = "Can you feel, Can you feel my heartttttt? \n";
 
 	if(EXTI->PR & 0x1){
 

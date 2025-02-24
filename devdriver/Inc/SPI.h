@@ -12,7 +12,7 @@
 
 typedef enum{
 
-	SPI_BUS_FREE = 0x0U,
+	SPI_BUS_FREE	= 0x0U,
 	SPI_BUS_BUSY_TX = 0x1U,
 	SPI_BUS_BUSY_RX = 0x2U
 

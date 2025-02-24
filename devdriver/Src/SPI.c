@@ -20,7 +20,7 @@
 
 static void SPI_Close_ISR_TX(SPI_HandleTypeDef_t *SPI_Handle){
 
-	SPI_Handle->Instance->CR2 &= ~~(0x1U << SPI_CR2_TXEIE);
+	SPI_Handle->Instance->CR2 &= ~(0x1U << SPI_CR2_TXEIE);
 	SPI_Handle->TxDataSize = 0;
 	SPI_Handle->pTxBufferAddr = NULL;
 	SPI_Handle->Bus_StateTX = SPI_BUS_FREE;
