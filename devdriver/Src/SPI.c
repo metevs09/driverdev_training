@@ -38,7 +38,7 @@ static void SPI_Close_ISR_TX(SPI_HandleTypeDef_t *SPI_Handle){
 
 static void SPI_Transmit_16Bits(SPI_HandleTypeDef_t *SPI_Handle){
 
-	SPI_Handle->Instance->DR = *((uint16_t*)(SPI_Handle->pTxBufferAddr));
+	SPI_Handle->Instance->DR = *(( __IO uint16_t*)(SPI_Handle->pTxBufferAddr));
 	SPI_Handle->pTxBufferAddr += sizeof(uint16_t);
 	SPI_Handle->TxDataSize -= 2;
 
@@ -56,11 +56,11 @@ static void SPI_Transmit_16Bits(SPI_HandleTypeDef_t *SPI_Handle){
 
 static void SPI_Transmit_8Bits(SPI_HandleTypeDef_t *SPI_Handle){
 
-	SPI_Handle->Instance->DR = *((uint8_t*)(SPI_Handle->pTxBufferAddr));
+		SPI_Handle->Instance->DR = *(( __IO uint8_t*)(SPI_Handle->pTxBufferAddr));
 		SPI_Handle->pTxBufferAddr += sizeof(uint8_t);
 		SPI_Handle->TxDataSize --;
 
-		if(SPI_Handle->TxDataSize ==0){
+		if(SPI_Handle->TxDataSize == 0){
 
 			SPI_Close_ISR_TX(SPI_Handle);
 		}
@@ -139,7 +139,7 @@ void SPI_ReceiveData(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pBuffer, uint16_t 
 
 		while(sizeOfData > 0){
 
-			if(SPI_GetFlagStatus(SPI_Handle, SPI_RxNE_Flag)){
+			if(SPI_GetFlagStatus(SPI_Handle, SPI_RxNE_FLAG)){
 
 				*( (uint16_t*)pBuffer ) = (uint16_t)SPI_Handle->Instance->DR;
 				pBuffer += sizeof(uint16_t);
@@ -153,7 +153,7 @@ void SPI_ReceiveData(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pBuffer, uint16_t 
 
 		while(sizeOfData > 0){
 
-			if(SPI_GetFlagStatus(SPI_Handle, SPI_RxNE_Flag)){
+			if(SPI_GetFlagStatus(SPI_Handle, SPI_RxNE_FLAG)){
 
 				*(pBuffer) = *((__IO uint8_t*)&SPI_Handle->Instance->DR);
 					pBuffer += sizeof(uint8_t);
@@ -240,6 +240,7 @@ void SPI_TransmitData_Interrupt(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pData, 
 
 	if(SPI_Handle->Instance->CR1 & (0x1U << SPI_CR1_DFF)){
 
+
 		SPI_Handle->TxISRFunction = SPI_Transmit_16Bits;
 
 	}
@@ -249,7 +250,7 @@ void SPI_TransmitData_Interrupt(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pData, 
 
 	}
 
-	SPI_Handle->Instance->CR2 |= (0x1 << SPI_CR2_TXEIE);
+	SET_BIT(SPI_Handle->Instance->CR2,(0x1 << SPI_CR2_TXEIE));
 	}
 
 
@@ -270,15 +271,18 @@ void SPI_Interrupt_Handler(SPI_HandleTypeDef_t *SPI_Handle){
 
 	uint8_t interruptSource = 0;
 	uint8_t interruptFlag = 0;
+	uint8_t RX_BufferFlag = 0;
 
 	interruptSource = SPI_Handle->Instance->CR2 & (0x1U << SPI_CR2_TXEIE);
-	interruptFlag   = SPI_Handle->Instance->SR  & (0x1U << SPI_TxE);
+	interruptFlag   = SPI_Handle->Instance->SR  & (SPI_TxE_FLAG);
+	RX_BufferFlag	= SPI_Handle->Instance->SR  & (SPI_RxNE_FLAG);
 
 	if((interruptSource != 0)&&(interruptFlag != 0)){
 
 		SPI_Handle->TxISRFunction(SPI_Handle);
 	}
 
+	UNUSED(RX_BufferFlag);
 }
 
 /*

@@ -19,11 +19,12 @@ SPI_HandleTypeDef_t SPI_Handle;
 
 void EXTI0_IRQHandler(){
 
-	char msgToSent[] = "Can you feel, Can you feel my heartttttt? \n";
+	static char msgToSent[] = "Can you feel, Can you feel my heartttttt?";
+
 
 	if(EXTI->PR & 0x1){
 
-		EXTI->PR |= (0x1U <<0U);
+		EXTI->PR = (0x1U <<0U);
 
 		SPI_TransmitData_Interrupt(&SPI_Handle, (uint8_t*)msgToSent, strlen(msgToSent));
 
@@ -32,7 +33,7 @@ void EXTI0_IRQHandler(){
 
 }
 
-void SPI1_IRQHandler(){
+void SPI1_IRQHandler(void){
 
 	SPI_Interrupt_Handler(&SPI_Handle);
 
@@ -107,7 +108,7 @@ void SPI_config(){
 
 		SPI_Handle.Instance = SPI1;
 
-		SPI_Handle.Init.BR = SPI_BAUDRATE_DIV8; // 2 MHz
+		SPI_Handle.Init.BR = SPI_BAUDRATE_DIV8; // 4 MHz
 		SPI_Handle.Init.BUS_CONFIG = SPI_FULL_DUPLEX;
 		SPI_Handle.Init.CPHA = SPI_CPHA_FIRST;
 		SPI_Handle.Init.CPOL = SPI_CPOL_LOW;

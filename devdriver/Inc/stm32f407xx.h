@@ -505,6 +505,7 @@ typedef struct{
 #define SPI_CR1_DFF					(11U)// SPI_CR1_DFF bit
 
 #define SPI_CR2_TXEIE				(7U)// SPI_CR2_TXEIE bit
+#define SPI_CR2_RXNEIE				(6U)// SPI_CR2_TXEIE bit
 
 /*
  * Flag Definitions
@@ -512,7 +513,7 @@ typedef struct{
  *
  */
 
-#define SPI_RxNE_Flag				(0x1U << SPI_RxNE)
+#define SPI_RxNE_FLAG				(0x1U << SPI_RxNE)
 #define SPI_TxE_FLAG 				(0x1U << SPI_TxE)
 #define SPI_Busy_FLAG 				(0x1U << SPI_Busy)
 
