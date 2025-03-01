@@ -80,6 +80,10 @@ void GPIO_Init(GPIO_TypeDef_t *GPIOx,GPIO_InitTypeDef_t *GPIO_ConfigStruct){
 
 }
 
+
+
+
+
 /*
  *
  * @brief GPIO_Write_Pin, makes pin High or Low
@@ -108,6 +112,10 @@ void GPIO_WritePin(GPIO_TypeDef_t *GPIOx, uint16_t pinNumber, GPIO_PinState_t pi
 
 }
 
+
+
+
+
 /*
  *
  * @brief GPIO_Read_Pin, read pin value
@@ -133,6 +141,9 @@ GPIO_PinState_t GPIO_ReadPin(GPIO_TypeDef_t *GPIOx, uint16_t pinNumber){
 }
 
 
+
+
+
 /*
  *
  * @brief GPIO_Lock_Pin, lock the  pin of GPIOx Port
@@ -154,6 +165,9 @@ void GPIO_LockPin(GPIO_TypeDef_t *GPIOx, uint16_t pinNumber){
 	tempValue = GPIOx->LCKR;
 
 }
+
+
+
 
 
 /*

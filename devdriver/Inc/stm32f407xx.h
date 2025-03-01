@@ -12,6 +12,10 @@
 #include <string.h>
 #include <stddef.h>
 
+
+
+
+
 /*
  *
  * Microprocessor Defines
@@ -33,6 +37,9 @@ typedef enum{
 	ENABLE = !DISABLE
 
 }Functional_State_t;
+
+
+
 
 
 /*
@@ -131,6 +138,7 @@ typedef enum{
 
 
 
+
 /*
  * Memory Base Address (Address starting hex number on reference manual)
  *
@@ -140,6 +148,10 @@ typedef enum{
 
 #define SRAM1_BASE_ADDR			(0x20000000UL)                          /* Defined SRAM1 base address(up to 112 KB) */
 #define SRAM2_BASE_ADDR			(0x2001C000UL)                          /* Defined SRAM2 base address(up to 16 KB) */
+
+
+
+
 
 /*
  * Peripheral Base Addresses (Address starting hex number on reference manual)
@@ -153,6 +165,9 @@ typedef enum{
 #define AHB1_BASE_ADDR			(PERIP_BASE_ADDR + 0x00020000UL)        /* AHB1 bus domain base address */
 #define AHB2_BASE_ADDR			(PERIP_BASE_ADDR + 0x10000000UL)        /* AHB2 bus domain base address */
 #define AHB3_BASE_ADDR			(PERIP_BASE_ADDR + 0x60000000UL)        /* AHB3 bus domain base address */
+
+
+
 
 
 /*
@@ -203,6 +218,10 @@ typedef enum{
 #define UART7_BASE_ADDR			(APB1_BASE_ADDR + 0x00007800UL)         /* Defined UART7 base address */
 #define UART8_BASE_ADDR			(APB1_BASE_ADDR + 0x00007C00UL)         /* Defined UART8 base address */
 
+
+
+
+
 /*
  * APB2 Peripheral Base Addresses (Address starting hex number on reference manual)
  *
@@ -236,6 +255,10 @@ typedef enum{
 
 #define  SAI1_BASE_ADDR			(APB2_BASE_ADDR + 0x00005800UL)			/* Defined SAI1 base address */
 #define  LCD_TFT_BASE_ADDR		(APB2_BASE_ADDR + 0x00006800UL)			/* Defined LCD-TFT base address */
+
+
+
+
 
 /*
  * AHB1 Peripheral Base Addresses (Address starting hex number on reference manual)
@@ -272,6 +295,10 @@ typedef enum{
 
 #define USB_OTG_HS_BASE_ADDR	(AHB1_BASE_ADDR + 0x00020000UL)			/* Defined USB OTG HS base address */
 
+
+
+
+
 /*
  * AHB2 Peripheral Base Addresses (Address starting hex number on reference manual)
  *
@@ -287,12 +314,19 @@ typedef enum{
 
 #define RNG_BASE_ADDR			(AHB2_BASE_ADDR + 0x00060800UL)			/* Defined RNG base address */
 
+
+
+
+
 /*
  * AHB3 Peripheral Base Addresses (Address starting hex number on reference manual)
  *
  */
 
 #define FSMC_CONT_REG_BASE_ADDR	(AHB3_BASE_ADDR + 0x00000000UL)			/* Defined FSMC control register base address */
+
+
+
 
 
 /*
@@ -313,6 +347,9 @@ typedef struct {
 	__IO uint32_t AFR[2];		/*!< GPIO alternate function low register 		Address offset for AFRL = 0x0020, AFRH = 0x0024 */
 
 }GPIO_TypeDef_t;
+
+
+
 
 
 typedef struct {
@@ -353,6 +390,10 @@ typedef struct {
 
 }RCC_TypeDef_t;
 
+
+
+
+
 /*
  * System configuration Structure Definitions (For more information check reference manual SYSCFG register map)
  *
@@ -366,6 +407,10 @@ typedef struct{
 	__IO uint32_t CMPCR;		/*!< Compensation cell control register 		Address offset = 0x0020 */
 
 }SYSCFG_TypeDef_t;
+
+
+
+
 
 /*
  *   External interrupt/event controller Structure Definitions (For more information check reference manual SYSCFG register map)
@@ -399,6 +444,10 @@ typedef struct{
 
 }SPI_TypeDef_t;
 
+
+
+
+
 /*   Base address definitions for port */
 
 #define GPIOA			((GPIO_TypeDef_t *)(GPIOA_BASE_ADDR)  )
@@ -424,6 +473,8 @@ typedef struct{
 #define SPI4			((SPI_TypeDef_t*)(SPI4_BASE_ADDR)	  )
 #define SPI5			((SPI_TypeDef_t*)(SPI5_BASE_ADDR)	  )
 #define SPI6			((SPI_TypeDef_t*)(SPI6_BASE_ADDR)	  )
+
+
 
 
 

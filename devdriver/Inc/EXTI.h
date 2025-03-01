@@ -10,6 +10,10 @@
 
 #include"stm32f407xx.h"
 
+
+
+
+
 /*
  * @def_group PORT_Values
  */
@@ -23,6 +27,10 @@
 #define EXTI_PortSource_GPIOG				((uint8_t)(0x6))
 #define EXTI_PortSource_GPIOH				((uint8_t)(0x7))
 #define EXTI_PortSource_GPIOI				((uint8_t)(0x8))
+
+
+
+
 
 /*
  * @def_group LINE_Values
@@ -46,14 +54,25 @@
 #define EXTI_LineSource_15					((uint8_t)(0xF))
 
 
+
+
+
 /*
  *
  * @def_group EXTI_Modes
  *
  */
 
+
+
+
+
 #define EXTI_MODE_Interrupt	(0x00U)
 #define EXTI_MODE_Event		(0x04U)
+
+
+
+
 
 /*
  *
@@ -65,6 +84,16 @@
 #define EXTI_FTSR	(0x0CU)
 #define EXTI_RFTSR	(0x10U)
 
+
+
+
+
+/*
+ *
+ * EXTI_InitTypeDef_t Struct
+ *
+ */
+
 typedef struct {
 	uint8_t EXTI_LineNumber;
 	uint8_t TriggerSelection;	/*  EXTI Trigger selection values @def_group EXTI_Trigger_Modes*/
@@ -72,6 +101,15 @@ typedef struct {
 	Functional_State_t EXTI_LineCmd;
 
 }EXTI_InitTypeDef_t;
+
+
+
+
+/*
+ *
+ * Prototypes of EXTI Functions
+ *
+ */
 
 void EXTI_Init(EXTI_InitTypeDef_t*EXTI_InitStruct);
 

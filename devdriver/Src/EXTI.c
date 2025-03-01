@@ -7,6 +7,10 @@
 
 #include "EXTI.h"
 
+
+
+
+
 /*
  *
  * @brief EXTI_Init for valid GPIO port and Line number
@@ -63,6 +67,10 @@ void EXTI_Init(EXTI_InitTypeDef_t*EXTI_InitStruct){
 
 }
 
+
+
+
+
 /*
  *
  * @brief GPIO_LineConfig, Configures the Port and pin for SYSCFG
@@ -84,6 +92,9 @@ void EXTI_LineConfig(uint8_t PortSource, uint8_t EXTI_LineSource){
 	tempValue = (PortSource << (EXTI_LineSource & 0x3U) * 4);
 	SYSCFG->EXTI_CR[EXTI_LineSource >> 2U] = tempValue;
 }
+
+
+
 
 
 /*

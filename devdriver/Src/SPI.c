@@ -8,6 +8,10 @@
 
 #include "SPI.h"
 
+
+
+
+
 /*
  *
  * @brief SPI_Close_ISR_TX, Close the SPI ISR Transmit service
@@ -25,6 +29,10 @@ static void SPI_Close_ISR_TX(SPI_HandleTypeDef_t *SPI_Handle){
 	SPI_Handle->pTxBufferAddr = NULL;
 	SPI_Handle->Bus_StateTX = SPI_BUS_FREE;
 }
+
+
+
+
 
 /*
  *
@@ -46,6 +54,10 @@ static void SPI_Close_ISR_RX(SPI_HandleTypeDef_t *SPI_Handle){
 
 }
 
+
+
+
+
 /*
  *
  * @brief SPI_Transmit_16Bits, Transmit the data 16 Bits frame format
@@ -63,6 +75,10 @@ static void SPI_Transmit_16Bits(SPI_HandleTypeDef_t *SPI_Handle){
 	SPI_Handle->TxDataSize -= 2;
 
 }
+
+
+
+
 
 /*
  *
@@ -85,6 +101,10 @@ static void SPI_Transmit_8Bits(SPI_HandleTypeDef_t *SPI_Handle){
 			SPI_Close_ISR_TX(SPI_Handle);
 		}
 }
+
+
+
+
 
 /*
  *
@@ -109,6 +129,10 @@ static void SPI_Receive_16Bits(SPI_HandleTypeDef_t *SPI_Handle){
 
 }
 
+
+
+
+
 /*
  *
  * @brief SPI_Receive_8Bits, Read the data 8 Bits frame format
@@ -127,6 +151,8 @@ static void SPI_Receive_8Bits(SPI_HandleTypeDef_t *SPI_Handle){
 
 
 }
+
+
 
 
 
@@ -154,6 +180,10 @@ void SPI_Init(SPI_HandleTypeDef_t *SPI_Handle){
 
 	SPI_Handle->Instance->CR1 = tempValue;
 }
+
+
+
+
 
 /*
  *
@@ -184,6 +214,9 @@ void SPI_Perip_Cmd (SPI_HandleTypeDef_t *SPI_Handle, Functional_State_t stateOfS
 }
 
 
+
+
+
 /*
  *
  * @brief SPI_ReceiveData, Receive Data from the Slave
@@ -196,6 +229,7 @@ void SPI_Perip_Cmd (SPI_HandleTypeDef_t *SPI_Handle, Functional_State_t stateOfS
  * @retval Void
  *
  */
+
 
 void SPI_ReceiveData(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pBuffer, uint16_t sizeOfData){
 
@@ -228,6 +262,10 @@ void SPI_ReceiveData(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pBuffer, uint16_t 
 	}
 }
 
+
+
+
+
 /*
  *
  * @brief SPI_ReceiveData_Interrupt, Receive Data from the Slave with Interrupt Method
@@ -240,6 +278,7 @@ void SPI_ReceiveData(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pBuffer, uint16_t 
  * @retval Void
  *
  */
+
 
 void SPI_ReceiveData_Interrupt(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pBuffer, uint16_t sizeOfData){
 
@@ -267,6 +306,9 @@ void SPI_ReceiveData_Interrupt(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pBuffer,
 	}
 
 }
+
+
+
 
 
 /*
@@ -319,6 +361,10 @@ void SPI_TransmitData(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pData, uint16_t s
 
 }
 
+
+
+
+
 /*
  *
  * @brief SPI_TransmitData_Interrupt, Transmit Data on the SPI with Interrupt
@@ -360,6 +406,10 @@ void SPI_TransmitData_Interrupt(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pData, 
 
 }
 
+
+
+
+
 /*
  *
  * @brief SPI_Interrupt_Handler, Handler service for SPI Interrupt
@@ -393,6 +443,10 @@ void SPI_Interrupt_Handler(SPI_HandleTypeDef_t *SPI_Handle){
 		}
 
 }
+
+
+
+
 
 /*
  *

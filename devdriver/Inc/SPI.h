@@ -18,6 +18,10 @@ typedef enum{
 
 }SPI_BusStatus_t;
 
+
+
+
+
 /*
  *
  * @def_group SPI_CPHA
@@ -26,6 +30,9 @@ typedef enum{
 
 #define SPI_CPHA_FIRST		((uint32_t)(0x00000000))
 #define SPI_CPHA_SECOND		((uint32_t)(0x00000001))
+
+
+
 
 
 /*
@@ -38,6 +45,9 @@ typedef enum{
 #define SPI_CPOL_HIGH		((uint32_t)(0x00000002))
 
 
+
+
+
 /*
  *
  * @def_group SPI_MSTR
@@ -46,6 +56,9 @@ typedef enum{
 
 #define SPI_MSTR_MASTER		((uint32_t)(0x00000004))
 #define SPI_MSTR_SLAVE		((uint32_t)(0x00000000))
+
+
+
 
 
 /*
@@ -66,6 +79,9 @@ typedef enum{
 #define SPI_BAUDRATE_DIV256	((uint32_t)(0x00000038))
 
 
+
+
+
 /*
  *
  * @def_group SPI_LSB_First
@@ -74,6 +90,9 @@ typedef enum{
 
 #define SPI_FRAMEFORMAT_MSB		((uint32_t)(0x00000000))
 #define SPI_FRAMEFORMAT_LSB		((uint32_t)(0x00000080))
+
+
+
 
 
 /*
@@ -94,6 +113,10 @@ typedef enum {
 
 }SPI_FlagStatus_t;
 
+
+
+
+
 /*
  *
  * @def_group SPI_BUS_CONFIG
@@ -107,6 +130,9 @@ typedef enum {
 #define SPI_HALF_DUPLEX_R	((uint32_t)(0x00008000))
 
 
+
+
+
 /*
  *
  * @def_group SPI_DFF
@@ -117,6 +143,9 @@ typedef enum {
 #define SPI_DFF_16BITS		((uint32_t)(0x00000800))
 
 
+
+
+
 /*
  *
  * @def_group SPI_CRCNEXT
@@ -125,6 +154,9 @@ typedef enum {
 
 #define SPI_CRCNEXT_DISABLE	((uint32_t)(0x00000000))
 #define SPI_CRCNEXT_ENABLE	((uint32_t)(0x00001000))
+
+
+
 
 
 /*
@@ -139,7 +171,11 @@ typedef enum {
 
 
 
-
+/*
+ *
+ * SPI_InitTypeDef_t Struct
+ *
+ */
 
 typedef struct {
 
@@ -158,6 +194,16 @@ typedef struct {
 
 }SPI_InitTypeDef_t;
 
+
+
+
+
+/*
+ *
+ * SPI_HandleTypeDef_t Struct
+ *
+ */
+
 typedef struct __SPI_HandleTypeDef_t {
 
 	SPI_TypeDef_t* Instance;
@@ -172,6 +218,15 @@ typedef struct __SPI_HandleTypeDef_t {
 	void(*RxISRFunction)(struct __SPI_HandleTypeDef_t *SPI_Handle);
 
 }SPI_HandleTypeDef_t;
+
+
+
+
+/*
+ *
+ * Prototypes of SPI Functions
+ *
+ */
 
 void SPI_Init(SPI_HandleTypeDef_t *SPI_Handle);
 void SPI_Perip_Cmd (SPI_HandleTypeDef_t *SPI_Handle, Functional_State_t stateOfSPI);
