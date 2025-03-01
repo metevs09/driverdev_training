@@ -111,7 +111,7 @@ void SPI_config(){
 
 		SPI_Handle.Instance = SPI1;
 
-		SPI_Handle.Init.BR = SPI_BAUDRATE_DIV2; // 4 MHz
+		SPI_Handle.Init.BR = SPI_BAUDRATE_DIV8; // 4 MHz
 		SPI_Handle.Init.BUS_CONFIG = SPI_FULL_DUPLEX;
 		SPI_Handle.Init.CPHA = SPI_CPHA_FIRST;
 		SPI_Handle.Init.CPOL = SPI_CPOL_LOW;

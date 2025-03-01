@@ -362,9 +362,9 @@ void SPI_config(){
  800035a:	4a15      	ldr	r2, [pc, #84]	@ (80003b0 <SPI_config+0x78>)
  800035c:	601a      	str	r2, [r3, #0]
 
-		SPI_Handle.Init.BR = SPI_BAUDRATE_DIV2; // 4 MHz
+		SPI_Handle.Init.BR = SPI_BAUDRATE_DIV8; // 4 MHz
  800035e:	4b13      	ldr	r3, [pc, #76]	@ (80003ac <SPI_config+0x74>)
- 8000360:	2200      	movs	r2, #0
+ 8000360:	2210      	movs	r2, #16
  8000362:	611a      	str	r2, [r3, #16]
 		SPI_Handle.Init.BUS_CONFIG = SPI_FULL_DUPLEX;
  8000364:	4b11      	ldr	r3, [pc, #68]	@ (80003ac <SPI_config+0x74>)

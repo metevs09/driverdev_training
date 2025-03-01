@@ -429,6 +429,15 @@ typedef struct{
 }EXTI_TypeDef_t;
 
 
+
+
+
+/*
+ *   SPI Structure Definitions (For more information check reference manual SPI register map)
+ *
+ */
+
+
 typedef struct{
 
 	__IO uint32_t CR1;			/*!< SPI control register 1 				Address offset = 0x0000 */
