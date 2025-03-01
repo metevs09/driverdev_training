@@ -10,10 +10,14 @@
 
 #include"stm32f407xx.h"
 
-/*
- *  SET AND CLEAR MACROS FOR GPIOS'S PORTS
- */
 
+
+
+
+
+/*
+ *  **************************************************  GPIO'S SET AND CLEAR MACROS ************************************************************
+ */
 
 
 /*
@@ -157,9 +161,20 @@
 
 
 
+
+
+
+
+
+
+
 /*
- * SYSCFG SET AND CLEAR MACROS
+ *  ***********************************************  SYSCFG SET AND CLEAR MACROS ***************************************************************
  */
+
+
+
+
 
 // SYSCFG's set macro
 #define RCC_SYSCFG_CLK_ENABLE()	do{ uint32_t tempValue = 0;\
@@ -170,6 +185,21 @@
 
 // SYSCFG's clear macros
 #define RCC_SYSCFG_CLK_DISABLE()	CLEAR_BIT(RCC->APB2ENR,RCC_APB2ENR_SYSCFGEN)
+
+
+
+
+
+
+
+
+
+
+/*
+ *  **************************************************  SPI SET AND CLEAR MACROS ***************************************************************
+ */
+
+
 
 
 
@@ -186,6 +216,8 @@
 
 // SPI1's clear macros
 #define RCC_SPI1_CLK_DISABLE()		CLEAR_BIT(RCC->APB2ENR,RCC_APB2ENR_SPI1EN)
+
+
 
 
 
@@ -206,6 +238,8 @@
 
 
 
+
+
 /*
  * SPI3 SET AND CLEAR MACROS
  */
@@ -220,6 +254,8 @@
 
 // SPI3's clear macros
 #define RCC_SPI3_CLK_DISABLE()		CLEAR_BIT(RCC->APB1ENR,RCC_APB1ENR_SPI3EN)
+
+
 
 
 
@@ -239,6 +275,9 @@
 #define RCC_SPI4_CLK_DISABLE()		CLEAR_BIT(RCC->APB2ENR,RCC_APB2ENR_SPI4EN)
 
 
+
+
+
 /*
  * SPI5 SET AND CLEAR MACROS
  */
@@ -254,6 +293,10 @@
 // SPI5's clear macros
 #define RCC_SPI5_CLK_DISABLE()		CLEAR_BIT(RCC->APB2ENR,RCC_APB2ENR_SPI5EN)
 
+
+
+
+
 /*
  * SPI6 SET AND CLEAR MACROS
  */
@@ -268,6 +311,87 @@
 
 // SPI5's clear macros
 #define RCC_SPI6_CLK_DISABLE()		CLEAR_BIT(RCC->APB2ENR,RCC_APB2ENR_SPI6EN)
+
+
+
+
+
+
+
+
+
+/*
+ *  **************************************************  USART'S SET AND CLEAR MACROS ***********************************************************
+ */
+
+
+
+
+
+/*
+ * USART1 SET AND CLEAR MACROS
+ */
+
+// USART1's set macro
+#define RCC_USART1_CLK_ENABLE()	do{ uint32_t tempValue = 0;\
+									SET_BIT(RCC->APB2ENR,RCC_APB2ENR_USART1EN);\
+									tempValue = READ_BIT(RCC->APB2ENR,RCC_APB2ENR_USART1EN);\
+									UNUSED(tempValue);\
+									}while(0)
+
+// USART1's clear macros
+#define RCC_UART1_CLK_DISABLE()		CLEAR_BIT(RCC->APB2ENR,RCC_APB2ENR_USART1EN)
+
+
+
+
+/*
+ * USART2 SET AND CLEAR MACROS
+ */
+
+// USART2's set macro
+#define RCC_USART2_CLK_ENABLE()	do{ uint32_t tempValue = 0;\
+									SET_BIT(RCC->APB1ENR,RCC_APB1ENR_USART2EN);\
+									tempValue = READ_BIT(RCC->APB1ENR,RCC_APB1ENR_USART2EN);\
+									UNUSED(tempValue);\
+									}while(0)
+
+// USART2's clear macros
+#define RCC_USART2_CLK_DISABLE()	CLEAR_BIT(RCC->APB1ENR,RCC_APB1ENR_USART2EN)
+
+
+
+
+/*
+ * USART3 SET AND CLEAR MACROS
+ */
+
+// USART3's set macro
+#define RCC_USART3_CLK_ENABLE()	do{ uint32_t tempValue = 0;\
+									SET_BIT(RCC->APB1ENR,RCC_APB1ENR_USART3EN);\
+									tempValue = READ_BIT(RCC->APB1ENR,RCC_APB1ENR_USART3EN);\
+									UNUSED(tempValue);\
+									}while(0)
+
+// USART3's clear macros
+#define RCC_USART3_CLK_DISABLE()	CLEAR_BIT(RCC->APB1ENR,RCC_APB1ENR_USART3EN)
+
+
+
+
+/*
+ * USART6 SET AND CLEAR MACROS
+ */
+
+// USART6's set macro
+#define RCC_USART6_CLK_ENABLE()	do{ uint32_t tempValue = 0;\
+									SET_BIT(RCC->APB2ENR,RCC_APB2ENR_USART6EN);\
+									tempValue = READ_BIT(RCC->APB2ENR,RCC_APB2ENR_USART6EN);\
+									UNUSED(tempValue);\
+									}while(0)
+
+// USART6's clear macros
+#define RCC_USART6_CLK_DISABLE()	CLEAR_BIT(RCC->APB2ENR,RCC_APB2ENR_USART6EN)
 
 
 #endif /* INC_RCC_H_ */

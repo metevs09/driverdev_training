@@ -8,6 +8,8 @@
 #ifndef INC_USART_H_
 #define INC_USART_H_
 
+#include "stm32f407xx.h"
+
 
 
 #endif /* INC_USART_H_ */
