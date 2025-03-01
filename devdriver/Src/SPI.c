@@ -28,6 +28,26 @@ static void SPI_Close_ISR_TX(SPI_HandleTypeDef_t *SPI_Handle){
 
 /*
  *
+ * @brief SPI_Close_ISR_RX, Close the SPI ISR Receive service
+ * @param SPI_Handle = User configuration structure
+ *
+ *
+ * @retval Void
+ *
+ */
+
+static void SPI_Close_ISR_RX(SPI_HandleTypeDef_t *SPI_Handle){
+
+		SPI_Handle->Instance->CR2 &= ~(0x1U << SPI_CR2_RXNEIE);
+		SPI_Handle->RxDataSize = 0;
+		SPI_Handle->pRxBufferAddr = NULL;
+		SPI_Handle->Bus_StateRX = SPI_BUS_FREE;
+
+
+}
+
+/*
+ *
  * @brief SPI_Transmit_16Bits, Transmit the data 16 Bits frame format
  * @param SPI_Handle = User configuration structure
  *
@@ -65,6 +85,50 @@ static void SPI_Transmit_8Bits(SPI_HandleTypeDef_t *SPI_Handle){
 			SPI_Close_ISR_TX(SPI_Handle);
 		}
 }
+
+/*
+ *
+ * @brief SPI_Receive_16Bits, Read the data 16 Bits frame format
+ * @param SPI_Handle = User configuration structure
+ *
+ *
+ * @retval Void
+ *
+ */
+
+static void SPI_Receive_16Bits(SPI_HandleTypeDef_t *SPI_Handle){
+
+	 *(( __IO uint16_t*)(SPI_Handle->pRxBufferAddr))= (uint16_t)SPI_Handle->Instance->DR;
+	SPI_Handle->pRxBufferAddr += sizeof(uint16_t);
+	SPI_Handle->TxDataSize -= 2;
+
+	if(SPI_Handle->RxDataSize == 0){
+
+			SPI_Close_ISR_RX(SPI_Handle);
+		}
+
+}
+
+/*
+ *
+ * @brief SPI_Receive_8Bits, Read the data 8 Bits frame format
+ * @param SPI_Handle = User configuration structure
+ *
+ *
+ * @retval Void
+ *
+ */
+
+static void SPI_Receive_8Bits(SPI_HandleTypeDef_t *SPI_Handle){
+
+	 *((uint8_t*)(SPI_Handle->pRxBufferAddr)) = *((__IO uint8_t*)(&SPI_Handle->Instance->DR));
+	SPI_Handle->pRxBufferAddr += sizeof(uint8_t);
+	SPI_Handle->RxDataSize --;
+
+
+}
+
+
 
 /*
  *
@@ -162,6 +226,46 @@ void SPI_ReceiveData(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pBuffer, uint16_t 
 			}
 		}
 	}
+}
+
+/*
+ *
+ * @brief SPI_ReceiveData_Interrupt, Receive Data from the Slave with Interrupt Method
+ * @param SPI_Handle = User configuration structure
+ *
+ * @param pBuffer = Buffer address of data to receive
+ *
+ * @param sizeOfData = Length of your data in bytes
+ *
+ * @retval Void
+ *
+ */
+
+void SPI_ReceiveData_Interrupt(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pBuffer, uint16_t sizeOfData){
+
+	SPI_BusStatus_t busState = SPI_Handle->Bus_StateRX;
+
+	if(busState != SPI_BUS_BUSY_RX){
+
+		SPI_Handle->pRxBufferAddr = (uint8_t *)pBuffer;
+		SPI_Handle->RxDataSize = (uint16_t) sizeOfData;
+		SPI_Handle->Bus_StateRX = SPI_BUS_BUSY_RX;
+
+		if(SPI_Handle->Instance->CR1 & (0x1U << SPI_CR1_DFF)){
+
+
+				SPI_Handle->RxISRFunction = SPI_Receive_16Bits;
+
+			}
+			else {
+
+				SPI_Handle->RxISRFunction = SPI_Receive_8Bits;
+
+			}
+		SET_BIT(SPI_Handle->Instance->CR2,(0x1 << SPI_CR2_RXNEIE));
+
+	}
+
 }
 
 
@@ -271,18 +375,23 @@ void SPI_Interrupt_Handler(SPI_HandleTypeDef_t *SPI_Handle){
 
 	uint8_t interruptSource = 0;
 	uint8_t interruptFlag = 0;
-	uint8_t RX_BufferFlag = 0;
 
 	interruptSource = SPI_Handle->Instance->CR2 & (0x1U << SPI_CR2_TXEIE);
 	interruptFlag   = SPI_Handle->Instance->SR  & (SPI_TxE_FLAG);
-	RX_BufferFlag	= SPI_Handle->Instance->SR  & (SPI_RxNE_FLAG);
 
 	if((interruptSource != 0)&&(interruptFlag != 0)){
 
 		SPI_Handle->TxISRFunction(SPI_Handle);
 	}
 
-	UNUSED(RX_BufferFlag);
+	interruptSource = SPI_Handle->Instance->CR2 & (0x1U << SPI_CR2_RXNEIE);
+	interruptFlag   = SPI_Handle->Instance->SR  & (SPI_RxNE_FLAG);
+
+	if((interruptSource != 0)&&(interruptFlag != 0)){
+
+			SPI_Handle->RxISRFunction(SPI_Handle);
+		}
+
 }
 
 /*

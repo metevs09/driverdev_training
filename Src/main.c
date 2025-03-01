@@ -19,7 +19,7 @@ SPI_HandleTypeDef_t SPI_Handle;
 
 void EXTI0_IRQHandler(){
 
-	static char msgToSent[] = "Can you feel, Can you feel my heartttttt?";
+	static char msgToSent[] = "Hesaplamalarima gore cok tatlisin";
 
 
 	if(EXTI->PR & 0x1){
@@ -41,6 +41,7 @@ void SPI1_IRQHandler(void){
 
 int main(void){
 
+
 	GPIO_LedConfig();
 	GPIO_ButtonInterruptConfig();
 
@@ -55,12 +56,14 @@ int main(void){
 
 }
 
+
 static void GPIO_LedConfig(){
 
 	GPIO_InitTypeDef_t GPIO_InitStruct = {0};
 
 		RCC_GPIOD_CLK_ENABLE(); // Clock is Active
 		RCC_GPIOA_CLK_ENABLE(); // Clock is Active
+
 
 
 		GPIO_InitStruct.pinNumber = GPIO_PIN_12 | GPIO_PIN_13 | GPIO_PIN_14 | GPIO_PIN_15;
@@ -108,7 +111,7 @@ void SPI_config(){
 
 		SPI_Handle.Instance = SPI1;
 
-		SPI_Handle.Init.BR = SPI_BAUDRATE_DIV8; // 4 MHz
+		SPI_Handle.Init.BR = SPI_BAUDRATE_DIV2; // 4 MHz
 		SPI_Handle.Init.BUS_CONFIG = SPI_FULL_DUPLEX;
 		SPI_Handle.Init.CPHA = SPI_CPHA_FIRST;
 		SPI_Handle.Init.CPOL = SPI_CPOL_LOW;
@@ -132,7 +135,7 @@ void SPI_GPIO_Config(){
 		GPIO_InitStruct.Mode = GPIO_MODE_AF;
 		GPIO_InitStruct.Otype = GPIO_OTYPE_PP;
 		GPIO_InitStruct.PuPd = GPIO_PUPD_NOPULL;
-		GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+		GPIO_InitStruct.Speed = GPIO_SPEED_MEDIUM;
 		GPIO_InitStruct.AF = GPIO_AF5;
 
 		NVIC_EnableInterrupt(SPI1_IRQNumber);

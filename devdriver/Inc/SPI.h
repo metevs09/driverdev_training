@@ -162,18 +162,23 @@ typedef struct __SPI_HandleTypeDef_t {
 
 	SPI_TypeDef_t* Instance;
 	SPI_InitTypeDef_t Init;
-	uint8_t *pTxBufferAddr;
+	uint8_t  *pTxBufferAddr;
 	uint16_t TxDataSize;
-	uint8_t Bus_StateTX;
+	uint8_t  Bus_StateTX;
 	void(*TxISRFunction)(struct __SPI_HandleTypeDef_t *SPI_Handle);
+	uint8_t  *pRxBufferAddr;
+	uint16_t RxDataSize;
+	uint8_t  Bus_StateRX;
+	void(*RxISRFunction)(struct __SPI_HandleTypeDef_t *SPI_Handle);
 
 }SPI_HandleTypeDef_t;
 
 void SPI_Init(SPI_HandleTypeDef_t *SPI_Handle);
 void SPI_Perip_Cmd (SPI_HandleTypeDef_t *SPI_Handle, Functional_State_t stateOfSPI);
 void SPI_TransmitData(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pData, uint16_t sizeOfData);
-void SPI_ReceiveData(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pBuffer, uint16_t sizeOfData);
 void SPI_TransmitData_Interrupt(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pData, uint16_t sizeOfData);
+void SPI_ReceiveData(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pBuffer, uint16_t sizeOfData);
+void SPI_ReceiveData_Interrupt(SPI_HandleTypeDef_t *SPI_Handle,uint8_t *pBuffer, uint16_t sizeOfData);
 void SPI_Interrupt_Handler(SPI_HandleTypeDef_t *SPI_Handle);
 
 SPI_FlagStatus_t SPI_GetFlagStatus(SPI_HandleTypeDef_t *SPI_Handle,uint16_t SPI_Flag);
