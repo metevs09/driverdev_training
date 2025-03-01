@@ -8,19 +8,22 @@ C_SRCS += \
 ../devdriver/Src/EXTI.c \
 ../devdriver/Src/GPIO.c \
 ../devdriver/Src/RCC.c \
-../devdriver/Src/SPI.c 
+../devdriver/Src/SPI.c \
+../devdriver/Src/USART.c 
 
 OBJS += \
 ./devdriver/Src/EXTI.o \
 ./devdriver/Src/GPIO.o \
 ./devdriver/Src/RCC.o \
-./devdriver/Src/SPI.o 
+./devdriver/Src/SPI.o \
+./devdriver/Src/USART.o 
 
 C_DEPS += \
 ./devdriver/Src/EXTI.d \
 ./devdriver/Src/GPIO.d \
 ./devdriver/Src/RCC.d \
-./devdriver/Src/SPI.d 
+./devdriver/Src/SPI.d \
+./devdriver/Src/USART.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -30,7 +33,7 @@ devdriver/Src/%.o devdriver/Src/%.su devdriver/Src/%.cyclo: ../devdriver/Src/%.c
 clean: clean-devdriver-2f-Src
 
 clean-devdriver-2f-Src:
-	-$(RM) ./devdriver/Src/EXTI.cyclo ./devdriver/Src/EXTI.d ./devdriver/Src/EXTI.o ./devdriver/Src/EXTI.su ./devdriver/Src/GPIO.cyclo ./devdriver/Src/GPIO.d ./devdriver/Src/GPIO.o ./devdriver/Src/GPIO.su ./devdriver/Src/RCC.cyclo ./devdriver/Src/RCC.d ./devdriver/Src/RCC.o ./devdriver/Src/RCC.su ./devdriver/Src/SPI.cyclo ./devdriver/Src/SPI.d ./devdriver/Src/SPI.o ./devdriver/Src/SPI.su
+	-$(RM) ./devdriver/Src/EXTI.cyclo ./devdriver/Src/EXTI.d ./devdriver/Src/EXTI.o ./devdriver/Src/EXTI.su ./devdriver/Src/GPIO.cyclo ./devdriver/Src/GPIO.d ./devdriver/Src/GPIO.o ./devdriver/Src/GPIO.su ./devdriver/Src/RCC.cyclo ./devdriver/Src/RCC.d ./devdriver/Src/RCC.o ./devdriver/Src/RCC.su ./devdriver/Src/SPI.cyclo ./devdriver/Src/SPI.d ./devdriver/Src/SPI.o ./devdriver/Src/SPI.su ./devdriver/Src/USART.cyclo ./devdriver/Src/USART.d ./devdriver/Src/USART.o ./devdriver/Src/USART.su
 
 .PHONY: clean-devdriver-2f-Src
 

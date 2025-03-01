@@ -507,10 +507,10 @@ typedef struct{
 #define USART3			((USART_TypeDef_t*)(USART3_BASE_ADDR) )
 #define USART6			((USART_TypeDef_t*)(USART6_BASE_ADDR) )
 
-#define UART4			((USART_TypeDef_t*)(UART4_BASE_ADDR) )
-#define UART5			((USART_TypeDef_t*)(UART5_BASE_ADDR) )
-#define UART7			((USART_TypeDef_t*)(UART7_BASE_ADDR) )
-#define UART8			((USART_TypeDef_t*)(UART8_BASE_ADDR) )
+#define UART4			((USART_TypeDef_t*)(UART4_BASE_ADDR)  )
+#define UART5			((USART_TypeDef_t*)(UART5_BASE_ADDR)  )
+#define UART7			((USART_TypeDef_t*)(UART7_BASE_ADDR)  )
+#define UART8			((USART_TypeDef_t*)(UART8_BASE_ADDR)  )
 
 
 

@@ -6,3 +6,4 @@
 "./devdriver/Src/GPIO.o"
 "./devdriver/Src/RCC.o"
 "./devdriver/Src/SPI.o"
+"./devdriver/Src/USART.o"
