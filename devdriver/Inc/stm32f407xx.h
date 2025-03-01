@@ -437,7 +437,6 @@ typedef struct{
  *
  */
 
-
 typedef struct{
 
 	__IO uint32_t CR1;			/*!< SPI control register 1 				Address offset = 0x0000 */
@@ -453,6 +452,26 @@ typedef struct{
 
 }SPI_TypeDef_t;
 
+
+
+
+
+/*
+ *   USART Structure Definitions (For more information check reference manual USART register map)
+ *
+ */
+
+typedef struct{
+
+	__IO uint32_t USART_SR;		/*< USART status register					Address offset = 0x0000 */
+	__IO uint32_t USART_DR;		/*< USART data register						Address offset = 0x0004 */
+	__IO uint32_t USART_BRR;	/*< USART data register						Address offset = 0x0008 */
+	__IO uint32_t USART_CR1;	/*< USART control register 1				Address offset = 0x000C */
+	__IO uint32_t USART_CR2;	/*< USART control register 2				Address offset = 0x0010 */
+	__IO uint32_t USART_CR3;	/*< USART control register 3				Address offset = 0x0014 */
+	__IO uint32_t USART_GTPR;	/*< USART guard time and prescaler register	Address offset = 0x0018 */
+
+}USART_TypeDef_t;
 
 
 
@@ -483,6 +502,15 @@ typedef struct{
 #define SPI5			((SPI_TypeDef_t*)(SPI5_BASE_ADDR)	  )
 #define SPI6			((SPI_TypeDef_t*)(SPI6_BASE_ADDR)	  )
 
+#define USART1			((USART_TypeDef_t*)(USART1_BASE_ADDR) )
+#define USART2			((USART_TypeDef_t*)(USART2_BASE_ADDR) )
+#define USART3			((USART_TypeDef_t*)(USART3_BASE_ADDR) )
+#define USART6			((USART_TypeDef_t*)(USART6_BASE_ADDR) )
+
+#define UART4			((USART_TypeDef_t*)(UART4_BASE_ADDR) )
+#define UART5			((USART_TypeDef_t*)(UART5_BASE_ADDR) )
+#define UART7			((USART_TypeDef_t*)(UART7_BASE_ADDR) )
+#define UART8			((USART_TypeDef_t*)(UART8_BASE_ADDR) )
 
 
 
