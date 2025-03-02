@@ -143,3 +143,6 @@ void SPI_GPIO_Config(){
 		GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 }
+
+
+

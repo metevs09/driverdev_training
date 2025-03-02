@@ -214,9 +214,9 @@ typedef enum{
 #define PWR_BASE_ADDR			(APB1_BASE_ADDR + 0x00007000UL)			/* Defined PWR base address */
 
 #define DAC_BASE_ADDR			(APB1_BASE_ADDR + 0x00007400UL)			/* Defined DAC base address */
-
-#define UART7_BASE_ADDR			(APB1_BASE_ADDR + 0x00007800UL)         /* Defined UART7 base address */
-#define UART8_BASE_ADDR			(APB1_BASE_ADDR + 0x00007C00UL)         /* Defined UART8 base address */
+/*
+#define UART7_BASE_ADDR			(APB1_BASE_ADDR + 0x00007800UL)         Not available for stm32f407xx series but added memory map
+#define UART8_BASE_ADDR			(APB1_BASE_ADDR + 0x00007C00UL)      	Not available for stm32f407xx series but added memory map */
 
 
 
@@ -488,6 +488,9 @@ typedef struct{
 #define GPIOG			((GPIO_TypeDef_t *)(GPIOG_BASE_ADDR)  )
 #define GPIOH			((GPIO_TypeDef_t *)(GPIOH_BASE_ADDR)  )
 #define GPIOI			((GPIO_TypeDef_t *)(GPIOI_BASE_ADDR)  )
+/*
+#define GPIOJ			((GPIO_TypeDef_t *)(GPIOJ_BASE_ADDR)  )	Not available for stm32f407xx series but added memory map
+#define GPIOK			((GPIO_TypeDef_t *)(GPIOK_BASE_ADDR)  ) Not available for stm32f407xx series but added memory map */
 
 #define RCC				((RCC_TypeDef_t*)(RCC_BASE_ADDR)	  )
 
@@ -510,8 +513,9 @@ typedef struct{
 
 #define UART4			((USART_TypeDef_t*)(UART4_BASE_ADDR)  )
 #define UART5			((USART_TypeDef_t*)(UART5_BASE_ADDR)  )
-#define UART7			((USART_TypeDef_t*)(UART7_BASE_ADDR)  )
-#define UART8			((USART_TypeDef_t*)(UART8_BASE_ADDR)  )
+/*
+#define UART7			((USART_TypeDef_t*)(UART7_BASE_ADDR)  ) Not available for stm32f407xx series but added memory map
+#define UART8			((USART_TypeDef_t*)(UART8_BASE_ADDR)  ) Not available for stm32f407xx series but added memory map */
 
 
 
@@ -635,6 +639,12 @@ typedef struct{
 #define RCC_APB2ENR_SPI6EN			RCC_APB2ENR_SPI6EN_Msk //defined macros for masking
 
 
+
+
+/*
+ *  ***************** SPI BIT DEFINITON ********************
+ */
+
 #define SPI_TxE						(1U)// SPI_TxE bit
 #define SPI_Busy					(7U)// SPI_Busy bit
 #define SPI_RxNE					(0U)// SPI_RxNE bit
@@ -650,8 +660,7 @@ typedef struct{
 
 
 /*
- * Flag Definitions
- *
+ * **************** Flag Definitions *****************
  *
  */
 
