@@ -359,4 +359,14 @@ typedef struct {
 
 
 
+/*
+ *
+ * Prototypes of USART Functions
+ *
+ */
+
+void USART_Init(USART_Handle_Typedef *USART_Handle);
+
+
+
 #endif /* INC_USART_H_ */
