@@ -658,6 +658,14 @@ typedef struct{
 
 
 
+/*
+ *  ***************** USART BIT DEFINITON ********************
+ */
+
+#define USART_CR2_STOP				(12U) //USART_CR2_STOP bit
+
+
+
 
 /*
  * **************** Flag Definitions *****************

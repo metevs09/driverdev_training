@@ -16,7 +16,7 @@ void USART_Init(USART_Handle_Typedef *USART_Handle){
 
 /*
 *
-* Control Register 1 Configuration
+**********************************************  Control Register 1 Configuration *****************************************
 *
 */
 
@@ -33,11 +33,12 @@ void USART_Init(USART_Handle_Typedef *USART_Handle){
 
 /*
 *
-* Control Register 2 Configuration
+*********************************************  Control Register 2 Configuration ******************************************
 *
 */
 
 	tempReg = USART_Handle->Instance->USART_CR2;
+	tempReg &= ~(0x3 << USART_CR2_STOP);
 
 	tempReg |= (USART_Handle->Advance_Init.LIN_MODE)|(USART_Handle->Init.StopBits)|(USART_Handle->Advance_Init.CLK_EN)|\
 			(USART_Handle->Advance_Init.CPOL)|(USART_Handle->Advance_Init.CPHA)|(USART_Handle->Advance_Init.LBCL);
@@ -49,7 +50,7 @@ void USART_Init(USART_Handle_Typedef *USART_Handle){
 
 /*
 *
-* Control Register 3 Configuration
+**********************************************  Control Register 3 Configuration *****************************************
 *
 */
 
@@ -59,6 +60,8 @@ void USART_Init(USART_Handle_Typedef *USART_Handle){
 			(USART_Handle->Advance_Init.SC_MOD)|(USART_Handle->Advance_Init.HDSEL)|(USART_Handle->Advance_Init.IRDA_MODE);
 
 	USART_Handle->Instance->USART_CR3 = tempReg;
+
+
 
 }
 
