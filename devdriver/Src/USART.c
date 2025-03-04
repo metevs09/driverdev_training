@@ -16,5 +16,7 @@ void USART_Init(USART_Handle_Typedef *USART_Handle){
 	tempReg |= (USART_Handle->Init.OverSampling)|(USART_Handle->Advance_Init.USART_EN)|(USART_Handle->Init.Wordlength)|\
 			(USART_Handle->Advance_Init.WAKE)|(USART_Handle->Init.Parity)|(USART_Handle->Init.Mode)|\
 			(USART_Handle->Advance_Init.RWU)|(USART_Handle->Advance_Init.SENDBRK);
+
+	USART_Handle->Instance->USART_CR1 = tempReg;
 }
 
