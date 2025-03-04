@@ -45,5 +45,20 @@ void USART_Init(USART_Handle_Typedef *USART_Handle){
 	USART_Handle->Instance->USART_CR2 = tempReg;
 
 
+
+
+/*
+*
+* Control Register 3 Configuration
+*
+*/
+
+	tempReg = USART_Handle->Instance->USART_CR3;
+
+	tempReg |= (USART_Handle->Advance_Init.ONEBIT)|(USART_Handle->Init.HwFlowCtl)|(USART_Handle->Advance_Init.DMA)|\
+			(USART_Handle->Advance_Init.SC_MOD)|(USART_Handle->Advance_Init.HDSEL)|(USART_Handle->Advance_Init.IRDA_MODE);
+
+	USART_Handle->Instance->USART_CR3 = tempReg;
+
 }
 
