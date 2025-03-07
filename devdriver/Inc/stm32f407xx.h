@@ -463,13 +463,13 @@ typedef struct{
 
 typedef struct{
 
-	__IO uint32_t USART_SR;		/*< USART status register					Address offset = 0x0000 */
-	__IO uint32_t USART_DR;		/*< USART data register						Address offset = 0x0004 */
-	__IO uint32_t USART_BRR;	/*< USART data register						Address offset = 0x0008 */
-	__IO uint32_t USART_CR1;	/*< USART control register 1				Address offset = 0x000C */
-	__IO uint32_t USART_CR2;	/*< USART control register 2				Address offset = 0x0010 */
-	__IO uint32_t USART_CR3;	/*< USART control register 3				Address offset = 0x0014 */
-	__IO uint32_t USART_GTPR;	/*< USART guard time and prescaler register	Address offset = 0x0018 */
+	__IO uint32_t SR;	/*< USART status register					Address offset = 0x0000 */
+	__IO uint32_t DR;	/*< USART data register						Address offset = 0x0004 */
+	__IO uint32_t BRR;	/*< USART data register						Address offset = 0x0008 */
+	__IO uint32_t CR1;	/*< USART control register 1				Address offset = 0x000C */
+	__IO uint32_t CR2;	/*< USART control register 2				Address offset = 0x0010 */
+	__IO uint32_t CR3;	/*< USART control register 3				Address offset = 0x0014 */
+	__IO uint32_t GTPR;	/*< USART guard time and prescaler register	Address offset = 0x0018 */
 
 }USART_TypeDef_t;
 
@@ -663,7 +663,8 @@ typedef struct{
  */
 
 #define USART_CR2_STOP				(12U) //USART_CR2_STOP bit
-
+#define USART_SR_TxE				(7U)  //USART_TxE Bit
+#define USART_SR_TC					(6U)  //USART_TC Bit
 
 
 
@@ -675,7 +676,8 @@ typedef struct{
 #define SPI_RxNE_FLAG				(0x1U << SPI_RxNE)
 #define SPI_TxE_FLAG 				(0x1U << SPI_TxE)
 #define SPI_Busy_FLAG 				(0x1U << SPI_Busy)
-
+#define USART_TxE_FLAG				(0x1U << USART_SR_TxE)
+#define USART_TC_FLAG				(0x1U << USART_SR_TC)
 
 
 

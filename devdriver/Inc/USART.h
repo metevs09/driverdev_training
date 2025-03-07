@@ -314,6 +314,21 @@ typedef struct {
 
 
 /*
+ * USART FLAG enum
+ *
+ */
+
+typedef enum{
+	USART_FLAG_RESET = 0x0U,
+	USART_FLAG_SET = !USART_FLAG_RESET
+
+}USART_FlagStatus_t;
+
+
+
+
+
+/*
  * USART Advance Initialize Struct
  *
  */
@@ -366,7 +381,8 @@ typedef struct {
  */
 
 void USART_Init(USART_Handle_Typedef *USART_Handle);
-
+void USART_TransmitData(USART_Handle_Typedef *USART_Handle, uint8_t *pData,uint16_t dataSize);
+USART_FlagStatus_t USART_GetFlagStatus(USART_Handle_Typedef *USART_Handle, uint16_t flagName);
 
 
 #endif /* INC_USART_H_ */
