@@ -7,6 +7,20 @@
 
 #include "USART.h"
 
+
+
+
+
+/*
+ *
+ * @brief USART_Init, Configures the SPI peripheral
+ * @param USART_Handle = User configuration structure
+ *
+ *
+ * @retval Void
+ *
+ */
+
 void USART_Init(USART_Handle_Typedef *USART_Handle){
 
 	uint32_t tempReg = 0;
@@ -22,7 +36,7 @@ void USART_Init(USART_Handle_Typedef *USART_Handle){
 
 	tempReg = USART_Handle->Instance->CR1;
 
-	tempReg |= (USART_Handle->Init.OverSampling)|(USART_Handle->Advance_Init.USART_EN)|(USART_Handle->Init.Wordlength)|\
+	tempReg |= (USART_Handle->Init.OverSampling)|(USART_Handle->Init.Wordlength)|\
 			(USART_Handle->Advance_Init.WAKE)|(USART_Handle->Init.Parity)|(USART_Handle->Init.Mode)|\
 			(USART_Handle->Advance_Init.RWU)|(USART_Handle->Advance_Init.SENDBRK);
 
@@ -68,6 +82,16 @@ void USART_Init(USART_Handle_Typedef *USART_Handle){
 
 
 
+/*
+ *
+ * @brief USART_TransmitData, Transmit data function on the SPI
+ * @param USART_Handle = User configuration structure
+ * @param pData =  Pointer to USART Tx transfer buffer
+ * @param dataSize = Length of your data in bytes
+ *
+ * @retval Void
+ *
+ */
 
 void USART_TransmitData(USART_Handle_Typedef *USART_Handle, uint8_t *pData,uint16_t dataSize){
 
@@ -112,6 +136,43 @@ void USART_TransmitData(USART_Handle_Typedef *USART_Handle, uint8_t *pData,uint1
 
 
 
+/*
+ *
+ * @brief USART_PeripCmd, Configures the USART enable or disable
+ * @param SPI_Handle = User configuration structure
+ *
+   @param stateOfUSART = Functional State (ENABLE or DISABLE)values
+ *
+ *
+ * @retval Void
+ *
+ */
+
+void USART_PeripCmd(USART_Handle_Typedef *USART_Handle,Functional_State_t stateOfUSART){
+
+	if (stateOfUSART == ENABLE){
+
+		USART_Handle->Instance->CR1 |= (0x1 << USART_CR1_UE);
+
+		}
+		else{
+
+			USART_Handle->Instance->CR1 &= ~(0x1 << USART_CR1_UE);
+
+		}
+}
+
+
+
+/*
+ *
+ * @brief USART_GetFlagStatus, Flag status about related flag
+ * @param USART_Handle = User configuration structure
+ * @param flagName = Flag name of SR register
+ *
+ * @retval USART_FlagStatus_t
+ *
+ */
 
 USART_FlagStatus_t USART_GetFlagStatus(USART_Handle_Typedef *USART_Handle, uint16_t flagName){
 

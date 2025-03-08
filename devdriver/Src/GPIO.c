@@ -185,6 +185,6 @@ void GPIO_TogglePin(GPIO_TypeDef_t *GPIOx, uint16_t pinNumber){
 
 	uint32_t tempODRRegister = GPIOx->ODR;
 
-	GPIOx->BSRR = ((tempODRRegister & pinNumber) <<16)| (~tempODRRegister & pinNumber);
+	GPIOx->BSRR = ((tempODRRegister & pinNumber) <<16U)| (~tempODRRegister & pinNumber);
 
 }

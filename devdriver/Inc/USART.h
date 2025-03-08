@@ -127,16 +127,6 @@ typedef struct {
 
 
 
-/*
- * @def_group USART_EN_Types
- *
- */
-
-#define USART_ENABLE			((uint32_t)(0x00002000))
-#define USART_DISABLE			((uint32_t)(0x00000000))
-
-
-
 
 
 /*
@@ -335,7 +325,6 @@ typedef enum{
 
 typedef struct {
 
-		uint32_t USART_EN;		/*!<  USART Enable Modes @def_group USART_EN_Types */
 		uint32_t CLK_EN;		/*!<  Clock Enable Modes @def_group CLK_EN_Types */
 		uint32_t CPOL;			/*!<  Clock polarity Modes @def_group CPOL_Types */
 		uint32_t CPHA;			/*!<  Clock phase Modes @def_group CPHA_Types */
@@ -382,6 +371,7 @@ typedef struct {
 
 void USART_Init(USART_Handle_Typedef *USART_Handle);
 void USART_TransmitData(USART_Handle_Typedef *USART_Handle, uint8_t *pData,uint16_t dataSize);
+void USART_PeripCmd(USART_Handle_Typedef *USART_Handle,Functional_State_t stateOfUSART);
 USART_FlagStatus_t USART_GetFlagStatus(USART_Handle_Typedef *USART_Handle, uint16_t flagName);
 
 

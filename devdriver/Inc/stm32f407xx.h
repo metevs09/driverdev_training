@@ -575,6 +575,16 @@ typedef struct{
 
 
 /*
+ *
+ * ********************************************** Bit Definition's for SPI & USART ports **************************************************************
+ *
+ */
+
+
+
+
+
+/*
  *  ************************************************** APB1ENR BIT DEFINITON ***************************************
  */
 
@@ -662,9 +672,10 @@ typedef struct{
  *  ***************** USART BIT DEFINITON ********************
  */
 
+#define USART_CR1_UE				(13U) //USART_CR1_UE bit
 #define USART_CR2_STOP				(12U) //USART_CR2_STOP bit
-#define USART_SR_TxE				(7U)  //USART_TxE Bit
-#define USART_SR_TC					(6U)  //USART_TC Bit
+#define USART_SR_TxE				(7U)  //USART_TxE bit
+#define USART_SR_TC					(6U)  //USART_TC bit
 
 
 
