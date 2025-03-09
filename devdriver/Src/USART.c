@@ -34,6 +34,7 @@ void USART_Init(USART_Handle_Typedef *USART_Handle){
 	uint32_t periphClock;
 	uint32_t MantissaPart = 0;
 	uint32_t fractionPart = 0;
+	uint32_t USART_BRR = 0;
 	double USART_DIV_Value = 0;
 
 	if(USART_Handle->Instance == USART1 || USART_Handle->Instance == USART6 ){
@@ -52,9 +53,7 @@ void USART_Init(USART_Handle_Typedef *USART_Handle){
 
 		USART_DIV_Value = __USART_DIV_VALUE_16(periphClock, USART_Handle->Init.BaudRate);
 		MantissaPart = (uint32_t)(USART_DIV_Value);
-		fractionPart = (uint32_t)round((USART_DIV_Value - MantissaPart) * (16U));
-
-		USART_Handle->Instance->BRR = (MantissaPart << 4U)|(fractionPart & 0x0FU);
+		fractionPart = ((uint32_t)round((USART_DIV_Value - MantissaPart) * (16U))& 0x0FU);
 
 	}
 
@@ -64,11 +63,14 @@ void USART_Init(USART_Handle_Typedef *USART_Handle){
 
 		USART_DIV_Value = __USART_DIV_VALUE_8(periphClock, USART_Handle->Init.BaudRate);
 		MantissaPart = (uint32_t)(USART_DIV_Value);
-		fractionPart = (uint32_t)round((USART_DIV_Value - MantissaPart) * (8U));
+		fractionPart = ((uint32_t)round((USART_DIV_Value - MantissaPart) * (8U))& 0x07U);
 
-		USART_Handle->Instance->BRR = (MantissaPart << 4U)|(fractionPart & 0x07U);
 	}
 
+	USART_BRR |= (MantissaPart << 4U);
+	USART_BRR |= (fractionPart << 0U);
+
+	USART_Handle->Instance->BRR = USART_BRR;
 /*
 *
 **********************************************  Control Register 1 Configuration *****************************************
