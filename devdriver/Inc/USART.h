@@ -376,4 +376,15 @@ void USART_PeripCmd(USART_Handle_Typedef *USART_Handle,Functional_State_t stateO
 USART_FlagStatus_t USART_GetFlagStatus(USART_Handle_Typedef *USART_Handle, uint16_t flagName);
 
 
+
+
+/*
+ *
+ *  USART Function Macros
+ *
+ */
+
+#define __USART_DIV_VALUE_16(__CLOCK__, __BAUDRATE__)				(((double)(__CLOCK__))/(16U * (double)(__BAUDRATE__)))
+#define __USART_DIV_VALUE_8(__CLOCK__, __BAUDRATE__)				(((double)(__CLOCK__))/(8U * (double)(__BAUDRATE__)))
+
 #endif /* INC_USART_H_ */

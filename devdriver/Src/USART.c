@@ -31,15 +31,42 @@ void USART_Init(USART_Handle_Typedef *USART_Handle){
 ********************************************** Baud rate register Configuration ******************************************
 *
 */
+	uint32_t periphClock;
+	uint32_t MantissaPart = 0;
+	uint32_t fractionPart = 0;
+	double USART_DIV_Value = 0;
 
 	if(USART_Handle->Instance == USART1 || USART_Handle->Instance == USART6 ){
 
+		periphClock =  RCC_GetAPB2Clock();
+	}
+
+	else{
+
+		periphClock =  RCC_GetAPB1Clock();
+	}
+
+	if(USART_Handle->Init.OverSampling == USART_OVERSAMPL_16 ){
+
+		USART_Handle->Instance->BRR &= ~(0xFFFFU);
+
+		USART_DIV_Value = __USART_DIV_VALUE_16(periphClock, USART_Handle->Init.BaudRate);
+		MantissaPart = (uint32_t)(USART_DIV_Value);
+		fractionPart = (uint32_t)round((USART_DIV_Value - MantissaPart) * (16U));
+
+		USART_Handle->Instance->BRR = (MantissaPart << 4U)|(fractionPart & 0x0FU);
 
 	}
 
 	else{
 
+		USART_Handle->Instance->BRR &= ~(0xFFFFU);
 
+		USART_DIV_Value = __USART_DIV_VALUE_8(periphClock, USART_Handle->Init.BaudRate);
+		MantissaPart = (uint32_t)(USART_DIV_Value);
+		fractionPart = (uint32_t)round((USART_DIV_Value - MantissaPart) * (8U));
+
+		USART_Handle->Instance->BRR = (MantissaPart << 4U)|(fractionPart & 0x07U);
 	}
 
 /*
