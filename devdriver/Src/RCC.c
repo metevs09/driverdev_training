@@ -14,10 +14,10 @@ const int8_t AHB_Prescaler[16]= {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9}
 
 
 /*
- * @brief RCC_GetSystemClock, Configures the SPI peripheral
+ * @brief RCC_GetSystemClock, Read System Clock Mhz
+ * @param void
  *
- *
- * @retval Void
+ * @retval SystemCoreClock
  *
  */
 
@@ -47,6 +47,13 @@ uint32_t RCC_GetSystemClock(void){
 
 
 
+/*
+ * @brief RCC_GetHClock, Calculate AHB Peripheral Clock prescaler
+ * @param void
+ *
+ * @retval AHB_PeripClock
+ *
+ */
 
 uint32_t RCC_GetHClock(void){
 
@@ -65,5 +72,23 @@ uint32_t RCC_GetHClock(void){
 
 }
 
+
+
+/*
+ * @brief RCC_GetAPB1Clock, Calculate AHB1 Peripheral Clock prescaler
+ * @param void
+ *
+ * @retval AHB1_PeripClock
+ *
+ */
+/*
+uint32_t RCC_GetAPB1Clock(void){
+
+	uint32_t AHB1_PeripClock = 0;
+
+
+	return AHB1_PeripClock;
+}
+*/
 
 #endif /* INC_RCC_C_ */

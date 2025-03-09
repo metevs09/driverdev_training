@@ -403,6 +403,8 @@
 
 uint32_t RCC_GetSystemClock(void);
 uint32_t RCC_GetHClock(void);
+uint32_t RCC_GetAPB1Clock(void);
+uint32_t RCC_GetAPB2Clock(void);
 
 
 #endif /* INC_RCC_H_ */
