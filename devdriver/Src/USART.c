@@ -26,7 +26,21 @@ void USART_Init(USART_Handle_Typedef *USART_Handle){
 	uint32_t tempReg = 0;
 
 
+/*
+*
+********************************************** Baud rate register Configuration ******************************************
+*
+*/
 
+	if(USART_Handle->Instance == USART1 || USART_Handle->Instance == USART6 ){
+
+
+	}
+
+	else{
+
+
+	}
 
 /*
 *

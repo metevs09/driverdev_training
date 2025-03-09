@@ -394,4 +394,15 @@
 #define RCC_USART6_CLK_DISABLE()	CLEAR_BIT(RCC->APB2ENR,RCC_APB2ENR_USART6EN)
 
 
+
+
+/*
+ *  **************************************************  RCC Function Prototype *****************************************************************
+ */
+
+
+uint32_t RCC_GetSystemClock(void);
+uint32_t RCC_GetHClock(void);
+
+
 #endif /* INC_RCC_H_ */
