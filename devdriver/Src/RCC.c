@@ -10,8 +10,8 @@
 
 #include"RCC.h"
 
-const int8_t AHB_Prescaler[15]= { 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
-const int8_t APB_Prescaler[7]= { 0, 0, 0, 1, 2, 3, 4};
+const int8_t AHB_Prescaler[16]= { 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
+const int8_t APB_Prescaler[8]= { 0, 0, 0, 0, 1, 2, 3, 4};
 
 /*
  * @brief RCC_GetSystemClock, Read System Clock Mhz
@@ -75,7 +75,7 @@ uint32_t RCC_GetHClock(void){
 
 
 /*
- * @brief RCC_GetAPB1Clock, Calculate AHB1 Peripheral Clock prescaler
+ * @brief RCC_GetAPB1Clock, Calculate APB1 Peripheral Clock prescaler
  * @param void
  *
  * @retval APB1_PeripClock
@@ -90,12 +90,37 @@ uint32_t RCC_GetAPB1Clock(void){
 
 	AHB_PeripClock = RCC_GetHClock();
 
-	PPRE1 = ((RCC->CFGR >> 10U) & (0xFU));
+	PPRE1 = ((RCC->CFGR >> 10U) & (0x7U));
 
 	APB1_PeripClock = (AHB_PeripClock >> APB_Prescaler[PPRE1]);
 
 	return APB1_PeripClock;
 }
 
+
+
+
+/*
+ * @brief RCC_GetAPB2Clock, Calculate APB2 Peripheral Clock prescaler
+ * @param void
+ *
+ * @retval APB2_PeripClock
+ *
+ */
+
+uint32_t RCC_GetAPB2Clock(void){
+
+	uint32_t APB2_PeripClock = 0;
+	uint32_t AHB_PeripClock = 0;
+	uint8_t PPRE2 = 0;
+
+	AHB_PeripClock = RCC_GetHClock();
+
+	PPRE2 = ((RCC->CFGR >> 13U) & (0x7U));
+
+	APB2_PeripClock = (AHB_PeripClock >> APB_Prescaler[PPRE2]);
+
+	return APB2_PeripClock;
+}
 
 #endif /* INC_RCC_C_ */
