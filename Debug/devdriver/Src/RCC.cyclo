@@ -1,2 +1,3 @@
 ../devdriver/Src/RCC.c:25:10:RCC_GetSystemClock	3
 ../devdriver/Src/RCC.c:58:10:RCC_GetHClock	1
+../devdriver/Src/RCC.c:85:10:RCC_GetAPB1Clock	1

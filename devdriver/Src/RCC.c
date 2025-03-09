@@ -10,8 +10,8 @@
 
 #include"RCC.h"
 
-const int8_t AHB_Prescaler[16]= {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
-
+const int8_t AHB_Prescaler[15]= { 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
+const int8_t APB_Prescaler[7]= { 0, 0, 0, 1, 2, 3, 4};
 
 /*
  * @brief RCC_GetSystemClock, Read System Clock Mhz
@@ -78,17 +78,24 @@ uint32_t RCC_GetHClock(void){
  * @brief RCC_GetAPB1Clock, Calculate AHB1 Peripheral Clock prescaler
  * @param void
  *
- * @retval AHB1_PeripClock
+ * @retval APB1_PeripClock
  *
  */
-/*
+
 uint32_t RCC_GetAPB1Clock(void){
 
-	uint32_t AHB1_PeripClock = 0;
+	uint32_t APB1_PeripClock = 0;
+	uint32_t AHB_PeripClock = 0;
+	uint8_t PPRE1 = 0;
 
+	AHB_PeripClock = RCC_GetHClock();
 
-	return AHB1_PeripClock;
+	PPRE1 = ((RCC->CFGR >> 10U) & (0xFU));
+
+	APB1_PeripClock = (AHB_PeripClock >> APB_Prescaler[PPRE1]);
+
+	return APB1_PeripClock;
 }
-*/
+
 
 #endif /* INC_RCC_C_ */
