@@ -129,7 +129,7 @@ void USART_Init(USART_Handle_Typedef *USART_Handle){
 
 /*
  *
- * @brief USART_TransmitData, Transmit data function on the SPI
+ * @brief USART_TransmitData, Transmit data function on the USART
  * @param USART_Handle = User configuration structure
  * @param pData =  Pointer to USART Tx transfer buffer
  * @param dataSize = Length of your data in bytes
@@ -177,6 +177,40 @@ void USART_TransmitData(USART_Handle_Typedef *USART_Handle, uint8_t *pData,uint1
 
 	while(!(USART_GetFlagStatus(USART_Handle,USART_TC_FLAG)));
 }
+
+/*
+ *
+ * @brief USART_ReceiveData, Receive data function on the USART
+ * @param USART_Handle = User configuration structure
+ * @param pBuffer =  Pointer to USART Rx receive buffer
+ * @param dataSize = Length of your data in bytes
+ *
+ * @retval Void
+ *
+ */
+
+
+void USART_ReceiveData(USART_Handle_Typedef *USART_Handle, uint8_t *pBuffer,uint16_t dataSize){
+
+	uint32_t *p16BitsBuffer;
+	uint32_t *p8BitsBuffer;
+
+	if((USART_Handle->Init.Wordlength == USART_WORDLENGTH_9Bits) && (USART_Handle->Init.Parity == USART_PARITY_NONE)){
+
+		p16BitsBuffer == (uint16_t*)pBuffer;
+		p8BitsBuffer == NULL;
+
+	}
+
+	else{
+
+		p8BitsBuffer == (uint8_t*)pBuffer;
+		p16BitsBuffer == NULL;
+
+	}
+
+}
+
 
 
 

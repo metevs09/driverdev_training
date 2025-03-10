@@ -372,6 +372,7 @@ typedef struct {
 
 void USART_Init(USART_Handle_Typedef *USART_Handle);
 void USART_TransmitData(USART_Handle_Typedef *USART_Handle, uint8_t *pData,uint16_t dataSize);
+void USART_ReceiveData(USART_Handle_Typedef *USART_Handle, uint8_t *pBuffer,uint16_t dataSize);
 void USART_PeripCmd(USART_Handle_Typedef *USART_Handle,Functional_State_t stateOfUSART);
 USART_FlagStatus_t USART_GetFlagStatus(USART_Handle_Typedef *USART_Handle, uint16_t flagName);
 
