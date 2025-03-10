@@ -607,11 +607,11 @@ typedef struct{
 
 #define RCC_APB1ENR_UART4EN_Pos		(19U)// UART4's bit position(address on RCC_APB1ENR)
 #define RCC_APB1ENR_UART4EN_Msk		(0x1 << RCC_APB1ENR_UART4EN_Pos)// Bit manipulation masking for related position
-#define RCC_APB1ENR_UART4EN			RCC_APB1ENR_USART4EN_Msk //defined macros for masking
+#define RCC_APB1ENR_UART4EN			RCC_APB1ENR_UART4EN_Msk //defined macros for masking
 
 #define RCC_APB1ENR_UART5EN_Pos		(20U)// UART5's bit position(address on RCC_APB1ENR)
-#define RCC_APB1ENR_UART3EN_Msk		(0x1 << RCC_APB1ENR_UART5EN_Pos)// Bit manipulation masking for related position
-#define RCC_APB1ENR_UART3EN			RCC_APB1ENR_UART5EN_Msk //defined macros for masking
+#define RCC_APB1ENR_UART5EN_Msk		(0x1 << RCC_APB1ENR_UART5EN_Pos)// Bit manipulation masking for related position
+#define RCC_APB1ENR_UART5EN			RCC_APB1ENR_UART5EN_Msk //defined macros for masking
 
 
 

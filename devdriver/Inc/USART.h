@@ -107,13 +107,13 @@
 
 typedef struct {
 
-	uint32_t BaudRate;			/*!<  BaudRate Modes @def_group BaudRate_Types */
-	uint32_t Mode;				/*!<  Transmission and Reception Modes @def_group Mode_Types */
-	uint32_t OverSampling;		/*!<  OverSampling Modes @def_group OverSampling_Types */
-	uint32_t Wordlength;		/*!<  8 bits and 9 bits  @def_group Wordlength_Types */
-	uint32_t Parity;			/*!<  Even and Odd Parity Modes @def_group Parity_Types */
-	uint32_t StopBits;			/*!<  Stop Bits Modes @def_group StopBits_Types */
-	uint32_t HwFlowCtl;			/*!<  Hardaware FLow Control Modes @def_group HwFlowCtl_Types */
+	uint32_t BaudRate;			/*!<  User BaudRate Value for USART 							*/
+	uint32_t Mode;				/*!<  Transmission and Reception Modes @def_group Mode_Types 	*/
+	uint32_t OverSampling;		/*!<  OverSampling Modes @def_group OverSampling_Types 			*/
+	uint32_t Wordlength;		/*!<  8 bits and 9 bits  @def_group Wordlength_Types 			*/
+	uint32_t Parity;			/*!<  Even and Odd Parity Modes @def_group Parity_Types 		*/
+	uint32_t StopBits;			/*!<  Stop Bits Modes @def_group StopBits_Types 				*/
+	uint32_t HwFlowCtl;			/*!<  Hardaware FLow Control Modes @def_group HwFlowCtl_Types 	*/
 
 }USART_Init_Typedef;
 

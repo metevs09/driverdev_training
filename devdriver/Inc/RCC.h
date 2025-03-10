@@ -379,6 +379,42 @@
 
 
 
+
+/*
+ * UART4 SET AND CLEAR MACROS
+ */
+
+// UART4's set macro
+#define RCC_UART4_CLK_ENABLE()	do{ uint32_t tempValue = 0;\
+									SET_BIT(RCC->APB1ENR,RCC_APB1ENR_UART4EN);\
+									tempValue = READ_BIT(RCC->APB1ENR,RCC_APB1ENR_UART4EN);\
+									UNUSED(tempValue);\
+									}while(0)
+
+// UART4's clear macros
+#define RCC_UART4_CLK_DISABLE()	CLEAR_BIT(RCC->APB1ENR,RCC_APB1ENR_UART4EN)
+
+
+
+
+/*
+ * UART5 SET AND CLEAR MACROS
+ */
+
+// UART5's set macro
+#define RCC_UART5_CLK_ENABLE()	do{ uint32_t tempValue = 0;\
+									SET_BIT(RCC->APB1ENR,RCC_APB1ENR_UART5EN);\
+									tempValue = READ_BIT(RCC->APB1ENR,RCC_APB1ENR_UART5EN);\
+									UNUSED(tempValue);\
+									}while(0)
+
+// UART5's clear macros
+#define RCC_UART5_CLK_DISABLE()	CLEAR_BIT(RCC->APB1ENR,RCC_APB1ENR_UART5EN)
+
+
+
+
+
 /*
  * USART6 SET AND CLEAR MACROS
  */

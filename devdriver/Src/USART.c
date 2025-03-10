@@ -25,6 +25,8 @@ void USART_Init(USART_Handle_Typedef *USART_Handle){
 
 	uint32_t tempReg = 0;
 
+	CLEAR_BIT(USART_Handle->Instance->SR,USART_TC_FLAG);
+
 
 /*
 *
@@ -155,7 +157,7 @@ void USART_TransmitData(USART_Handle_Typedef *USART_Handle, uint8_t *pData,uint1
 
 	while(dataSize > 0){
 
-		while(!(USART_GetFlagStatus(USART_Handle,USART_SR_TxE)));
+		while(!(USART_GetFlagStatus(USART_Handle,USART_TxE_FLAG)));
 
 		if(data16Bits == NULL ){
 
@@ -173,7 +175,7 @@ void USART_TransmitData(USART_Handle_Typedef *USART_Handle, uint8_t *pData,uint1
 
 	}
 
-	while(! (USART_GetFlagStatus(USART_Handle,USART_TC_FLAG)));
+	while(!(USART_GetFlagStatus(USART_Handle,USART_TC_FLAG)));
 }
 
 
@@ -220,5 +222,5 @@ void USART_PeripCmd(USART_Handle_Typedef *USART_Handle,Functional_State_t stateO
 USART_FlagStatus_t USART_GetFlagStatus(USART_Handle_Typedef *USART_Handle, uint16_t flagName){
 
 
-	return((USART_Handle->Instance->SR & flagName)? USART_FLAG_SET : USART_FLAG_SET);
+	return(READ_BIT(USART_Handle->Instance->SR, flagName)? USART_FLAG_SET : USART_FLAG_RESET);
 }
