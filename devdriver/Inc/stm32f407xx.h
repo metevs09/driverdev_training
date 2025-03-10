@@ -677,6 +677,7 @@ typedef struct{
 #define USART_CR2_STOP				(12U) //USART_CR2_STOP bit
 #define USART_SR_TxE				(7U)  //USART_TxE bit
 #define USART_SR_TC					(6U)  //USART_TC bit
+#define USART_SR_RXNE				(5U)  //USART_RXNE bit
 
 
 
@@ -690,6 +691,7 @@ typedef struct{
 #define SPI_Busy_FLAG 				(0x1U << SPI_Busy)
 #define USART_TxE_FLAG				(0x1U << USART_SR_TxE)
 #define USART_TC_FLAG				(0x1U << USART_SR_TC)
+#define USART_RXNE_FLAG				(0x1U << USART_SR_RXNE)
 
 
 

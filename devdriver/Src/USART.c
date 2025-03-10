@@ -192,23 +192,60 @@ void USART_TransmitData(USART_Handle_Typedef *USART_Handle, uint8_t *pData,uint1
 
 void USART_ReceiveData(USART_Handle_Typedef *USART_Handle, uint8_t *pBuffer,uint16_t dataSize){
 
-	uint32_t *p16BitsBuffer;
-	uint32_t *p8BitsBuffer;
+	uint16_t *p16BitsBuffer;
+	uint8_t *p8BitsBuffer;
 
 	if((USART_Handle->Init.Wordlength == USART_WORDLENGTH_9Bits) && (USART_Handle->Init.Parity == USART_PARITY_NONE)){
 
-		p16BitsBuffer == (uint16_t*)pBuffer;
-		p8BitsBuffer == NULL;
+		p16BitsBuffer = (uint16_t*)pBuffer;
+		p8BitsBuffer = NULL;
 
 	}
 
 	else{
 
-		p8BitsBuffer == (uint8_t*)pBuffer;
-		p16BitsBuffer == NULL;
+		p8BitsBuffer = (uint8_t*)pBuffer;
+		p16BitsBuffer = NULL;
 
 	}
 
+
+	while(dataSize > 0){
+
+				while(!(USART_GetFlagStatus(USART_Handle,USART_RXNE_FLAG)));
+
+			if(p8BitsBuffer == NULL){
+
+				*p16BitsBuffer = (uint16_t)(USART_Handle->Instance->DR & 0x01FF);
+				p16BitsBuffer++;
+				dataSize -= 2;
+				}
+
+				else{
+
+					if((USART_Handle->Init.Wordlength == USART_WORDLENGTH_9Bits) && (USART_Handle->Init.Parity != USART_PARITY_NONE)){
+
+						*p8BitsBuffer = (uint8_t)(USART_Handle->Instance->DR & 0x00FFU);
+						p8BitsBuffer++;
+						dataSize--;
+
+						}
+
+					else if((USART_Handle->Init.Wordlength == USART_WORDLENGTH_8Bits) && (USART_Handle->Init.Parity == USART_PARITY_NONE)){
+
+						*p8BitsBuffer = (uint8_t)(USART_Handle->Instance->DR & 0x00FFU);
+						p8BitsBuffer++;
+						dataSize--;
+
+						}
+				else{
+
+					*p8BitsBuffer = (uint8_t)(USART_Handle->Instance->DR & 0x007FU);
+					p8BitsBuffer++;
+					dataSize--;
+			}
+		}
+	}
 }
 
 
